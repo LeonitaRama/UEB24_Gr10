@@ -69,5 +69,22 @@ body footer {
           margin-bottom: 20px;
         }
     }
+    
+      .social-links {
+        text-align: center;
+      }
       
+      .social-links a {
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1rem; /* Madhësia e ikonës */
+        color: #7b7187; /* Ngjyra fillestare */
+        transition: color 0.3s;
+      }
+      
+      .social-links a:hover {
+        color: #f4e8e8; /* Ngjyra kur kalon mbi ikonën */
+      }
+
+    
       
