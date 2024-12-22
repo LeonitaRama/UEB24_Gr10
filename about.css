@@ -1,0 +1,114 @@
+
+body{
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    background-color: black;
+    color: white;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 12000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    max-width: 150px;
+    height: auto;
+    max-height: 80px;
+
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: red;
+  }
+  
+  .login-btn {
+    background-color: red;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+  
+  .login-btn:hover {
+    background-color: darkred;
+  }
+  .carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+  }
+ 
+  .movie {
+    width: 2000px;
+    height: 300px;
+    background-size: cover;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  h1 {
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 80px; /* Shtoni një hapësirë të mjaftueshme nga navbar */
+    z-index: 2000; /* Siguron që h1 të jetë përpara karuselit */
+    position: relative; /* Ndihmon që z-index të funksionojë */
+}
+  .carousel:hover .movie {
+    transform: translateX(-100px);
+  }
+
+  .carousel-container {
+    width: 150%;
+    overflow: hidden;
+  }
+  .carousel {
+    display: flex;
+    animation: scroll 10s infinite linear;
+  }
+  .carousel-images {
+    display: flex;
+  }
+  .carousel img {
+    width: 200px;
+    margin: 0 10px;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-15%);
+    }
+  }
+  
