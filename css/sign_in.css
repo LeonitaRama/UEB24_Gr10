@@ -194,3 +194,7 @@ i:hover{
 i:active{
     transform:translateY(0);
 }
+
+h1{
+   color:white;
+}
