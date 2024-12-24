@@ -75,7 +75,7 @@ h3{
 }
 
 
-.Book-Ticket-btn{
-    background-color: rgb(188, 63, 63);
+.Book-Ticket-btn:hover{
+    background-color: rgb(140, 35, 35);
     transition-timing-function: cubic-timing-function(0.5,0,0.1,1);
 }
