@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/sign_in.css">
+    <link rel="stylesheet" href="css/sign_in.css">
 </head>
 <body>
     <div id="square" class="" width="100%" height="100%">
@@ -12,27 +12,28 @@
 <div class="container">
     <form class="form">
 <div class="form_text"><h1 align="center">Sign in</h1></div>
-<br>
+
 <div class="form_group">
-    <label for="firstname" class="form_label">First name:</label>
     <input type="text" class="form_input" id="firstname" required/>
+    <label for="firstname" class="form_label">First name</label>  
 </div>
-<br>
+
 <div class="form_group">
-    <label for="lastname" class="form_label">Last name:</label>
-    <input type="text" class="form_input" id="lastname" required/> 
+    <input type="text" class="form_input" id="lastname" required/>
+    <label for="lastname" class="form_label">Last name</label>
+     
 </div>
-<br>
-<div class="form_group"> 
-    <label for="email" class="form_label" >Email address:</label>
-    <input type="email" class="form_input" id="email" required/> 
-</div>
-<br>
+
 <div class="form_group">
-<label for="password" class="form_label">Password:</label>
+     <input type="email" class="form_input" id="email" required/> 
+    <label for="email" class="form_label" >Email address</label>
+</div>
+
+<div class="form_group">
 <input type="password" class="form_input" id="password" required/>
+<label for="password" class="form_label">Password</label>
 </div>
-<br>
+
 <div class="form_button">
     <a href="#" class="btn">Submit</a>
 </div>
