@@ -4,55 +4,6 @@
     padding:0;
     box-sizing: border-box;
 }
-#square{
-    height:100%;
-    width:100%;
-    background:red;
-    -webkit-animation: animationName 6s ease 0s infinite normal;
-    -moz-animation: animationName 6s ease 0s infinite normal;
-    -o-animation:animationName 6s ease 0s infinite normal;
-    animation:animationName 6s ease 0s infinite normal;
-}
-
-#square:hover{
-    -webkit-animation-play-state: paused;
-    -moz-animation-play-state: paused;
-    -o-animation-play-state: paused;
-    animation-play-state: paused;
-    cursor:pointer;
-}
-
-@-webkit-keyframes animationName{
-    0%{background:rgb(222,74,213)}
-    25%{background: blue;}
-    50%{background: rgb(78,156,147);}
-    75%{background:rgb(133,133,133);}
-    100%{background: dodgerblue;}
-}
-
-@-moz-keyframes animationName{
-    0%{background:rgb(222,74,213)}
-    25%{background: blue;}
-    50%{background: rgb(78,156,147);}
-    75%{background:rgb(133,133,133);}
-    100%{background: dodgerblue;}
-}
-
-@-o-keyframes animationName{
-    0%{background:rgb(222,74,213)}
-    25%{background: blue;}
-    50%{background: rgb(78,156,147);}
-    75%{background:rgb(133,133,133);}
-    100%{background: dodgerblue;}
-}
-
-@keyframes animationName{
-    0%{background:rgb(222,74,213)}
-    25%{background: blue;}
-    50%{background: rgb(78,156,147);}
-    75%{background:rgb(133,133,133);}
-    100%{background: dodgerblue;}
-}
 
 body{
     font-family:sans-serif;
@@ -60,6 +11,15 @@ body{
     black;
 }
 
+.header{
+    height: 100vh;
+    background-image: linear-gradient(0deg,rgba(0,0,0,0.5),
+    rgba(0,0,0,0.8)),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/7a0bd648-8238-4134-b486-e7ff5cbaa56e/US-en-20230213-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: center;
+}
 .container{
     width:400px;
     height:auto;
@@ -173,17 +133,16 @@ body{
 }
 
 .social i{
-    height:35px;
-    width:35px;
+    height:30px;
+    width:30px;
     margin-right:15px;
     border-radius:50%;
-    background:#2c2c2c;
+    background:white;
     cursor:pointer;
-    display:flex;
     align-items:center;
     justify-content: center;
     box-shadow:0 5px 10px rgba(0,0,0,0.4);
-    transition:all .2c;
+  
 }
 
 i:hover{
