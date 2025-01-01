@@ -47,10 +47,8 @@ h3{
 }
 
 .header{
-    height:75vh;
-    background-image:linear-gradient(
-        0deg,
-        rgba(0,0,0,0.5),
+    height:100vh;
+    background-image:linear-gradient(0deg,rgba(0,0,0,0.5),
         rgba(0,0,0,0.8)
     ),url("https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/7a0bd648-8238-4134-b486-e7ff5cbaa56e/US-en-20230213-popsignuptwoweeks-perspective_alpha_website_large.jpg");
     background-repeat:no-repeat;
