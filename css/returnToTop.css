@@ -1,0 +1,16 @@
+.return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000000;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+img {
+    width: 40px;
+    background-color: blue;
+    
+}
