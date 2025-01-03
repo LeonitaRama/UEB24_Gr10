@@ -46,6 +46,8 @@ p {
 }
 
 .movie-cards {
+    margin-top: 50px;
+    margin-bottom: 70px;
     margin-inline: 80px;
     display: flex;
     align-items: flex-start;
