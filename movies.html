@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies - Leonita</title>
+    <link rel="stylesheet" href="./css/movies.css">
+    <script type="text/javascript" src="./js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/returnToTop.css">
+</head>
+
+<body>
+    <div class="return-to-top">
+        <img src="./assets/images/returnToTop.png" alt="">
+    </div>
+    <!-- Header - Load -->
+    <ul role="tablist">
+        <li>
+            <button class="nav-link active" role="tab" aria-selected="true" aria-controls="most-watched" data-page="0">Most Watched</button>
+        </li>
+        <li>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="top-franchises" data-page="1">Top Movie Franchises</button>
+        </li>
+        <li>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="netflix" data-page="2">NETFLIX</button>
+        </li>
+        <li>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="animated" data-page="3">Animated</button>
+        </li>
+    </ul>
+
+    <div id="most-watched" role="tabpanel" tabindex="0" aria-labelledby="most-watched-tab">
+        <h3 style="color: white; text-align: center; width: 100%;
+        font-size: xx-large; margin: 50px 0;">Most Watched movies of all time</h3>
+        <div class="movie-cards" id="movieCards1"></div>
+    </div>
+
+    <div id="top-franchises" role="tabpanel" tabindex="1" aria-labelledby="top-franchises-tab" hidden>
+        <h3>Top Movie Franchises</h3>
+        <p> franchises content</p>
+    </div>
+
+    <div id="netflix" role="tabpanel" tabindex="2" aria-labelledby="netflix-tab" hidden>
+        <h3>NETFLIX</h3>
+        <p>netflix content</p>
+    </div>
+
+    <div id="animated" role="tabpanel" tabindex="3" aria-labelledby="animated-tab" hidden>
+        <h3>Animated</h3>
+        <p>animated content</p>
+        <div class="movie-cards" id="movieCards4"></div>
+    </div>
+    <!-- Footer - Load -->
+</body>
+
+</html>
