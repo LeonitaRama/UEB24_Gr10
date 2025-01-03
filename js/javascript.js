@@ -64,10 +64,10 @@ alt="${movie1.title}">
 //
 
 const animatedMovies = [
-    { title: "Frozen 2", poster: "assets/img/Movies/frozen2.jpg", year: 2019, genre: "Animation, Adventure, Musical", rating: 6.9, description: "Elsa, Anna, Kristoff, Olaf, and Sven embark on a journey to discover the origin of Elsa's powers and save their kingdom." },
-    { title: "Frozen", poster: "assets/img/Movies/frozen.jpg", year: 2013, genre: "Animation, Adventure, Musical", rating: 7.4, description: "Anna sets out on a dangerous journey with Kristoff and Sven to find her sister Elsa, whose powers have trapped the kingdom in eternal winter." },
-    { title: "Incredibles", poster: "assets/img/Movies/incredibles.jpg", year: 2018, genre: "Animation, Action, Adventure", rating: 7.6, description: "The Parr family returns to save the day, but now Helen is in the spotlight while Bob stays home to manage the kids." },
-    { title: "Minions", poster: "assets/img/Movies/minions.jpg", year: 2015, genre: "Animation, Comedy, Adventure", rating: 6.4, description: "The Minions search for a new evil boss, eventually meeting Scarlet Overkill, the first-ever female supervillain." }
+    { title: "Frozen 2", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ9DLF2s5RN-fpDb1Rvieh6xp9kHu0Maya-ioMEDMrmZbt737HXhnm9G3ibJ-uxsNpEOeNg", year: 2019, genre: "Animation, Adventure, Musical", rating: 6.9, description: "Elsa, Anna, Kristoff, Olaf, and Sven embark on a journey to discover the origin of Elsa's powers and save their kingdom." },
+    { title: "Incredibles", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ1mqDFGcBbOE883NIk6KvKk5Q5ly2F4S77AjIUqpVTcGjlD9jt", year: 2018, genre: "Animation, Action, Adventure", rating: 7.6, description: "The Parr family returns to save the day, but now Helen is in the spotlight while Bob stays home to manage the kids." },
+    { title: "Minions", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPZAMLSJ40TtfynD7vBdpKKkvKqpCPZ1YEJjZVKkjiorJewgVM4FRjYWqJJGzL_ZGUeQyz", year: 2015, genre: "Animation, Comedy, Adventure", rating: 6.4, description: "The Minions search for a new evil boss, eventually meeting Scarlet Overkill, the first-ever female supervillain." },
+    { title: "Frozen", poster: "https://lumiere-a.akamaihd.net/v1/images/p_frozen_18373_3131259c.jpeg?region=0%2C0%2C540%2C810", year: 2013, genre: "Animation, Adventure, Musical", rating: 7.4, description: "Anna sets out on a dangerous journey with Kristoff and Sven to find her sister Elsa, whose powers have trapped the kingdom in eternal winter." }
 ]
 
 document.addEventListener('DOMContentLoaded', () => {
