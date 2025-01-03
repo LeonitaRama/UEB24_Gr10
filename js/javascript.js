@@ -37,9 +37,9 @@ const movies = [
     { title: "Harry Potter and the Philosopher's Stone", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQttbZNVGzKnwLBGXrKBkt0VY2J2DubjnH_lSQrJCzdSf5fe4OK8yUM27EYhteFc68Ii7Xr9g", year: 2001, rating: 7.6, genre: "Adventure, Family, Fantasy", description: "Harry Potter, a young wizard, discovers his magical heritage and attends Hogwarts School of Witchcraft and Wizardry, where he makes new friends and uncovers dark secrets." },
     { title: "Avengers: Infinity War", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTz2_cEexTdYFaQJFUwRZrG4IrM1510eWIkeQhwqq2GbNhxDJZUml6g1Ft9iKyuHJhG15wGUQ", year: 2018, rating: 8.4, genre: "Action, Adventure, Sci-Fi", description: "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation puts an end to the universe." },
     { title: "Spider-Man: No Way Home", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJXG-39ax_uSWVuU05XI2eynuf0D9rcrNmFBJfCDIm_K9A2SUdFTMRREZ7JVqliTX3NodG9A", year: 2021, rating: 8.3, genre: "Action, Adventure, Fantasy", description: "Peter Parker's life and reputation are turned upside down when his identity is exposed. With the help of Doctor Strange, he must navigate the multiverse to fix his reality." },
-    {title: "Jurassic World",poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRxJvyc-Eu5MOkSYsMbmRybS4DbiBa7cpoGuufWPw44K4mgeIjKNL2iJ7PFIoI_muWmiXvV",year: 2015,rating: 7.0,genre: "Action, Adventure, Sci-Fi",description: "A fully functioning dinosaur theme park faces chaos when a genetically modified dinosaur escapes containment and terrorizes visitors."},
-    {title: "Mufasa: The Lion King",poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd80_TDMj7k1WXRdmTMIkGQKIHaKJ65LEynv4EOSsAguQ3Crx0Yz-IZSmN197SWQfd0Eps",year: 2024,rating: 8.1,genre: "Animation, Adventure, Drama",description: "A modern retelling of the classic tale, exploring Simba's rise to become king of the Pride Lands."},
-    {title: "Avatar: The Way of Water (2022)",poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxTA7S2fDMhUDVcZnuxuie2xE_ayntCdkCKme3EK3ObKXFuhdaLhYYTpzUHZ45-IQzQt6T",year: 2022,rating: 7.5,genre: "Action, Sci-fi ",description: "Set more than a decade after the events of the first film, 'Avatar The Way of Water' begins to tell the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure."}
+    { title: "Jurassic World", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRxJvyc-Eu5MOkSYsMbmRybS4DbiBa7cpoGuufWPw44K4mgeIjKNL2iJ7PFIoI_muWmiXvV", year: 2015, rating: 7.0, genre: "Action, Adventure, Sci-Fi", description: "A fully functioning dinosaur theme park faces chaos when a genetically modified dinosaur escapes containment and terrorizes visitors." },
+    { title: "Mufasa: The Lion King", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd80_TDMj7k1WXRdmTMIkGQKIHaKJ65LEynv4EOSsAguQ3Crx0Yz-IZSmN197SWQfd0Eps", year: 2024, rating: 8.1, genre: "Animation, Adventure, Drama", description: "A modern retelling of the classic tale, exploring Simba's rise to become king of the Pride Lands." },
+    { title: "Avatar: The Way of Water (2022)", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxTA7S2fDMhUDVcZnuxuie2xE_ayntCdkCKme3EK3ObKXFuhdaLhYYTpzUHZ45-IQzQt6T", year: 2022, rating: 7.5, genre: "Action, Sci-fi ", description: "Set more than a decade after the events of the first film, 'Avatar The Way of Water' begins to tell the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure." }
 ];
 
 
@@ -59,3 +59,28 @@ alt="${movie1.title}">
 });
 //
 // ************************************************************
+
+
+//
+
+const animatedMovies = [
+    { title: "Frozen 2", poster: "assets/img/Movies/frozen2.jpg", year: 2019, genre: "Animation, Adventure, Musical", rating: 6.9, description: "Elsa, Anna, Kristoff, Olaf, and Sven embark on a journey to discover the origin of Elsa's powers and save their kingdom." },
+    { title: "Frozen", poster: "assets/img/Movies/frozen.jpg", year: 2013, genre: "Animation, Adventure, Musical", rating: 7.4, description: "Anna sets out on a dangerous journey with Kristoff and Sven to find her sister Elsa, whose powers have trapped the kingdom in eternal winter." },
+    { title: "Incredibles", poster: "assets/img/Movies/incredibles.jpg", year: 2018, genre: "Animation, Action, Adventure", rating: 7.6, description: "The Parr family returns to save the day, but now Helen is in the spotlight while Bob stays home to manage the kids." },
+    { title: "Minions", poster: "assets/img/Movies/minions.jpg", year: 2015, genre: "Animation, Comedy, Adventure", rating: 6.4, description: "The Minions search for a new evil boss, eventually meeting Scarlet Overkill, the first-ever female supervillain." }
+]
+
+document.addEventListener('DOMContentLoaded', () => {
+    const movieCardsContainer = document.getElementById("movieCards4");
+
+    animatedMovies.forEach(animatedMovie => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+<img src="${animatedMovie.poster}" 
+alt="${animatedMovie.title}">
+<h3>${animatedMovie.title}</h3>
+`;
+        movieCardsContainer.appendChild(card);
+    });
+});
