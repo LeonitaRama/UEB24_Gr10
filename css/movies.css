@@ -16,6 +16,7 @@ ul {
 ul li {
     list-style: none;
 }
+
 button {
     padding: 10px 15px;
     border-radius: 20px;
@@ -57,12 +58,13 @@ p {
     /* display: flex; */
     color: white;
     margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.11);;
+    background-color: rgba(255, 255, 255, 0.11);
+    ;
 }
 
 .card:hover {
     transform: scale(1.05);
-    
+
 }
 
 h3 {
@@ -83,4 +85,50 @@ h3 {
 
 .card img:hover {
     outline: 2px solid rgba(255, 255, 255, 0.468);
+}
+
+
+.films {
+    margin-inline: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.film {
+    color: white;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.11);
+}
+
+.film:hover {
+    transform: scale(1.05);
+}
+
+.film img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+    outline: 2px solid rgba(255, 255, 255, 0.11);
+}
+
+.film img:hover {
+    outline: 2px solid rgba(255, 255, 255, 0.468);
+}
+
+.films h3 {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.films a {
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
