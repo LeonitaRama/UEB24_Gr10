@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sortable Movie Table</title>
+</head>
+<body>
+
+    <main class="table">
+        <section class="table__header">
+            <div class="input-group">
+                <h1 style="font-family: 'Times New Roman', Times, serif;">Movie Table</h1> <br>
+                <input type="search" id="search-input" placeholder="Search Movies..." onkeyup="searchTable()">
+            </div>
+        </section>
+
+        <section class="table__body">
+            <table id="movie-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">
+                            Movie Name <span class="icon-arrow"></span>
+                        </th>
+                        <th onclick="sortTable(1)">
+                            Actresses <span class="icon-arrow"></span>
+                        </th>
+                        <th onclick="sortTable(2)">
+                            Date <span class="icon-arrow"></span>
+                        </th>
+                        <th onclick="sortTable(3)">
+                            Status <span class="icon-arrow"></span>
+                        </th>
+                        <th onclick="sortTable(4)">
+                            Rating <span class="icon-arrow"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Good Will Hunting</td>
+                        <td>Ben Affleck, Matt Damon, Robin Williams</td>
+                        <td>05 Dec, 1997</td>
+                        <td><span class="status out">Out</span></td>
+                        <td>8/10</td>
+                    </tr>
+                    <tr>
+                        <td>Split</td>
+                        <td>Anya Taylor-Joy, James McAvoy, Haley Lu Richardson</td>
+                        <td>26 Sep, 2016</td>
+                        <td><span class="status out">Out</span></td>
+                        <td>7.3/10</td>
+                    </tr>
+                    <tr>
+                        <td>Dune Part Two</td>
+                        <td>Timothée Chalamet, Zendaya, Rebecca Ferguson</td>
+                        <td>01 Mar, 2024</td>
+                        <td><span class="status wait">Wait</span></td>
+                        <td>8.5/10</td>
+                    </tr>
+                    <tr>
+                        <td>What Happened to Monday</td>
+                        <td>Noomi Rapace, Willem Dafoe, Glenn Close</td>
+                        <td>30 Aug, 2017</td>
+                        <td><span class="status out">Out</span></td>
+                        <td>6.8/10</td>
+                    </tr>
+                    <tr>
+                        <td>I Origins</td>
+                        <td>Michael Pitt, Astrid Bergès-Frisbey, Brit Marling</td>
+                        <td>18 Jan, 2014</td>
+                        <td><span class="status wait">Wait</span></td>
+                        <td>7.3/10</td>
+                    </tr>
+                    <tr>
+                        <td>Maze Runner</td>
+                        <td>Dylan O'Brien, Kaya Scodelario, Thomas Brodie-Sangster</td>
+                        <td>19 Sep, 2014</td>
+                        <td><span class="status out">Out</span></td>
+                        <td>6.8/10</td>
+                    </tr>
+                    <tr>
+                        <td>Dead Poets Society</td>
+                        <td>Robin Williams, Robert Sean Leonard, Ethan Hawke</td>
+                        <td>02 Jun, 1989</td>
+                        <td><span class="status out">Out</span></td>
+                        <td>8.1/10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>  
+</body>
+</html>
