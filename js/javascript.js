@@ -61,7 +61,7 @@ alt="${movie1.title}">
 // ************************************************************
 
 
-//
+//animated movies
 
 const animatedMovies = [
     { title: "Frozen 2", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ9DLF2s5RN-fpDb1Rvieh6xp9kHu0Maya-ioMEDMrmZbt737HXhnm9G3ibJ-uxsNpEOeNg", year: 2019, genre: "Animation, Adventure, Musical", rating: 6.9, description: "Elsa, Anna, Kristoff, Olaf, and Sven embark on a journey to discover the origin of Elsa's powers and save their kingdom." },
@@ -79,7 +79,7 @@ const animatedMovies = [
     { title: "How to Train Your Dragon", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRJsQCqDzOcnQKFfA0PeWl8xVJVXchpan4BV5m7PpbAfd-aJEjCHIIjJSewvF46ZMeVK3u7JA", year: 2010, genre: "Animation, Adventure, Family", rating: 8.1, description: "A young Viking befriends a dragon, defying tradition and changing the course of his village's future." },
     { title: "Despicable Me 3", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRaxg73E6yQr5f79JguAovH8nCgcDf2wr6nsjPIQXiykO2NKRpXbiCwpIGGxl6_pzALRfe8", year: 2017, genre: "Animation, Comedy, Family", rating: 7.6, description: "The mischievous Minions hope that Gru will return to a life of crime after the new boss of the Anti-Villain League fires him. Instead, Gru decides to remain retired and travel to Freedonia to meet his long-lost twin brother for the first time." },
     { title: "The Lego Movie", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_yZY_-wZ7s0xE61TqQZuPtwIDN7xYWt2UAtPCM1SnxA4hyklh", year: 2014, genre: "Animation, Action, Adventure", rating: 7.7, description: "An ordinary LEGO construction worker is recruited to save the LEGO universe from an evil tyrant." }
-]
+];
 
 document.addEventListener('DOMContentLoaded', () => {
     const movieCardsContainer = document.getElementById("movieCards4");
@@ -92,6 +92,41 @@ document.addEventListener('DOMContentLoaded', () => {
 alt="${animatedMovie.title}">
 <h3>${animatedMovie.title}</h3>
 `;
+        movieCardsContainer.appendChild(card);
+    });
+});
+
+
+//netflix movies 
+const netflixMovies = [
+    { title: "Red Notice", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ1hCDJCRU--M2ya7aX2kn2MOARr82PKrC4PTZcEbhfHcNpsIax3ZWBWh5BbnAn6bHUc5Ke", year: 2021, genre: "Action, Comedy, Crime", rating: 6.3, description: "An Interpol agent tracks the world's most wanted art thief." },
+    { title: "Extraction", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRCI9IusUM8gH0CBMYD5Tj1qN5cHUYbjciCbYjDdqUVRTYe0YkvfhNaNDQ_07scxy8awyd-", year: 2020, genre: "Action, Thriller", rating: 6.8, description: "A mercenary embarks on a dangerous mission to rescue the kidnapped son of an international crime lord." },
+    { title: "Bird Box", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv5gyd9uYRrbxMFO5t1MNBNYV9K55nCpRJuOD_Ehyd-vCqN0kIg2MAAApA2HilfizUREgDAg", year: 2018, genre: "Horror, Sci-Fi, Thriller", rating: 6.6, description: "A woman and her children navigate a post-apocalyptic world blindfolded to avoid a deadly force." },
+    { title: "The Irishman", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQLpEK4_ycnlTUuWlSy_3x08X3HBOa_Ilw7g8VOv6BatdSTSISOnpO7oAySGhCTQAiCQquGwA", year: 2019, genre: "Biography, Crime, Drama", rating: 7.8, description: "An aging hitman looks back on his life and involvement with the mob." },
+    { title: "The Adam Project", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR79R6d35RExWWm1eZY3-sWyn-n7gsA3hoPEuF_zQUKfWqoa8P9TQQe7sXlf3gdtPwYIzzO", year: 2022, genre: "Action, Adventure, Comedy", rating: 6.7, description: "A time-traveling pilot teams up with his younger self to save the future." },
+    { title: "Don't Look Up", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyBtOEgd3UCgKnLMfwZN60TtNXYWPZHSW7p5yXpWNPRSOg0XPNCQ7ng_TPLUzNxpV2FMqahg", year: 2021, genre: "Comedy, Drama, Sci-Fi", rating: 7.2, description: "Two astronomers try to warn humanity about an approaching comet that will destroy Earth." },
+    { title: "Enola Holmes", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTgWsCu3QRG0H-tMPR7wNtQZA-eg8-LRo99Sjs44hUsmd4TRMIdIBLU4KyvTVP1hG1FGBdo", year: 2020, genre: "Action, Adventure, Crime", rating: 6.6, description: "Sherlock Holmes' teenage sister embarks on a journey to find her missing mother." },
+    { title: "The Old Guard", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpi6zmGjg4XsE-1KMeyGWTt36ovJzeAQSLOoPNPGpCoGp5_4RBcDAOkhILRl1bgNL47FpIeg", year: 2020, genre: "Action, Adventure, Fantasy", rating: 6.7, description: "A group of immortal mercenaries fight to protect their secret and save the world." },
+    { title: "The Trial of the Chicago 7", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQzgmIkqtDx-i02EqBzwDInPDW4JD05deTExiEfb4DXM-mkqLFZPK3HS41bFnoqvrI28RdM", year: 2020, genre: "Drama, History, Thriller", rating: 7.8, description: "The story of the trial of seven individuals charged with conspiracy during the 1968 Democratic National Convention." },
+    { title: "Marriage Story", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS0RFyexrxd9M5SR_BmOCYxyfeB-zArmyqTytDpdmfxRyaeIstlPUuAgdWnRhhPQ6De9Td6xg", year: 2019, genre: "Drama, Romance", rating: 7.9, description: "A stage director and his actor wife navigate a grueling divorce process." },
+    { title: "Roma", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRIhr1RVlAiTUw9dzxHrCBLt3W5w97LTG6tb9zDZbr8fLY3hYwc6lZqQcQRJeU2Lh5kR4BWRw", year: 2018, genre: "Drama", rating: 7.7, description: "A year in the life of a middle-class family in Mexico City in the early 1970s." },
+    { title: "Army of the Dead", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTPf6nuys68mJBtawUVSEVdf6EMJDvmifWcfeFrWDL-6kV6wwoizUDWwIANwsthAU8tVNrihQ", year: 2021, genre: "Action, Crime, Horror", rating: 5.7, description: "A group of mercenaries ventures into a zombie-infested Las Vegas for a heist." },
+    { title: "Klaus", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTX4kx0-WJUGxY7Gn28L2RiPMBY9hrCgqfQtXJI7cbZtNSxw4MoY-7ZDJeJhfR24i06CJF1sA", year: 2019, genre: "Animation, Adventure, Comedy", rating: 8.1, description: "A postman and a reclusive toymaker form an unlikely friendship, bringing joy to a cold town." },
+    { title: "Okja", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ5baA0zTTxbfmVnadFDhXZXGP8JwErNKdA_CMlep7jWY85UbZLZzByzDMM1wQiUuNjt21Obw", year: 2017, genre: "Action, Adventure, Drama", rating: 7.3, description: "A young girl risks everything to prevent a powerful company from taking her beloved super pig." },
+    { title: "Beasts of No Nation", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQMAffF9VFE_44KR0JJ98ml8qjyYoyGJ8xocJTcEY2iz2W0cP3meQc5HIftQXpVL-Of4paNCA", year: 2015, genre: "Drama, War", rating: 7.7, description: "A young boy becomes a child soldier as his country descends into civil war." }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const movieCardsContainer = document.getElementById("movieCards3");
+
+    netflixMovies.forEach(netflixMovies => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+    <img src="${netflixMovies.poster}" 
+    alt="${netflixMovies.title}">
+    <h3>${netflixMovies.title}</h3>
+    `;
         movieCardsContainer.appendChild(card);
     });
 });
