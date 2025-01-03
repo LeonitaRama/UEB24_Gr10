@@ -18,3 +18,17 @@ $(document).ready(function () {
         return false;
     });
 });
+
+
+//per linkun aktiv ne nav-link te franchises 
+$(document).ready(function () {
+    const currentPath = window.location.pathname.split('/').pop();
+
+    $('.nav-link').each(function () {
+        if ($(this).attr('href') === `./${currentPath}`) {
+            $(this).addClass('active');
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+});
