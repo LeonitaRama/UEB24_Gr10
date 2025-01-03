@@ -37,9 +37,16 @@ const movies = [
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const movieCardsContainer = document.getElementById("movieCards");
+    const movieCardsContainer = document.getElementById("movieCards1");
 
-    movies.forEach(movie => {
-
+    movies.forEach(movie1 => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+<img src="${movie1.poster}" 
+alt="${movie1.title}">
+<h3>${movie1.title}</h3>
+`;
+        movieCardsContainer.appendChild(card);
     });
 });
