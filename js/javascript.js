@@ -38,4 +38,8 @@ const movies = [
 
 document.addEventListener('DOMContentLoaded', () => {
     const movieCardsContainer = document.getElementById("movieCards");
+
+    movies.forEach(movie => {
+
+    });
 });
