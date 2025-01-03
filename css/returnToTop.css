@@ -11,6 +11,6 @@
 
 img {
     width: 40px;
-    background-color: blue;
-    
+    background-color: white;
+    border-radius: 1px;
 }
