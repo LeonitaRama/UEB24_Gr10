@@ -6,22 +6,22 @@
     <title>Home</title>
 </head>
 <link rel="stylesheet" href="css/home.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <body>
     <div class="header">
         <div class="container">
             <nav class="navbar">
                 <a href="#" class="logo">
-                <video autoplay="" playsinline="" muted="" loop="" width="160px" height="120px">
-                    <source src="AzureLogo.mp4" type="video/mp4">
-                </video>
+                <img style="margin-left: 20px;" width="150px" src="assets/images/logo.png">
                 </a>
                 <a href=" " class="Home">Home</a>
                 <div class="dropdown">
                     <a href="./data.html" class="Genre">Movies</a>
                 </div>
-                <a href="In-Theatres.html" class="In-Theaters">In Theatres</a>
+                <a href="In-Theatres.html" class="In-Theaters">In Cinema</a>
                 <a href="" class="Book-Ticket">Book Ticket</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="./movies.html" style="margin-right: 35px;" class="Book-Ticket">Most Watched</a>
+                
                 <div class="select-box">
                     <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -97,6 +97,11 @@
             </div>
         </section>  
     </main>
+
+    <div class="notification">
+        <p>Email submitted successfully!</p>
+    </div>
+
     <script>
         $(function () {
                     $('#notifyBtn').on("click", function (e) {
@@ -123,5 +128,44 @@
                     }
                 });
             </script>
+             <style>
+                body {
+                    font-family: Arial, sans-serif;
+                }
+        
+                .notification {
+                    position: fixed;
+                    right: -350px;
+                    top: 20px;
+                    opacity: 0;
+                    background-color: #4caf50;
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    display: none;
+                    z-index: 1000;
+                    font-size: 16px;
+                    transition: all 0.3s ease-in-out;
+                }
+        
+                .notification p {
+                    margin: 0;
+                }
+        
+                #notifyBtn {
+                    padding: 20px 20px;
+                    font-size: 16px;
+                    background-color: red;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+        
+                #notifyBtn:hover {
+                    background-color: rgba(255, 0, 0, 0.575);
+                }
+            </style>
 </body>
 </html>
