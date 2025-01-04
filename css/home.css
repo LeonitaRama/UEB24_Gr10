@@ -65,14 +65,14 @@ h3{
 }
 
 .Home{
-    padding-left:60px;
+    padding-left:45px;
     text-decoration:none;
     text-align:center;
     color:white;
-    font-size:22px
+    font-size:22px;
 }
 .Genre{
-    padding-left:60px;
+    padding-left:45px;
     text-decoration:none;
     text-align:center;
     color:white;
@@ -105,7 +105,7 @@ text-decoration:none;
 }
 
 .Book-Ticket{
-    padding-left: 50px;
+    padding-left: 45px;
     text-decoration:none;
     color:white;
     font-size:22px;
@@ -113,7 +113,7 @@ text-decoration:none;
 }
 
 .In-Theaters{
-    padding-left:30px;
+    padding-left:45px;
     text-decoration:none;
     color:white;
     font-size:22px;

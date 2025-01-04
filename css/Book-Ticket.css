@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:"Roboto",sans-serif;
+    font-weight:400;
+    color:#fff;
+    background-image:linear-gradient(0deg,rgba(0,0,0,0.5),
+    rgba(0,0,0,0.8)),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/7a0bd648-8238-4134-b486-e7ff5cbaa56e/US-en-20230213-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    display:grid;
+    place-items:center;
+    min-height: 600px;
+    text-align: center;
+    padding-top:125px;
+    padding-left: 100px;
+    padding-right: 0%;
+}
+
+h1{
+    text-align: center;
+}
+
+.form-field{
+    text-align: center;
+}
+
+@media screen and (max-width:600px){
+    .form-field{
+        padding:0 25px;
+    }
+}
+
+.form{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+}
+
+@media screen and (max-width:600px){
+    .form{
+        flex-direction: column;
+    }
+}
+
+
+.form-input{
+    width:100%;
+    height:100%;
+    font-size: 15px;
+    color:#222;
+    background-color: #fff;
+    border:0;
+    border-radius: 5px;
+    padding: 20px 15px;
+}
+
+.form-label{
+    position:absolute;
+    top:0;
+    left:0;
+    font-size: 15px;
+    padding: 20px 15px;
+    color:#222;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-input:focus+.form-label{
+    top:-12px;
+    left:0;
+    color:#222;
+    font-size: 12px;
+    z-index: 10;
+}
+
+
+
+.l1{
+    height:700px;
+    width:1344px;
+    clear:both;
+    text-align:center;
+}
+
+fieldset{
+    width:100px;
+    height:680px;
+}
+
+legend{
+    font-size:20px;
+}
+
+.error{
+    color:red;
+    font-size: 15px;;
+}
+
+input[type=text]{
+    width:200px;
+    padding:10px;
+}
+
+input[type=password]{
+    margin:2px;
+    width:200px;
+    padding:10px;
+}
+
+input[type=number]{
+    margin:2px;
+    width:200px;
+    padding:10px;
+}
+input[type=submit]{
+    width:20%;
+    font-size:1.5em;
+    padding:10px;
+    margin:5px;
+}
+
+input[id=extra]{
+    width:20%;
+    font-size:1.5em;
+    padding:10px;
+}
+
+.success{
+    color:green;
+    padding:25px;
+    text-align:center;
+    font-size:20px;
+}
+
+form fieldset a{
+    width:50px;
+    height:50px;
+    padding:10;
+}
+
+.p{
+    color:white;
+}
