@@ -54,6 +54,7 @@ h3{
     background-repeat:no-repeat;
     object-fit:cover;
     background-position:center;
+    background-attachment: fixed;
 }
 
 .navbar{
