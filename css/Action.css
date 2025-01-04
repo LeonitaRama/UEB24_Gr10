@@ -18,13 +18,13 @@
 }
 
 .show-video{
-    background-color: black;
-    color:grey;
-    border-color:grey;
+    background-color: red;
+    color:white;
+    border-color:rgb(226, 86, 86);
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 body{
