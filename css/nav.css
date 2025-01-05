@@ -5,6 +5,9 @@
     justify-content: space-between;
     padding:25px 0;
 }
+.language-btn{
+font-family: garamond serif;
+}
 
 .Home{
     padding-left:45px;
