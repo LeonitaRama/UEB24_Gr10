@@ -61,7 +61,9 @@ p {
 .card {
     color: white;
     margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.11);
+    /* background-color: rgba(255, 255, 255, 0.11); */
+    background-color:  rgb(26, 26, 26);
+
 }
 
 .card:hover {
@@ -102,6 +104,7 @@ h3 {
     color: white;
     margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.11);
+
 }
 
 .film:hover {
@@ -123,10 +126,12 @@ h3 {
 }
 
 .films h3 {
+
     color: white;
     width: 100%;
     margin: 20px 0;
     text-align: center;
+
 }
 
 .films a {
@@ -135,6 +140,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 
@@ -158,6 +164,7 @@ h3 {
 .tableFranchises .one:hover {
     background-color: rgb(50, 47, 47);
 
+
 }
 
 .phase-title {
@@ -176,4 +183,5 @@ h3 {
     text-align: center;
     font-size: 2rem;
     margin: 50px 0;
+
 }
