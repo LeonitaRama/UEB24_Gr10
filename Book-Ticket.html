@@ -65,11 +65,17 @@
                             </select>
                             <br><br>
                             <p>Payment:
-                                <label>
-                                    <input id="radio1" type="radio" name="payment" value="yes"> Esewa
+                                <label>Payment Method:
+                                    <input id="paymentMethod" list="paymentOptions" name="payment">
                                 </label>
-
-                                <input id="radio" type="radio" name="payment" value="noo"> Cash on Book
+                                <datalist id="paymentOptions">
+                                    <option value="Esewa">
+                                    <option value="Cash on Book">
+                                    <option value="PayPal">
+                                    <option value="Credit Card">
+                                    <option value="Debit Card">
+                                </datalist>
+                                
                                 <br>
                             </p>
                             <br>
