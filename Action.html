@@ -631,12 +631,20 @@ function navigateToPage() {
         }
     }
     
+    let text = "This page shows only action movies!";
+    let matchResult = text.match(/action/g); 
+    console.log("Përshtatjet e 'action':", matchResult);
+
+    let newText = text.replace(/action/g, "action content"); 
+    console.log("Teksti pas zëvendësimit:", newText);
+    
     $(document).ready(function () {
         $("#footer").load("footer.html");
     });
     
 </script>
-    
+<div id="match-result"></div>
+<div id="replace-result"></div>
 <div id="main">
     <div id="content">
         <div class="box">
