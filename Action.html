@@ -3,317 +3,711 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Center</title>
+    <link rel="stylesheet" href="css/data.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/returnToTop.css">
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #000000;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .movies-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .movie-card {
+            width: 200px;
+            height: 330px;
+            perspective: 1000px;
+            padding-bottom: 30px;
+        }
+
+        .movie-card-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .movie-card:hover .movie-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .movie-card-front, .movie-card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-card-front {
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .movie-card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-card-front h3 {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .movie-card-back {
+            background: #910000;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .movie-card-back p {
+            margin: 5px 0;
+            font-size: 11px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .pagination button {
+            padding: 10px 20px;
+            border: none;
+            background: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .pagination button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        #main {
+            padding: 20px;
+            background-color: #121212;
+        }
+
+        .box {
+            margin-bottom: 30px;
+        }
+
+        .head {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 0.5px;
+            background-color: #ccc;
+            border-radius: 20px;
+           
+        }
+
+        .title {
+            font-size: 30px;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .video {
+            width: 70%;
+            height: auto;
+            margin-left: 200px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .titlee {
+            font-size: 25px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+            margin: 20px;
+            color: #ccc;
+        }
+
+        #news, #coming {
+            margin-top: 50px;
+        }
+
+        #news .content, #coming .content {
+            margin-bottom: 30px;
+        }
+
+        .content h4 {
+            font-size: 16px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .content p {
+            color: #bbb;
+            font-size: 16px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+    
+        
+        #coming .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #coming img {
+            border-radius: 8px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            margin-top: 10px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+
+            .title {
+                font-size: 30px;
+            }
+        }
+   
+    
+    </style>
 </head>
-<link rel="stylesheet" href="css/Action.css">
 <body>
-    <div id="main">
-        <div id="content">
-            <div class="box">
-                <br><br>
-                <div class="head">
-                    <p style="font-size: 60px" align="center" width="80px" class="title" style="color:white">Action Movies, Tv Shows</p>
-                    <br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <video autoplay="" align="center" class="video" playsinline="" muted="" loop="" width="1050px" height="400px">
-                        <source src="assets/videos/home_alone.mp4" type="video/mp4">
-                    </video>
-                    <h1 align="center" class="titlee">Home Sweet Home Alone</h1>
-                </div>
-                <p style="font-size:20px" class="p">
-                    A married couple tries to steal back a valuable heirloom from a troublesome kid.
-                    Country:
-                    United States
-                    Genre:Comedy, Action, Family
-                    Release:
-                    2021-11-12
-                    Director:
-                    Dan Mazer
-                    Production:
-                    20th Century Studios, Hutch Parker Entertainment
-                    Cast:
-                    Ellie Kemper, Rob Delaney, Archie Yates
-                    Tags:
-                    watch home sweet home alone free, watch home sweet home alone hd, home sweet home alone online,
-                    where to watch home sweet home alone, home sweet home alone free online, home, christmas,
-                    couple,
-                    kid, home sweet home alone, defend
-                </p>
-            </div>
-            <br><br>
-            <div class="box">
-                <div class="head">
-                </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">Marvele's moon girl
-                    </span> </span>
-                    <a href="">
-                        <img src="assets/images/Marvele's moon girl and devil dinosaur.png" alt="">
-                    </a>
-                </div>
-                <h3>Marvele's moon girl</h3>
-                <p>2022 &nbsp;&nbsp; 77min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                    <button id="movie" href="" type="button" class="show-video">Movie</button>
-                </p>
-            </div>
+  <div class="return-to-top">
+    <img src="./assets/images/returnToTop.png" alt="">
 
-            <div class="movie">
-                <div class="movie-image"> <span class="play"><span class="name">BattleBots</span></span>
-                    <a href=""><img src="assets/images/BattleBots.png" alt=""> </a>
-                </div>
-                <h3>BattleBots</h3>
-                <p>2021  &nbsp;&nbsp; 50 min&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                    <button id="movie" type="button" class="show-video">Movie</button>
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"> <span class="play"><span class="name">The Wandering Earth II</span></span>
-                    <a href=""><img src="assets/images/The-Wandering-Earth-II.png" alt=""> </a>
-                </div>
-                <h3>The Wandering Earth II</h3>
-                <p>2021  &nbsp;&nbsp; 90 min&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                    <button id="movie" type="button" class="show-video">Movie</button>
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"> <span class="play"><span class="name">Queens on the Run</span></span>
-                    <a href=""><img src="assets/images/queens-on-the-run.png" alt=""> </a>
-                </div>
-                <h3>Queens on the Run</h3>
-                <p>2016 &nbsp;&nbsp; 40 min&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                    <button id="movie" type="button" class="show-video">Movie</button>
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"> <span class="play"><span class="name">The Last Kingdom</span></span>
-                    <a href=""><img src="assets/images/The-Last-Kingdom.png" alt=""> </a>
-                </div>
-                <h3>The Last Kingdom</h3>
-                <p>2016  &nbsp;&nbsp; 40 min&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-                    <button id="movie" type="button" class="show-video">Movie</button>
-                </p>
-            </div>
-            <div class="cl">&nbsp;</div>
-         </div>
-        </div>
-        <div class="box">
-            <div class="head">
-            </div>
-            <div class="movie">
-                <div class="movie-image"> <span class="play"><span class="name">One Day as a Lion</span></span> <a href=""><img src="assets/images/One-Day-as-a-Lion.png"
-                            alt=""></a> </div>
-                <h3>One Day as a Lion</h3>
-                <p>2022 &nbsp;&nbsp; 77 min&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-                    <button id="movie" href="" type="button" class="show-video">Movie</button>
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"><span class="play"><span class="name">Sin huellas</span> </span>
-                <a href=""><img src="assets/images/Sin-huellas.png"> </a> </div>
-                <h3>Sin huellas</h3>
-                <p>2016 &nbsp;&nbsp; 33min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button id="movie" href="" type="button" class="show-video">Movie</button>
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">Gotham Knights</span></span>
-                    <a href=""><img src="assets/images/Gotham-Knights.png" alt="   "> </a></div>
-                    <h3>Gotham Knights</h3>
-                    <p>2018 &nbsp;&nbsp; 32 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">Blackwater Lane</span></span>
-                    <a href=""><img src="assets/images/blackwater_lane.png" alt="   "> </a></div>
-                    <h3>Blackwater Lane</h3>
-                    <p>2021 &nbsp;&nbsp; 50 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="movie last">
-                <div class="movie-image">
-                    <span class="play"><span class="name">Atlas</span></span>
-                    <a href=""><img src="assets/images/atlas.png" alt="   "> </a></div>
-                    <h3>Atlas</h3>
-                    <p>2023 &nbsp;&nbsp; 40 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="cl">&nbsp;</div>
-        </div>
-        <div class="box">
-            <div class="head">
-            </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">Mafia Mamma</span></span>
-                    <a href=""><img src="assets/images/Mafia-Mamma.png" alt="   "> </a></div>
-                    <h3>Mafia Mamma</h3>
-                    <p>2012 &nbsp;&nbsp; 67 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">Star Trek: Picard</span></span>
-                    <a href=""><img src="assets/images/Star-Trek-Picard.png" alt="   "> </a></div>
-                    <h3>Star Trek: Picard</h3>
-                    <p>2019 &nbsp;&nbsp; 83 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">True Lies</span></span>
-                    <a href=""><img src="assets/images/True-Lies.png" alt="   "> </a></div>
-                    <h3>True Lies</h3>
-                    <p>2019 &nbsp;&nbsp; 68 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">Butch Cassidy</span></span>
-                    <a href=""><img src="assets/images/Butch-Cassidy-and-the-Wild-Bunch.png" alt="   "> </a></div>
-                    <h3>Butch Cassidy</h3>
-                    <p>2021 &nbsp;&nbsp; 95 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image">
-                    <span class="play"><span class="name">The Mandalorian</span></span>
-                    <a href=""><img src="assets/images/The-Mandalorian.png" alt="   "> </a></div>
-                    <h3>The Mandalorian</h3>
-                    <p>2022 &nbsp;&nbsp; 45 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button id="movie" href="" type="button" class="show-video">Movie</button>
-                    </p>
-            </div>
-            <div class="cl">&nbsp;</div>
-        </div>
-        <div class="box">
-            <div class="head">
-            </div>
-            <div class="movie">
-                <div class="movie-image"><span class="play"><span class="name">Superman & Lois</span></span>
-                <a href=""><img src="assets/images/Superman-&-Lois.png"> </a></div>
-                <h3>Superman & Lois</h3>
-                <p>2013 &nbsp;&nbsp; 73 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <button id="movie" href="" type="button" class="show-video">Movie</button>     
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"><span class="play"><span class="name">9-1-1: Lone Star</span></span>
-                <a href=""><img src="assets/images/9-1-1-Lone-Star.png"> </a></div>
-                <h3>9-1-1: Lone Star</h3>
-                <p>2011 &nbsp;&nbsp;62 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <button id="movie" href="" type="button" class="show-video">Movie</button>     
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"><span class="play"><span class="name">Rabbit Hole</span></span>
-                <a href=""><img src="assets/images/Rabbit-Hole.png"> </a></div>
-                <h3>Rabbit Hole</h3>
-                <p>2021 &nbsp;&nbsp;54 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <button id="movie" href="" type="button" class="show-video">Movie</button>     
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"><span class="play"><span class="name">John Wick: Chapter 4
-
-                </span></span>
-                <a href=""><img src="assets/images/John-Wick-Chapter-4.png"> </a></div>
-                <h3>John Wick: Chapter 4</h3>
-                <p>2018 &nbsp;&nbsp;70 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <button id="movie" href="" type="button" class="show-video">Movie</button>     
-                </p>
-            </div>
-            <div class="movie">
-                <div class="movie-image"><span class="play"><span class="name">A Brother's Turmoil</span></span>
-                <a href=""><img src="assets/images/A-Brothers-Turmoil.png"> </a></div>
-                <h3>A Brother's Turmoil</h3>
-                <p>2020 &nbsp;&nbsp;83 min &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                   <button id="movie" href="" type="button" class="show-video">Movie</button>     
-                </p>
-            </div>
-            <div class="cl">&nbsp;</div>
-        </div>
-        <br><br>
-    <div id="news">
-        <div class="head">
-            <a href="" class="news"><strong>NEWS!</strong></a>
-        </div>
-        <div class="content">
-            <p class="date">17.04.2019</p>
-            <h4>TAYLOR SWIFT</h4>
-            <p>Most of us are lucky if our Fourth of July party host remembers to buy enough ice to last the gang
-                until after the fireworks go off...</p>
-                <a href="" class="read-more">Read more</a>
-        </div>
-        <div class="content">
-            <p class="date">18.04.2019</p>
-            <h4>Michael Nyqvist Dies; Veteran Actor Was 56</h4>
-            <p>Michael Nyqvist, a Swedish actor who took on the lead role in the initial big screen adaption of The
-                Girl with the Dragon Tattoo, died on Tuesday in Stockholm.
-                He was 56 years old....</p>
-                <a href="" class="read-more">Read more</a>
-        </div>
-        <div class="content">
-            <p class="date">20.04.2019</p>
-            <h4>Spider-Man: Homecoming is the latest film to feature trailer scenes you’ll never see</h4>
-            <p>In the official trailers for Spider-Man: Homecoming, the web-slinging superhero can be seen soaring
-                through the sky next to Robert Downey Jr.’s Iron Man...</p>
-                <a href="" class="read-more">Read more</a>
-        </div>
-    </div>
-    <div id="coming">
-        <div class="head">
-            <a class="comming-soon" href="" >COMING SOON!</a>
-        </div>
-        <div class="content">
-            <h4>IRON MAN 4</h4>
-            <a href=""><img src="assets/images/iron_man.png" width="200px" height="200px" align="center" alt=""> </a>
-            <p >When Marvel announced their massive Phase Three lineup back in October, <br> the studio revealed nine
-                movies that will conclude with the release of Avengers: 
-                <br>Infinity War Part 2 in May 2019...</p>
-         <a href="" class="read-more">Read more</a>
-        </div>
-        <br><br>
-        <div class="cl">&nbsp;</div>
-        <div class="content">
-            <h4>THOR RAGNAROK</h4>
-            <br>
-            <a href=""><img src="assets/images/Thor_Ragnarok.png" width="200px" height="200px" alt=""> </a>
-            <p class="read-more">Thor Ragnarok: is an upcoming American superhero film based on the Marvel Comics character Thor,
-                produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures. ...</p>
-                <a href="" class="read-more">Read more</a>
-        </div>
-    </div>
-    <div class="cl">&nbsp;</div>
 </div>
+  
+    <div class="controls">
+    <input type="text" id="search-bar" placeholder="Search movies...">
+
+    <select id="genre-filter" onchange="navigateToPage()">
+      <option value="">All Genres</option>
+      <option value="action.html">Action</option>
+      <option value="comedy.html">Comedy</option>
+      <option value="drama.html">Drama</option>
+  </select>
+
+    <select id="sort-options">
+        <option value="title">Sort by Title</option>
+        <option value="year">Sort by Year</option>
+    </select>
+    </div>
+
+    <div class="container">
+        <h1>Movies Gallery</h1>
+        <div id="movie-container" class="movies-grid"></div>
+        <div class="pagination">
+            <button id="prev-btn" disabled>Previous</button>
+            <span id="page-info"></span>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+  
+    <script>
+
+        // Sample movies data
+       
+        const movies = [
+    
+    {
+      "title": "Underwater",
+      "year": 2020,
+      "cast": [
+        "Kristen Stewart",
+        "Vincent Cassel",
+        "Jessica Henwick",
+        "John Gallagher Jr.",
+        "Mamoudou Athie",
+        "T.J. Miller"
+      ],
+      "genres": [
+        "Action",
+        "Horror",
+        "Science Fiction"
+      ],
+      "href": "Underwater_(film)",
+      "extract": "Underwater is a 2020 American science fiction action horror film directed by William Eubank. The film stars Kristen Stewart, Vincent Cassel, Jessica Henwick, John Gallagher Jr., Mamoudou Athie, and T.J. Miller.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/4a/Underwater_poster.jpeg",
+      "thumbnail_width": 250,
+      "thumbnail_height": 398
+    },
+    {
+      "title": "Bad Boys for Life",
+      "year": 2020,
+      "cast": [
+        "Will Smith",
+        "Martin Lawrence",
+        "Vanessa Hudgens",
+        "Alexander Ludwig",
+        "Charles Melton",
+        "Paola Núñez",
+        "Kate del Castillo",
+        "Nicky Jam",
+        "Joe Pantoliano"
+      ],
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "href": "Bad_Boys_for_Life",
+      "extract": "Bad Boys for Life is a 2020 American buddy cop action comedy film directed by Adil & Bilall. It is the sequel to Bad Boys II (2003) and the third installment in the Bad Boys franchise. Will Smith, Martin Lawrence, Joe Pantoliano and Theresa Randle reprise their roles in the film and are joined by Paola Núñez, Vanessa Hudgens, Jacob Scipio, Alexander Ludwig, Charles Melton, Kate del Castillo and Nicky Jam. The film was produced by Smith, Jerry Bruckheimer, and Doug Belgrad, with a screenplay written by Chris Bremner, Peter Craig and Joe Carnahan. In Bad Boys for Life, Miami detectives Mike Lowrey and Marcus Burnett investigate a string of murders tied to Lowrey's troubled past.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/90/Bad_Boys_for_Life_poster.jpg",
+      "thumbnail_width": 219,
+      "thumbnail_height": 325
+    },
+    {
+      "title": "The Gentlemen",
+      "year": 2020,
+      "cast": [
+        "Matthew McConaughey",
+        "Charlie Hunnam",
+        "Henry Golding",
+        "Michelle Dockery",
+        "Jeremy Strong",
+        "Eddie Marsan",
+        "Colin Farrell",
+        "Hugh Grant"
+      ],
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "href": "The_Gentlemen_(2019_film)",
+      "extract": "The Gentlemen is a 2019 action comedy film written, directed and produced by Guy Ritchie, who developed the story along with Ivan Atkinson and Marn Davies. The film stars Matthew McConaughey, Charlie Hunnam, Henry Golding, Michelle Dockery, Jeremy Strong, Eddie Marsan, Colin Farrell, and Hugh Grant. It follows an American cannabis wholesaler in England who is looking to sell his business, setting off a chain of blackmail and schemes to undermine him.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/0/06/The_Gentlemen_poster.jpg",
+      "thumbnail_width": 259,
+      "thumbnail_height": 383
+    },
+    {
+      "title": "The Rhythm Section",
+      "year": 2020,
+      "cast": [
+        "Blake Lively",
+        "Jude Law",
+        "Sterling K. Brown"
+      ],
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "href": "The_Rhythm_Section",
+      "extract": "The Rhythm Section is a 2020 action thriller film directed by Reed Morano and with a screenplay by Mark Burnell based on his novel of the same name. Starring Blake Lively, Jude Law and Sterling K. Brown, and follows a grieving woman who seeks revenge after discovering that the plane crash that killed her family was a terrorist attack.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/98/The_Rhythm_Section_poster.jpg",
+      "thumbnail_width": 260,
+      "thumbnail_height": 382
+    },
+    {
+      "title": "Sonic the Hedgehog",
+      "year": 2020,
+      "cast": [
+        "James Marsden",
+        "Ben Schwartz",
+        "Tika Sumpter",
+        "Natasha Rothwell",
+        "Adam Pally",
+        "Neal McDonough",
+        "Jim Carrey"
+      ],
+      "genres": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "href": "Sonic_the_Hedgehog_(film)",
+      "extract": "Sonic the Hedgehog is a 2020 action-adventure comedy film based on the video game series published by Sega. Directed by Jeff Fowler and written by Pat Casey and Josh Miller, it stars Ben Schwartz as the voice of Sonic the Hedgehog, alongside Jim Carrey and James Marsden, with supporting roles by Tika Sumpter, Natasha Rothwell, Adam Pally, Lee Majdoub and Neal McDonough. The film follows Sonic, a blue anthropomorphic hedgehog who can run at supersonic speeds. He teams up with a town sheriff, Tom Wachowski (Marsden), to stop the mad scientist Dr. Robotnik (Carrey).",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/45/Sonic_the_Hedgehog_film_poster.jpg",
+      "thumbnail_width": 259,
+      "thumbnail_height": 384
+    },
+   
+    {
+      "title": "Spy Intervention",
+      "year": 2020,
+      "cast": [
+        "Drew Van Acker",
+        "Poppy Delevingne",
+        "Natasha Bassett",
+        "Max Silvestri",
+        "Brittany Furlan",
+        "Blake Anderson"
+      ],
+      "genres": [
+        "Action",
+        "Comedy",
+        "Spy"
+      ],
+      "href": "Spy_Intervention",
+      "extract": "Spy Intervention is a 2020 American action comedy spy film directed by Drew Mylrea and written by Mark Famiglietti and Lane Garrison. The film stars Drew Van Acker, Poppy Delevingne and Blake Anderson.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/cf/Spy_Intervention_%282020%29_Film_Poster.jpg",
+      "thumbnail_width": 236,
+      "thumbnail_height": 350
+    },
+
+    {
+      "title": "Guns Akimbo",
+      "year": 2020,
+      "cast": [
+        "Daniel Radcliffe",
+        "Samara Weaving",
+        "Natasha Liu Bordizzo"
+      ],
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "href": "Guns_Akimbo",
+      "extract": "Guns Akimbo is a 2019 action comedy film written and directed by Jason Lei Howden. It stars Daniel Radcliffe, Samara Weaving, Ned Dennehy, Natasha Liu Bordizzo, Grant Bowler, Edwin Wright, Rhys Darby, Milo Cawthorne, Richard Knowles, and Mark Rowley.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/1f/Guns_Akimbo_poster.jpg",
+      "thumbnail_width": 259,
+      "thumbnail_height": 383
+    },
+
+    {
+      "title": "Spenser Confidential",
+      "year": 2020,
+      "cast": [
+        "Mark Wahlberg",
+        "Winston Duke",
+        "Alan Arkin",
+        "Iliza Shlesinger",
+        "Bokeem Woodbine",
+        "Marc Maron",
+        "Austin Post"
+      ],
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "href": "Spenser_Confidential",
+      "extract": "Spenser Confidential is a 2020 American action comedy film directed by Peter Berg and with a screenplay written by Sean O'Keefe and Brian Helgeland. The film stars Mark Wahlberg, Winston Duke, Alan Arkin, Iliza Shlesinger, Bokeem Woodbine, Donald Cerrone, Marc Maron, and Post Malone and marks the fifth collaboration between Wahlberg and Berg after Lone Survivor, Deepwater Horizon, Patriots Day, and Mile 22.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c6/Spenser_Confidential_poster.jpg",
+      "thumbnail_width": 260,
+      "thumbnail_height": 383
+    },
+
+    
+    {
+      "title": "Coffee & Kareem",
+      "year": 2020,
+      "cast": [
+        "Ed Helms",
+        "Taraji P. Henson",
+        "Betty Gilpin",
+        "King Bach",
+        "David Alan Grier"
+      ],
+      "genres": [
+        "Action",
+        "Comedy"
+      ],
+      "href": "Coffee_%26_Kareem",
+      "extract": "Coffee & Kareem is a 2020 American action comedy film directed by Michael Dowse and written by Shane Mack. It stars Ed Helms, Terrence Little Gardenhigh, Betty Gilpin, RonReaco Lee, Andrew Bachelor, David Alan Grier and Taraji P. Henson, and follows a bumbling Detroit cop who must rescue his girlfriend and her 12-year-old son from gangsters after the boy witnesses a murder.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/0/03/Coffee_%26_Kareem_poster.jpeg",
+      "thumbnail_width": 259,
+      "thumbnail_height": 383
+    },
+    {
+      "title": "Extraction",
+      "year": 2020,
+      "cast": [
+        "Chris Hemsworth",
+        "Rudhraksh Jaiswal",
+        "Randeep Hooda",
+        "Golshifteh Farahani",
+        "Pankaj Tripathi",
+        "David Harbour"
+      ],
+      "genres": [
+        "Action",
+        "Thriller"
+      ],
+      "href": "Extraction_(2020_film)",
+      "extract": "Extraction is a 2020 American action thriller film directed by Sam Hargrave and written by Joe Russo, based on the graphic novel Ciudad by Ande Parks, Joe Russo, Anthony Russo, Fernando León González, and Eric Skillman. The film's cast features Chris Hemsworth, Rudhraksh Jaiswal, Randeep Hooda, Golshifteh Farahani, Pankaj Tripathi and David Harbour. The film is about an Australian black ops mercenary whose mission to save an Indian crime lord's kidnapped son in Dhaka, Bangladesh goes awry when he is double-crossed.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/89/Extraction_%282020_film%29.png",
+      "thumbnail_width": 259,
+      "thumbnail_height": 384
+    },
+        ];
+        const moviesPerPage = 20;
+        let currentPage = 1;
+
+        const movieContainer = document.getElementById('movie-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const pageInfo = document.getElementById('page-info');
+
+        function renderMovies() {
+            movieContainer.innerHTML = '';
+            const startIndex = (currentPage - 1) * moviesPerPage;
+            const endIndex = startIndex + moviesPerPage;
+
+            const currentMovies = movies.slice(startIndex, endIndex);
+            currentMovies.forEach(movie => {
+                const movieCard = document.createElement('div');
+                movieCard.className = 'movie-card';
+                movieCard.innerHTML = `
+                    <div class="movie-card-inner">
+                        <div class="movie-card-front">
+                            <img src="${movie.thumbnail}" alt="${movie.title} Poster">
+                            <h3>${movie.title}</h3>
+                        </div>
+                        <div class="movie-card-back">
+                            <p><strong>Year:</strong> ${movie.year}</p>
+                            <p><strong>Genres:</strong> ${movie.genres.join(', ')}</p>
+                            <p><strong>Cast:</strong> ${movie.cast.join(', ')}</p>
+                        </div>
+                    </div>
+                `;
+                movieContainer.appendChild(movieCard);
+            });
+
+            pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(movies.length / moviesPerPage)}`;
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === Math.ceil(movies.length / moviesPerPage);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentPage--;
+            renderMovies();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentPage++;
+            renderMovies();
+        });
+
+        // Initial render
+        renderMovies();
+
+        const searchBar = document.getElementById('search-bar');
+
+searchBar.addEventListener('input', () => {
+    const searchQuery = searchBar.value.toLowerCase();
+    const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(searchQuery));
+    renderFilteredMovies(filteredMovies);
+});
+
+function renderFilteredMovies(filteredMovies) {
+    movieContainer.innerHTML = '';
+    const startIndex = (currentPage - 1) * moviesPerPage;
+    const endIndex = startIndex + moviesPerPage;
+
+    const currentMovies = filteredMovies.slice(startIndex, endIndex);
+    currentMovies.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.className = 'movie-card';
+        movieCard.innerHTML = `
+            <div class="movie-card-inner">
+                <div class="movie-card-front">
+                    <img src="${movie.thumbnail}" alt="${movie.title} Poster">
+                    <h3>${movie.title}</h3>
+                </div>
+                <div class="movie-card-back">
+                    <p><strong>Year:</strong> ${movie.year}</p>
+                    <p><strong>Genres:</strong> ${movie.genres.join(', ')}</p>
+                    <p><strong>Cast:</strong> ${movie.cast.join(', ')}</p>
+                </div>
+            </div>
+        `;
+        movieContainer.appendChild(movieCard);
+    });
+
+    pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredMovies.length / moviesPerPage)}`;
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === Math.ceil(filteredMovies.length / moviesPerPage);
+
+    const genreFilter = document.getElementById('genre-filter');
+
+genreFilter.addEventListener('change', () => {
+    const selectedGenre = genreFilter.value;
+    const filteredMovies = selectedGenre
+        ? movies.filter(movie => movie.genres.includes(selectedGenre))
+        : movies;
+    renderFilteredMovies(filteredMovies);
+});
+
+
+const sortOptions = document.getElementById('sort-options');
+
+sortOptions.addEventListener('change', () => {
+    const sortBy = sortOptions.value;
+    const sortedMovies = [...movies].sort((a, b) => {
+        if (sortBy === 'title') {
+            return a.title.localeCompare(b.title);
+        } else if (sortBy === 'year') {
+            return a.year - b.year;
+        }
+    });
+    renderFilteredMovies(sortedMovies);
+});
+function applyFiltersAndRender() {
+    const searchQuery = searchBar.value.toLowerCase();
+    const selectedGenre = genreFilter.value;
+    const sortBy = sortOptions.value;
+
+    let filteredMovies = movies.filter(movie => 
+        movie.title.toLowerCase().includes(searchQuery) && 
+        (selectedGenre ? movie.genres.includes(selectedGenre) : true)
+    );
+
+    filteredMovies = filteredMovies.sort((a, b) => {
+        if (sortBy === 'title') return a.title.localeCompare(b.title);
+        if (sortBy === 'year') return a.year - b.year;
+        return 0;
+    });
+
+    renderFilteredMovies(filteredMovies);
+}
+
+searchBar.addEventListener('input', applyFiltersAndRender);
+genreFilter.addEventListener('change', applyFiltersAndRender);
+sortOptions.addEventListener('change', applyFiltersAndRender);
+
+
+}
+function navigateToPage() {
+        const dropdown = document.getElementById("genre-filter");
+        const selectedValue = dropdown.value;
+
+        if (selectedValue) {
+            window.location.href = selectedValue; // Navigon në faqen e zgjedhur
+        }
+    }
+    
+    $(document).ready(function () {
+        $("#footer").load("footer.html");
+    });
+    
+</script>
+    
+<div id="main">
+    <div id="content">
+        <div class="box">
+            <div class="head">
+                <p class="title">Action Movies, TV Shows</p>
+            </div>
+            <video autoplay class="video" playsinline muted loop>
+                <source src="assets/videos/home_alone.mp4" type="video/mp4">
+            </video>
+            <h1 class="titlee">Home Sweet Home Alone</h1>
+            <p class="p">
+                A married couple tries to steal back a valuable heirloom from a troublesome kid.<br><br>
+                <strong>Country:</strong> United States<br>
+                <strong>Genre:</strong> Comedy, Action, Family<br>
+                <strong>Release:</strong> 2021-11-12<br>
+                <strong>Director:</strong> Dan Mazer<br>
+                <strong>Production:</strong> 20th Century Studios, Hutch Parker Entertainment<br>
+                <strong>Cast:</strong> Ellie Kemper, Rob Delaney, Archie Yates<br>
+                <strong>Tags:</strong> watch home sweet home alone free, watch home sweet home alone hd, home sweet home alone online...
+            </p>
+        </div>
+
+        <!-- News Section -->
+        <div id="news">
+            <div class="head">
+                <a href="" class="news"><strong>NEWS!</strong></a>
+            </div>
+
+            <div class="content">
+                <p class="date">17.04.2019</p>
+                <h4>TAYLOR SWIFT</h4>
+                <p>Most of us are lucky if our Fourth of July party host remembers to buy enough ice to last the gang until after the fireworks go off...</p>
+                
+            </div>
+
+            <div class="content">
+                <p class="date">18.04.2019</p>
+                <h4>Michael Nyqvist Dies; Veteran Actor Was 56</h4>
+                <p>Michael Nyqvist, a Swedish actor who took on the lead role in the initial big screen adaption of The Girl with the Dragon Tattoo...</p>
+            
+            </div>
+
+            <div class="content">
+                <p class="date">20.04.2019</p>
+                <h4>Spider-Man: Homecoming is the latest film to feature trailer scenes you’ll never see</h4>
+                <p>In the official trailers for Spider-Man: Homecoming, the web-slinging superhero can be seen soaring through the sky next to Robert Downey Jr.’s Iron Man...</p>
+    
+            </div>
+        </div>
+
+        <!-- Coming Soon Section -->
+        <div id="coming">
+            <div class="head">
+                <a class="comming-soon" href="#">COMING SOON!</a>
+            </div>
+
+            <div class="content">
+                <h4>IRON MAN 4</h4>
+                <a href="#"><img src="assets/images/iron_man.png" width="200px" height="200px" alt="Iron Man 4"></a>
+                <p>When Marvel announced their massive Phase Three lineup back in October, the studio revealed nine movies that will conclude with the release of Avengers...</p>
+            </div>
+
+            <div class="content">
+                <h4>THOR RAGNAROK</h4>
+                <a href="#"><img src="assets/images/Thor_Ragnarok.png" width="200px" height="200px" alt="Thor Ragnarok"></a>
+                <p>Thor Ragnarok: is an upcoming American superhero film based on the Marvel Comics character Thor, produced by Marvel Studios...</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+    
 </body>
 </html>
