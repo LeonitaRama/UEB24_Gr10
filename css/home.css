@@ -441,6 +441,83 @@ section:nth-child(5){
     margin:5px 0;
 }
 
-.section-faq{
-    text-align:center;
+.section-faq {
+    text-align: center;
+}
+
+.accordion {
+    width: 100%;
+    font-size: 24px;
+    margin: 40px 0;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .accordion {
+        font-size: 18px;
+    }
+}
+
+.question {
+    position: relative;
+    background-color: #2d2d2d;
+    margin-bottom: 10px;
+}
+
+.question label:hover {
+    background-color: #444;
+}
+
+.question svg {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+}
+
+@media screen and (max-width: 600px) {
+    .question svg {
+        width: 20px;
+        height: 20px;
+        right: 20px;
+        top: 25px;
+    }
+}
+
+
+.question .title {
+    display: block;
+    padding: 24px 30px;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+
+.question .answer {
+    padding: 0px 30px;
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: all 0.2s ease;
+}
+
+.question .answer p {
+    margin-bottom: 20px;
+}
+
+.question input[type="checkbox"] {
+    display: none;
+}
+
+.question input[type="checkbox"]:checked ~ .answer {
+    max-height: 600px;
+    padding: 24px 30px;
+}
+
+.question input[type="checkbox"]:checked ~ .title svg {
+    transform: rotate(180deg);
 }
