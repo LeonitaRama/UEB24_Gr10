@@ -134,60 +134,173 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // tv shows 
-const mostWatchedActionTVShows = [
-    {
-        title: "Game of Thrones",
-        poster: "",
-    },
-    {
-        title: "The Flash",
-        poster: "",
-    },
-    {
-        title: "Arrow",
-        poster: "",
-    },
-    {
-        title: "Money Heist",
-        poster: "",
-    },
-    {
-        title: "Vikings",
-        poster: "",
-    },
-    {
-        title: "Prison Break",
-        poster: "",
-    },
-    {
-        title: "Teen Wolf",
-        poster: "",
-    },
-    {
-        title: "Daredevil",
-        poster: "",
-    },
-    {
-        title: "Shadowhunters",
-        poster: "",
-    },
-    {
-        title: "Agents of S.H.I.E.L.D.",
-        poster: "",
-    },
+const actionTvShows = [
+    { title: "Game of Thrones (2011–2019)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUgffoihYPEcEZH4D24OA-1Hnwz-SRN4DOmcABM6nro6l2D_yLYjNNFy_pOpOC9ABjXY2_" },
+    { title: "The Flash (2014–2023)", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRlTCLSubZKO6c7ZFrKQPRBx5-RR6OnThjbEvA2SJsht8BqyJrFE3Zu-tx-AHlKOfZEY_ji" },
+    { title: "Arrow (2012–2020)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ-VDcfa49vdlcYPnfq4cquVVbpENIXMJ4XUsKek5UdJ_FBnJvA" },
+    { title: "Money Heist (2017–2021)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTl6sB37QlR5nczz7EdqIGnSJImVW559wDdC-nh8wRZAMe2IRdmfL-J6ZGJhDFR-x1sxjml" },
+    { title: "Vikings (2013–2020)", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS0TWf71-1wFqUrtpKGGoUlew4pSbXPBfSbQrX95I6jKEi7bS3eoole8AsDJjm3qjz9VbuSnQ" },
+    { title: "Prison Break (2005–2017)", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQkrufuGorprDa66HYVd-pio7leaeSsfdf60VcmduuG1WOMAjMa4iaAwLrv2GyWUMFWxuks" },
+    { title: "Teen Wolf (2011–2017)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMw0yADrGDFmCbCp4CVpOHgtrQWygYi6FzM1o27JiBE-paPDUEcuyILjqql-xYtX-KN3yBhw" },
+    { title: "Daredevil (2015–2018)", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSNpQYY0bNtXn9BFNNRcIBQohcZ7GONWtVLFjN1Zk7FYQCKEQs9JQXN7rVarX3C2bQbx3IB" },
+    { title: "Shadowhunters: The Mortal Instruments (2016–2019)", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQRpebHSPFpk5EfO8VzVFeyKPcfzLi6nW8vrViL_BtP4LaitZsXyQ5A8YIL_382frbKQ9Xx" },
+    { title: "Agents of S.H.I.E.L.D. (2013–2020)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRL68t2ZjCCWIUIyrgAMsTXuUND0R1_mN32sfMHDuG3u5ykj6ccdpCSD5zs1dfMnA0gX_6oXg" }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    const tvShowsContainer = document.getElementById("tvShows");
+    const tvShowsContainer = document.getElementById("movieCards9");
 
-    mostWatchedActionTVShows.forEach(tvShow => {
+    actionTvShows.forEach(tvShow => {
         const card = document.createElement("div");
-        card.classList.add("tv-show");
+        card.classList.add("card");
         card.innerHTML = `
-            <a class="hovertext">
-                <img src="${tvShow.poster}" class="images" alt="${tvShow.title}">
-                <p>${tvShow.title}</p>
-            </a>
+                <img src="${tvShow.poster}" alt="${tvShow.title}">
+                <h3>${tvShow.title}</h3>
+    
+        `;
+        tvShowsContainer.appendChild(card);
+    });
+});
+
+
+// adventure tv shows
+const adventureTvShows = [
+    { title: "Critical Role (2015– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRXCsjd5oayqD2_xT2TrbUtIUL2ayX-aPyqcfS9gyKJZ790AX7iKbe67_eSl3X5dwbosVPY" },
+    { title: "Leyla ile Mecnun (2011–2023)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4Qap0CMLDq0JuU_rp2ND4Z9vnyCbIgq3-lt1LV8ZIJMGzRIcPtsiM5udgVpvOLYUmtJFI" },
+    { title: "Avatar: The Last Airbender", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToZB76af_zZ0PUR5Va_1YBA6zF_05cWDrlMQycy8_bHbzDCZNbLTe9FS6xHz1L_l9FxOG9YA" },
+    { title: "Bleach: Thousand-Year Blood War (2022– )", poster: "https://upload.wikimedia.org/wikipedia/en/a/a2/Bleach_Thousand-Year_Blood_War.png" },
+    { title: "Attack on Titan (2013–2023)", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSgVLwmeJQBHNxGE8AMaCGWQLWoCUZMFJvuJy0nKdDfSnSXITF69Ivwb1qqnZNgyloaCKPo" },
+    { title: "Firefly (2002–2003)", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRlcvfhAo3DpITnH3veK8u5twq9neIeKMYAtC42U-I9wqbvxDCLp1xtzTuWV7Pr7K0zfJCCpg" },
+    { title: "The Mandalorian (2019– )", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPz4zyHFlnCZr0RuXDKfJOhPB83w0jh_RJ1utNuTGMd1-apSkHVSGEsfZ17_D31rtkhQpZ" },
+    { title: "Batman: The Animated Series", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSIih2Bop0-x3cs6qem0xPuddkp9A_OwiL3fEVQ3QRaDbkdkFuM984FpMGQx1Qmucd8JTRM" },
+    { title: "Vinland Saga (2019– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQoYjLSrB31aVvik3mfbRBI7fpVJsU--4jcfYUK_NOVvUQ5ZuvwF9z00HbbI3KGVxQ72rcr1A" },
+    { title: "Agents of S.H.I.E.L.D. (2013–2020)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRL68t2ZjCCWIUIyrgAMsTXuUND0R1_mN32sfMHDuG3u5ykj6ccdpCSD5zs1dfMnA0gX_6oXg" }
+];
+document.addEventListener('DOMContentLoaded', () => {
+    const tvShowsContainer = document.getElementById("movieCards10");
+
+    adventureTvShows.forEach(tvShow => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+                <img src="${tvShow.poster}" alt="${tvShow.title}">
+                <h3>${tvShow.title}</h3>
+    
+        `;
+        tvShowsContainer.appendChild(card);
+    });
+});
+
+//animated tv shows
+const animatedTvShows = [
+    { title: "The Legend of Hanuman (2021– )", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTg4ua0BKEy-JUUkyXrd738mImlZl3KMCqI0nVpMrh79cDh26R9WEqypsCXztQ2BhBomdx" },
+    { title: "Fullmetal Alchemist: Brotherhood (2009–2010)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw_Hu-6t7gkTxJQugZTKd4yF2gcZPthydoFFXWJXYw3PQnmE3aaqeYJVTsCXGlk6Zmqy0FYw" },
+    { title: "Arcane (2021– )", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnDAwNU_4d1MjmGSdMlbJhYXdaqnd9cWWg7WqrTh-d6G2DxOCmKBncQZ34LvniBPNeR2IZ" },
+    { title: "Hunter x Hunter (2011–2014)", poster: "https://imgsrv.crunchyroll.com/cdn-cgi/image/fit=contain,format=auto,quality=85,width=480,height=720/catalog/crunchyroll/cbb55a6382682bf71e91f685c6473c5a.jpg" },
+    { title: "Attack on Titan (2013–2023)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoD-bfHsRbpFuE6CjsehCYoK6KUrh7Tl8omNb3QNxctC23SqWnFxPdmU-RNBXZKO2hGBFCDzWC7mPQyVqlHwK3ZZuyWFbTd0xbE8Cr-kk" },
+    { title: "Gravity Falls (2012–2016)", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ9gELppedrzSNbN96GhQc5jfcooUOwJnJUI2wHmyrwp6aY3Bf8VvLbWBWfOlEavclheYKH9g" },
+    { title: "Demon Slayer: Kimetsu no Yaiba (2019– )", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRStXkFh69hIaeSQm4grXfO1kjluRl4BiKT-vIPZVrF7ilw6XNU" },
+    { title: "The Simpsons (1989– )", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ2F7SxsQTsGg0y-hf4Hl6T1JnuTpezAL5YdYqM0o1RA6yvFl5pWaQT6vdtyhc2KuRL5pAn" },
+    { title: "Vinland Saga (2019– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQoYjLSrB31aVvik3mfbRBI7fpVJsU--4jcfYUK_NOVvUQ5ZuvwF9z00HbbI3KGVxQ72rcr1A" },
+    { title: "Naruto: Shippuden (2007–2017)", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQLxStja2783Lz8sxOn_RN3sGt02cK6TQC8eGynmfoc3jgsc-K_EeIPwkf5efdVrxir96H8dw" }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tvShowsContainer = document.getElementById("movieCards11");
+
+    animatedTvShows.forEach(tvShow => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+                <img src="${tvShow.poster}" alt="${tvShow.title}">
+                <h3>${tvShow.title}</h3>
+    
+        `;
+        tvShowsContainer.appendChild(card);
+    });
+});
+
+//comedy tv shows 
+const comedyTvShows = [
+    { title: "Kota Factory (2019–2021)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTZuoUSwTMdgYjIZglurAETKajn9xf-y4GJAv-mwktLXysJtMDxRxCG7_xwi6xAmhAnEUie" },
+    { title: "Fullmetal Alchemist: Brotherhood (2009–2010)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRw_Hu-6t7gkTxJQugZTKd4yF2gcZPthydoFFXWJXYw3PQnmE3aaqeYJVTsCXGlk6Zmqy0FYw" },
+    { title: "Taskmaster (2015– )", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSPUgyT0ih6Z6gAVW0n09PHaDp4G-MLUfntR2avE7N29F0uUlUwFl1qHrGDPoBIq5rN57_J" },
+    { title: "As If (2021– )", poster: "https://m.media-amazon.com/images/M/MV5BOWY0ZGIyZjAtZDIxMC00NTY4LTgyNDEtYmMwMzBmNmQ0MmE1XkEyXkFqcGc@._V1_.jpg" },
+    { title: "Clarkson's Farm (2021– )", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyfCBtVhEskJxPfUelwKnXycX7PEL9JYbOQeanrJvHXUTwpyHSzrFUUIkGyCzs7QBPJKlIg" },
+    { title: "Only Fools and Horses (1981–2003)", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRds317XGUKoPGCxvTyef6wq-f5NMb6589q-hADqqA8vjKSg8ifLQrE8CkHnTHDrHLXW9zRQQ" },
+    { title: "Last Week Tonight with John Oliver", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfNdRJpe3XLoh6tejrhLoOV8aTnIFjnlU13I9vqDI3r4R4lO_C" },
+    { title: "Nathan for You (2013–2017)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQujKQokWHmdB44jQ6p3Mo8ic_2r2dxXgJ3kWGSQI1pW9DDPCuh1ryYrnFC8odcJD0uvfKYtQ" },
+    { title: "Content Cop (2015– )", poster: "https://m.media-amazon.com/images/M/MV5BZTM1YzExMTAtMDA3Zi00ZWRkLThmYTEtOGI4NzY3Yjg1MzYwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" },
+    { title: "Still Game (2002–2019)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrrYqHrmqjDK9gHh-GtONBJe4G9bTyvTKZQEQj44p_flLBHt_pk5fz3vrkyAjhqOH9Ky_s" }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tvShowsContainer = document.getElementById("movieCards12");
+
+    comedyTvShows.forEach(tvShow => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+                <img src="${tvShow.poster}" alt="${tvShow.title}">
+                <h3>${tvShow.title}</h3>
+    
+        `;
+        tvShowsContainer.appendChild(card);
+    });
+});
+
+
+//horror tv shows
+const horrorTvShows = [
+    { title: "The Twilight Zone (1959–1964)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS67q5UsA7pNCQgsZLzE8HPk4xjJBdC6FET17IDno4pwmGPOEuSL3MfQg6f7TLq7u0JsYWn" },
+    { title: "Stranger Things (2016– )", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQWPh6PeuTgtO_Zzmap6eXJrwBro7Rpz-VOBSqo_7j1-CW9rmEhD0fGArmbXSoWphgcr4ml" },
+    { title: "What We Do in the Shadows (2019– )", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT6il666NFRTU6KTYbU4mLkckPRuhqPAgf2ewNHQKSSaviBH-06SoKlnCIE7PNRqTyC0XYh" },
+    { title: "The Haunting of Hill House (2018)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS7AnpEUlboxiacoorBxC4Rvlzjs3ADiEKfP4i3CIvyBihCmFdIG8JKekE7ZacRYela6bOR" },
+    { title: "Inside No. 9 (2014– )", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRsB1j2-J2HerLFhD0dMCQNlsQ6hT7bRktyiGdwDaILg1MjqVAEXkJbt1XDm8cUWoiDfY7s" },
+    { title: "Hannibal (2013–2015)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS10iPivEBdI0HVfJbbfBeU41FDm3XJmVl4V-ITg3E6oEKWJiWsy8Yb0Fjb4Sgp1fH_ccfH" },
+    { title: "Twin Peaks (2017)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrfvA9Y5LeZvmEuN8Z1JC4iBCssSHclIUUErCeNVSx95rx7ZynZaeGT0WzD8_Iop3H9aNm" },
+    { title: "Kolchak: The Night Stalker", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTg8ZCEZXFEvNZ2k8uVUrwk35TNB1eoMsvnECTrATBsHxuHZtcMa9l2CQxoYp_6GeB6alh0" },
+    { title: "Supernatural (2005–2020)", poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ6ZHgbjCxAOoJ1GrM79FEqBI8xIUBfToUlcrpFNFu_YSIs2WaVFAk4bOy8IzWD_cp2nhj79A" },
+    { title: "The League of Gentlemen (1999–2017)", poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnfO2dM5IJ_Ju7YcC8RwJONwLWFW8Tq-2b6wLLjC6seAO2OPmi" }
+];
+document.addEventListener('DOMContentLoaded', () => {
+    const tvShowsContainer = document.getElementById("movieCards13");
+
+    horrorTvShows.forEach(tvShow => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+                <img src="${tvShow.poster}" alt="${tvShow.title}">
+                <h3>${tvShow.title}</h3>
+    
+        `;
+        tvShowsContainer.appendChild(card);
+    });
+});
+
+//reality tv show 
+const realityTvShows = [
+    { title: "The Great British Bake Off (2010– )", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQRNPvb-UX_AAH9_8UNjqLMqt5ml3Hz1vMlGuPQ2sei6UFmRO-SlAPmdDopeXO2OuaiX7I-" },
+    { title: "Top Gear (2002– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQT6xFJKILSetpRA3Dcsv1mYfqufy8nS9GWJof_RZZeFuF2oD3Ya3TeCLBq1FLdbHhwWKM1tQ" },
+    { title: "Impractical Jokers (2011– )", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQc3oajsp3A_z_BrEXkQjAQgU8Hi_g_j0GsnbVOYL-fhOwoFVClIuE0fPi2k5uY4BfYzeXkIw" },
+    { title: "Car Masters: Rust to Riches (2018– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSz4Tf7Iqex8ouPKU0Yol4S5apgLrWqS5tRopl9WeTTuOmnTTvE7q08P5rNYqOPKbrgn0Cc" },
+    { title: "Face Off (2011–2018)", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQdANL-R0adArMMxyRXS-s4j61q7eroObBtY1cXGZBHXQiNFjlf463ddc4ebvg9yRtmhAqF8g" },
+    { title: "Down to Earth with Zac Efron (2020– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT6-b7crSfKXKpX134y69wNlosh9Sz1gpXCYfB1dyfNv8ooxvflOgzb88fUAA3Az9sXOl0eBg" },
+    { title: "Ramsay's Kitchen Nightmares", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSoDO5PBH0qi7DCpmqZn_lbhNN-S5Ft757MYS9DXBGlcXWvGr3YKLD9suW4E_hg4tZ4h_CSBg" },
+    { title: "Ghost Adventures (2008– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRK918i7CfTJQp_cSd3t1xprH8AC0w-eqS61j9KBW6hSPrd3vADtk0kEpG_FusXYs9L2Z4Z" },
+    { title: "Man v. Food (2008– )", poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQIbKx2a7QHpXWBA0PM0dKkg6pE3GDidVOnDBXfz9O4Ajka97xzM4-Ye4yvpWPiGf91H3Vo" },
+    { title: "Gold Rush: Alaska (2010– )", poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR_9vFPcTO1WCDjYUU0pKGTnVy6qf19wxfuV_iNxoJY2oSYf2eWh9DQONuwLTS3-315a9wemQ" }
+];
+document.addEventListener('DOMContentLoaded', () => {
+    const tvShowsContainer = document.getElementById("movieCards14");
+
+    realityTvShows.forEach(tvShow => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+                <img src="${tvShow.poster}" alt="${tvShow.title}">
+                <h3>${tvShow.title}</h3>
+    
         `;
         tvShowsContainer.appendChild(card);
     });
