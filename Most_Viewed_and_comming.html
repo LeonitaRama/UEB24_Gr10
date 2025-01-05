@@ -127,6 +127,7 @@
                   <i class="fas fa-circle"></i>
                   <a>Horror,Thriller</a>
                 </div>
+                <a href="#" class="watch-trailer" id="watchDaftState">Watch Trailer</a>
               </div>
             </div>
           </div>
@@ -143,6 +144,7 @@
                   <i class="fas fa-circle"></i>
                   <a>Sci-Fi, Adventure, Action</a>
                 </div>
+                <a href="#" class="watch-trailer" id="watchDunePartII">Watch Trailer</a>
               </div>
             </div>
           </div>
@@ -158,6 +160,7 @@
                   <i class="fas fa-circle"></i>
                   <a>Drama</a>
                 </div>
+                <a href="#" class="watch-trailer" id="watchTheBrutalist">Watch Trailer</a>
               </div>
             </div>
           </div>
@@ -173,6 +176,7 @@
                   <i class="fas fa-circle"></i>
                   <a>Action</a>
                 </div>
+                <a href="#" class="watch-trailer" id="watchIOrigins">Watch Trailer</a>
               </div>
             </div>
           </div>
@@ -188,6 +192,7 @@
                   <i class="fas fa-circle"></i>
                   <a>Mystery, Thriller, Horror</a>
                 </div>
+                <a href="#" class="watch-trailer" id="watchHeretic">Watch Trailer</a>
               </div>
             </div>
           </div>
@@ -205,6 +210,7 @@
                   <i class="fas fa-circle"></i>
                   <a>Adventure, Comedy</a>
                 </div>
+                <a href="#" class="watch-trailer" id="watchPaddington">Watch Trailer</a>
               </div>
             </div>
           </div>
@@ -277,6 +283,54 @@
         if (event.target === modal) {
             modal.style.display = 'none';
             video.pause();
+        }
+    };
+});
+
+
+// per Trailer
+
+$(document).ready(function() {
+    // Modal video
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('videoElement');
+    const closeModal = document.getElementById('closeModal');
+
+    const movies = [
+        { id: 'watchDaftState', videoSrc: 'assets/videos/daftState.mp4' },
+        { id: 'watchDunePartII', videoSrc: 'assets/videos/dunePartII.mp4' },
+        { id: 'watchTheBrutalist', videoSrc: 'assets/videos/TheBrutalist.mp4' },
+        { id: 'watchIOrigins', videoSrc: 'assets/videos/IOrigins.mp4' },
+        { id: 'watchHeretic', videoSrc: 'assets/videos/Heretic.mp4' },
+        { id: 'watchPaddington', videoSrc: 'assets/videos/Paddington.mp4' }
+    ];
+
+    // Lidhni ngjarjet për secilin link
+    movies.forEach(movie => {
+        const trailerLink = document.getElementById(movie.id);
+        if (trailerLink) {
+            trailerLink.onclick = function (event) {
+                event.preventDefault(); // Parandaloni veprimin e lidhjes për të mos kaluar në ndonjë vend tjetër
+                modal.style.display = 'block'; // Shfaqni modalin
+                video.src = movie.videoSrc; // Vendosni burimin e videos
+                video.play(); // Luani videon
+            };
+        }
+    });
+
+    // Mbyllni modalin
+    closeModal.onclick = function () {
+        modal.style.display = 'none';
+        video.pause();
+        video.src = ''; // Ndalo videon dhe hiqni burimin
+    };
+
+    // Mbyllni modalin kur klikoni jashtë
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+            video.pause();
+            video.src = ''; // Ndalo videon dhe hiqni burimin
         }
     };
 });
