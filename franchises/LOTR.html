@@ -28,17 +28,23 @@
         const lotrMovies = [
             {
                 name: "The Lord of the Rings: The Fellowship of the Ring",
-                poster: ""
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQo30od32lIWQa6zwGGRoYSCd4k80Qbmk8GK_JuvOARWapL5DaYxSIVH9D8qJCrdBxZvqx54A"
             },
             {
                 name: "The Lord of the Rings: The Two Towers",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRvFrMfqvfc3nB8tzVFSYM_NTi-3IIPRgxhsMVq41WznXOineU_Uj1EvWhdFpOdLSJ0pL48"
             },
             {
                 name: "The Lord of the Rings: The Return of the King",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQQc9TF2jMcUd4xoSyvFS1be_J9C1jHLjm4FTAqmBJs9jcBLzOJoSvylFlc5zMbVnh0LofggQ"
             }
         ];
+
+        const h1 = document.createElement("h1");
+h1.textContent = "LORD OF THE RINGS Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const movieCardsContainer = document.getElementById("movieCards1");
