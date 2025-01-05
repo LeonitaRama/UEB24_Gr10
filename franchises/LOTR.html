@@ -8,23 +8,25 @@
     <link rel="stylesheet" href="../css/franchises.css">
     <link rel="stylesheet" href="../css/movies.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script src="../js/jquery.js"></script> 
-    <link rel="stylesheet" href="../css/returnToTop.css"> 
+    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="../css/returnToTop.css">
+    <link rel="stylesheet" href="../css/nav.css">
 </head>
 
 <body>
-    
-        <div class="return-to-top"> 
-            <img src="../assets/images/returnToTop.png" alt=""> 
-        </div>
+    <div id="navbar"></div>
+
+    <div class="return-to-top">
+        <img src="../assets/images/returnToTop.png" alt="">
+    </div>
     <div id="franchises"></div>
     <div class="movie-cards" id="movieCards1"></div>
     <div id="footer"></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
-    </script>
-      <script>
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <script>
         const lotrMovies = [
             {
                 name: "The Lord of the Rings: The Fellowship of the Ring",
@@ -41,9 +43,9 @@
         ];
 
         const h1 = document.createElement("h1");
-h1.textContent = "LORD OF THE RINGS Movies in Order of Release:";
-h1.classList.add("titles");
-document.body.insertBefore(h1, document.getElementById("movieCards1"));
+        h1.textContent = "LORD OF THE RINGS Movies in Order of Release:";
+        h1.classList.add("titles");
+        document.body.insertBefore(h1, document.getElementById("movieCards1"));
 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -63,9 +65,10 @@ document.body.insertBefore(h1, document.getElementById("movieCards1"));
         console.log(lotrMovies);
     </script>
     <script>
-        $(function(){
+        $(function () {
             $("#franchises").load("nav.html");
             $("#footer").load("footer.html");
+            $("#navbar").load("navbar.html");
         })
     </script>
 </body>

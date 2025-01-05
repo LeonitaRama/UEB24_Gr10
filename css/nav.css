@@ -5,3 +5,147 @@
     justify-content: space-between;
     padding:25px 0;
 }
+.language-btn{
+font-family: 'Times New Roman', Times, serif;
+}
+
+.Home{
+    padding-left:45px;
+    text-decoration:none;
+    text-align:center;
+    color:white;
+    font-size:22px;
+}
+.Genre{
+    padding-left:45px;
+    text-decoration:none;
+    text-align:center;
+    color:white;
+    font-size:22px;
+}
+.dropdown{
+    display:inline-block;
+    position:relative;
+}
+.dropdown-content{
+    display:none;
+    position:absolute;
+    width:100%;
+    overflow:auto;
+    box-shadow:0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+.dropdown-content a {
+display: block;
+color:white;
+padding:5px;
+text-decoration:none;
+}
+
+.dropdown-content a:hover{
+    color:#FFFFFF;
+    background-color:#00A4BD;
+}
+
+.Book-Ticket{
+    padding-left: 45px;
+    text-decoration:none;
+    color:white;
+    font-size:22px;
+    text-align:center;
+}
+
+.In-Theaters{
+    padding-left:45px;
+    text-decoration:none;
+    color:white;
+    font-size:22px;
+    text-align:center;
+}
+
+.dropdown1{
+    display:inline-block;
+    position:relative;
+}
+.dropdown-content1{
+    display:none;
+    position:absolute;
+    width:100%;
+    overflow:auto;
+    box-shadow:0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+.dropdown1:hover .dropdown-content1{
+    display:block;
+}
+.dropdown-content1 a{
+    display:block;
+    color:white;
+    padding:5px;
+    text-decoration:none;
+}
+
+.dropdown-content1 a:hover{
+    color:#FFFFFF;
+    background-color:#00A4BD;
+}
+
+.logo{
+    margin-right:auto;
+}
+
+.logo svg{
+    fill:#e50914;
+    height:40px;
+}
+
+@media screen and (max-width:600px){
+    .logo svg{
+        height:24px;
+    }
+}
+
+.select-box{
+    position:relative;
+}
+
+.select-box svg{
+    height:20px;
+    position:absolute;
+    top:5px;
+    left:5px;
+}
+
+select{
+    display:inline-block;
+    cursor:pointer;
+    font-size:14px;
+    color:#fff;
+    background:transparent;
+    border:1px solid #fff;
+    padding:6px 0px 6px 20px;
+    border-radius:3px;
+}
+
+select option{
+    color:#000;
+}
+
+.signin-btn{
+    display:inline-block;
+    font-size:14px;
+    font-weight:700;
+    text-transform: capitalize;
+    background-color: #e50914;
+    color:#fff;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:3px;
+    margin-left:20px;
+}
+
+.signin-btn:hover{
+    background-color:#b80f17;
+    transition-timing-function: cubic-bezier(0.5,0,0.1,1);
+}

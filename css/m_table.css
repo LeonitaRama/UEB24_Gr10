@@ -114,7 +114,7 @@ tbody tr:hover {
     color: #006b21;
 }
 
-.status.wait {
+.status.Soon {
     background-color: #f2c2c2;
     color: #d30000;
 }

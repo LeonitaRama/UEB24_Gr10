@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="../css/footer.css">
     <script src="../js/jquery.js"></script>
     <link rel="stylesheet" href="../css/returnToTop.css">
+    <link rel="stylesheet" href="../css/nav.css">
 </head>
+
 <body>
     <div class="return-to-top">
         <img src="../assets/images/returnToTop.png" alt="">
@@ -72,9 +74,9 @@
         ];
 
         const h1 = document.createElement("h1");
-h1.textContent = "HARRY POTTER Movies in Order of Release:";
-h1.classList.add("titles");
-document.body.insertBefore(h1, document.getElementById("movieCards1"));
+        h1.textContent = "HARRY POTTER Movies in Order of Release:";
+        h1.classList.add("titles");
+        document.body.insertBefore(h1, document.getElementById("movieCards1"));
 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -98,6 +100,8 @@ document.body.insertBefore(h1, document.getElementById("movieCards1"));
             $("#franchises").load("nav.html");
             $("#footer").load("footer.html");
             $("#navbar").load("navbar.html");
+            // $("#nav").load("nav1.html");
+
         })
     </script>
 </body>
