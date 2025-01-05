@@ -93,6 +93,12 @@
                 ]
             }
         ];
+        const h1 = document.createElement("h1");
+h1.textContent = " MCU Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
+       
         const movieCardsContainer = document.getElementById("movieCards1");
 
 mcuMovies.forEach(phase => {

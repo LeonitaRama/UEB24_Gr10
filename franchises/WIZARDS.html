@@ -27,49 +27,55 @@
         const wizardsMovies = [
             {
                 name: "Harry Potter and the Sorcerer's Stone",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQttbZNVGzKnwLBGXrKBkt0VY2J2DubjnH_lSQrJCzdSf5fe4OK8yUM27EYhteFc68Ii7Xr9g"
             },
             {
                 name: "Harry Potter and the Chamber of Secrets",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT1rI0fB3GdfQCFT3HYWrIIreGt74rV1R0n8JgYUmXtzMeOCdIKv4MdmSafc0hi7DksbRtO"
             },
             {
                 name: "Harry Potter and the Prisoner of Azkaban",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTgkdZmW7dz8EAUAZ_QfYb_fUa0_Nd4jmHCD6wKjjVIuS4ci-J5ChWg630iacWfrAU9Ko_lng"
             },
             {
                 name: "Harry Potter and the Goblet of Fire",
-                poster: ""
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRIb7EKKYfM0tX2pE8nrzP-LBo3AiBgLyJN_HuKX7GId7Ca84Ygzf8tTQ-rmcr4SG5Uww08yw"
             },
             {
                 name: "Harry Potter and the Order of the Phoenix",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTMf2sXnLj2uQ9eqOTGYN5Djelr3u2ElmI2pJM6t5cGjcXs1IvRHeFUmOpNTVyaQj1OMYl-"
             },
             {
                 name: "Harry Potter and the Half-Blood Prince",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRmEWCMAR_SUEbl3RLJHIYw6quK9FIPGWOLtrssF67JlMIrSR3Yxq7gUJTl9QXeNjI3fOCb"
             },
             {
                 name: "Harry Potter and the Deathly Hallows – Part 1",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRowc4eNtwSbKVY8dCK_7tJdvEBvOJVeoEVYRfKyw5bmULXTi7rVdP-ep48vQZ75hhYjGc3XQ"
             },
             {
                 name: "Harry Potter and the Deathly Hallows – Part 2",
-                poster: ""
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR7IsRTCN9kgxrFWCoOgRmSwVyCC6bvh6u6BN2PWWIhZ-daA6OJZBwEjre3XLvA6zeeZrAwQg"
             },
             {
                 name: "Fantastic Beasts and Where to Find Them",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQXZKllInL8mVUvDMAIMjVjs48O1OsNbiFgzPDmXuLZaeyhUpu-C2h_7lO0sMy3ZECNDIvl7A"
             },
             {
                 name: "Fantastic Beasts: The Crimes of Grindelwald",
-                poster: ""
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcST1Fnpg2oYm-YBRUciXI0AYPEhZkddxsCo-De_5TpSfbwkKp3a44v0wt_VZcq1JygHofQx"
             },
             {
                 name: "Fantastic Beasts: The Secrets of Dumbledore",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF4F54NXVsFFYvZP_H1XreKBCcwOWz1FoM6tOAhIobYCQQkN4IYMLQ7-tiIJvvVh0dbKOyMA"
             }
         ];
+
+        const h1 = document.createElement("h1");
+h1.textContent = "HARRY POTTER Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const movieCardsContainer = document.getElementById("movieCards1");

@@ -1,81 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-* {
-    box-sizing: border-box;
-    padding-left: 0;
-    margin:0;
-}
-
-body{
-    font-family: "Roboto",sans-serif;
-    font-weight: 400;
+ body {
+    font-family: 'Roboto', sans-serif;
     background-color: #000;
-    color:#fff;
+    color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
-.container{
-    max-width: 1280px;
-    margin:auto;
-    padding:0px 3%;
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-li{
-    list-style:none;
-}
-a{
-    text-decoration: none;
-    color:red;
-
-}
-
-h1{
-    font-size:50px;
-    font-weight: 700;
-    margin-bottom: 16px;
-}
-
-h2{
-    font-size:30px;
-    font-weight: 400;
-    margin-bottom:40px ;   
+.header {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+        url('https://assets.nflxext.com/ffe/siteui/vlv3/83e8c151-107d-4e8f-b95a-d2ba99d49bb9/7a0bd648-8238-4134-b486-e7ff5cbaa56e/US-en-20230213-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
 
-h3{
+.movie-card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    color:rgb(186, 183, 183);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.movie-card h2 {
     font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 20px;
+    margin: 10px 0;
 }
 
-@media screen and (max-width:600px){
-    h1{
-        font-size: 32px;
-    }
-    h2,h3{
-        font-size: 18px;
-    }
-}
-
-.class{
-    padding-left: 100px;
-    padding-right: 100px;
-    text-align: center;
-}
-
-.Book-Ticket-btn{
-    display: inline-block;
+.movie-card p {
     font-size: 14px;
-    font-weight: 700;
-    text-transform: capitalize;
-    background-color: red;
-    color:white;
-    text-decoration: none;
-    padding:8px 16px;
-    border-radius: 3px;
-    margin-left: 7px;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
+.movie-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    font-size: 14px;
+}
 
-.Book-Ticket-btn:hover{
-    background-color: rgb(140, 35, 35);
-    transition-timing-function: cubic-timing-function(0.5,0,0.1,1);
+.movie-card li {
+    margin-bottom: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.show-more-btn {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.show-more-btn:hover {
+    background-color: #0056b3;
+}
+
+.book-ticket-btn {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.book-ticket-btn:hover {
+    background-color: darkred;
 }
