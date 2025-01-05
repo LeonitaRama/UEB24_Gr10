@@ -1,15 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV-Shows</title>
     <script src="./js/jquery.js"></script>
     <link rel="stylesheet" href="./css/returnToTop.css">
+    <link rel="stylesheet" href="./css/movies.css">
+    <script type="text/javascript" src="./js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./css/footer.css">
 </head>
+
 <body>
     <div class="return-to-top">
         <img src="./assets/images/returnToTop.png" alt="">
     </div>
+
+    <ul class="navbari" role="tablist">
+        <li>
+            <button class="nav-link active" role="tab" aria-selected="true" aria-controls="Action"
+                data-page="0">Action</button>
+        </li>
+        <li>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="Adventure" data-page="1">Top
+                Adventure</button>
+            </li>
+            <li>
+                <button class="nav-link" role="tab" aria-selected="false" aria-controls="showAnimated" 
+                data-page="2">Animated</button>
+        </li>
+        <li>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="Comedy"
+                data-page="3">Comedy</button>
+        </li>
+        <li>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="Horror"
+                data-page="3">Horror</button>
+        </li>
+        <li>
+            <button class="nav-link" role="tab" aria-selected="false" aria-controls="Reality-TV"
+                data-page="3">Reality-TV</button>
+        </li>
+    </ul>
+    
+<div id="Action" role="tabpanel" tabindex="0" aria-labelledby="Action-tab">
+    <h3 style="color: white; text-align: center; 
+    font-size: xx-large; margin: 50px 0;">Action</h3>
+    <div class="movie-cards" id="movieCards9"></div>
+</div>
+
+<div id="Adventure" role="tabpanel" tabindex="1" aria-labelledby="Adventure-tab" hidden>
+    <h3 style="color: white; text-align: center; 
+    font-size: xx-large; margin: 50px 0;">Adventure</h3>
+    <div class="movie-cards" id="movieCards10"></div>
+</div>
+
+<div id="showAnimated" role="tabpanel" tabindex="2" aria-labelledby="showAnimated-tab" hidden>
+
+    <h3 style="color: white; text-align: center; 
+    font-size: xx-large; margin: 50px 0;">Animated tv Shows</h3>
+    <div class="movie-cards" id="movieCards11"></div>
+</div>
+
+<div id="Comedy" role="tabpanel" tabindex="3" aria-labelledby="Comedy-tab" hidden>
+    <h3 style="color: white; text-align: center; 
+    font-size: xx-large; margin: 50px 0;">Comedy</h3>
+    <div class="movie-cards" id="movieCards12"></div>
+</div>
+
+<div id="Horror" role="tabpanel" tabindex="4" aria-labelledby="Horror-tab" hidden>
+    <h3 style="color: white; text-align: center; 
+    font-size: xx-large; margin: 50px 0;">Horror</h3>
+    <div class="movie-cards" id="movieCards13"></div>
+</div>
+
+<div id="Reality-TV" role="tabpanel" tabindex="5" aria-labelledby="Reality-TV-tab" hidden>
+    <h3 style="color: white; text-align: center; 
+    font-size: xx-large; margin: 50px 0;">Reality-TV</h3>
+    <div class="movie-cards" id="movieCards14"></div>
+</div>
+<div id="footer"></div>
+<!-- Footer - Load -->
+<script>
+
+    $(function () {
+        $("#footer").load("footer.html");
+    })
+    $(function () {
+        $(".nav-link").hide(2).show(2000);
+    });
+</script>
 </body>
+
 </html>
