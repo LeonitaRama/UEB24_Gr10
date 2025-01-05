@@ -6,74 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/franchises.css">
-<link rel="stylesheet" href="../css/movies.css">
-<script src="../js/jquery.js"></script> 
-<link rel="stylesheet" href="../css/returnToTop.css"> 
+    <link rel="stylesheet" href="../css/movies.css">
+    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="../css/returnToTop.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
 </head>
 
 <body>
-    
-        <div class="return-to-top"> 
-            <img src="../assets/images/returnToTop.png" alt=""> 
-        </div>
+    <div id="navbar"></div>
+
+    <div class="return-to-top">
+        <img src="../assets/images/returnToTop.png" alt="">
+    </div>
     <div id="franchises"></div>
     <div class="movie-cards" id="movieCards1"></div>
     <div id="footer"></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
-    </script>
-        <script>
-            const piratesOfTheCaribbeanMovies = [
-                {
-                    name: "Pirates of the Caribbean: The Curse of the Black Pearl",
-                    poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQT8Jo9NaRJZCjwve-zYih5Ut9pn010OUkaFh0Aw3RktQgfUIU6zqbutcs0EhAtsClj_Ad8Ag"
-                },
-                {
-                    name: "Pirates of the Caribbean: Dead Man's Chest",
-                    poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQec56pHDHp3QcsVmP9ZsI6fSw0HJHKiqf98fcnpYiUaXPDmm08e0z4wH4756P-qleyJme4iQ"
-                },
-                {
-                    name: "Pirates of the Caribbean: At World's End",
-                    poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSegWB2p5Fy9ADi1AoD7g_tfM5pvRi19QhTnlucOdvDndf_cWv5mDs6_Z__LlwlZu-WwcWN"
-                },
-                {
-                    name: "Pirates of the Caribbean: On Stranger Tides",
-                    poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSumCv6oxURZvO_NbKoVtT9iOh6tM1UpXV_04JGz2x9w6bXQNsxKNHAQ_szhmDtrOwdKAqh"
-                },
-                {
-                    name: "Pirates of the Caribbean: Dead Men Tell No Tales",
-                    poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_WuQDqN5zceCmGqozD2_y2WtsnguFaE5ph7hRJ8gQO2CpXHcaisHHUJ_GTcIwKZyWjwcTRQ"
-                }
-            ];   
-            
-            const h1 = document.createElement("h1");
-h1.textContent = "PIRATES OF THE CARIBBEAN Movies in Order of Release:";
-h1.classList.add("titles");
-document.body.insertBefore(h1, document.getElementById("movieCards1"));
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <script>
+        const piratesOfTheCaribbeanMovies = [
+            {
+                name: "Pirates of the Caribbean: The Curse of the Black Pearl",
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQT8Jo9NaRJZCjwve-zYih5Ut9pn010OUkaFh0Aw3RktQgfUIU6zqbutcs0EhAtsClj_Ad8Ag"
+            },
+            {
+                name: "Pirates of the Caribbean: Dead Man's Chest",
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQec56pHDHp3QcsVmP9ZsI6fSw0HJHKiqf98fcnpYiUaXPDmm08e0z4wH4756P-qleyJme4iQ"
+            },
+            {
+                name: "Pirates of the Caribbean: At World's End",
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSegWB2p5Fy9ADi1AoD7g_tfM5pvRi19QhTnlucOdvDndf_cWv5mDs6_Z__LlwlZu-WwcWN"
+            },
+            {
+                name: "Pirates of the Caribbean: On Stranger Tides",
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSumCv6oxURZvO_NbKoVtT9iOh6tM1UpXV_04JGz2x9w6bXQNsxKNHAQ_szhmDtrOwdKAqh"
+            },
+            {
+                name: "Pirates of the Caribbean: Dead Men Tell No Tales",
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_WuQDqN5zceCmGqozD2_y2WtsnguFaE5ph7hRJ8gQO2CpXHcaisHHUJ_GTcIwKZyWjwcTRQ"
+            }
+        ];
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const movieCardsContainer = document.getElementById("movieCards1");
-    
-                piratesOfTheCaribbeanMovies.forEach(movie => {
-                    const card = document.createElement("div");
-                    card.classList.add("card");
-                    card.innerHTML = `
+        const h1 = document.createElement("h1");
+        h1.textContent = "PIRATES OF THE CARIBBEAN Movies in Order of Release:";
+        h1.classList.add("titles");
+        document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const movieCardsContainer = document.getElementById("movieCards1");
+
+            piratesOfTheCaribbeanMovies.forEach(movie => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
                         <img src="${movie.poster}" alt="${movie.name}">
                         <h3>${movie.name}</h3>
                     `;
-                    movieCardsContainer.appendChild(card);
-                });
+                movieCardsContainer.appendChild(card);
             });
-    
-            console.log(piratesOfTheCaribbeanMovies);
-        </script>
+        });
+
+        console.log(piratesOfTheCaribbeanMovies);
+    </script>
     <script>
-        $(function(){
+        $(function () {
             $("#franchises").load("nav.html");
             $("#footer").load("footer.html");
+            $("#navbar").load("navbar.html");
         })
-        </script>
+    </script>
 </body>
 
 </html>

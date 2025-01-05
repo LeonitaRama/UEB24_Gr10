@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="../footer.html">
     <script src="../js/jquery.js"></script>
     <link rel="stylesheet" href="../css/returnToTop.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="../css/nav.css">
 </head>
 
 <body style="background-image: url(./DCU/00.jpg); background-repeat: no-repeat; 
 background-position: bottom; background-attachment: fixed;">
+<div id="navbar"></div>
     <div class="return-to-top">
         <img src="../assets/images/returnToTop.png" alt="">
     </div>
@@ -89,11 +92,11 @@ background-position: bottom; background-attachment: fixed;">
                 name: "Aquaman and the Lost Kingdom",
                 poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSt7q2htmzbN6A8eCZ2yypgJlBVwoUdERfk157-s_KdMWMlYOHC0dKUmAoCnUE8FAJg8HTz"
             }
-        ]; 
+        ];
         const h1 = document.createElement("h1");
-h1.textContent = "DCU Movies in Chronological Order:";
-h1.classList.add("titles"); 
-document.body.insertBefore(h1, document.getElementById("movieCards1"));
+        h1.textContent = "DCU Movies in Chronological Order:";
+        h1.classList.add("titles");
+        document.body.insertBefore(h1, document.getElementById("movieCards1"));
 
         document.addEventListener('DOMContentLoaded', () => {
             const movieCardsContainer = document.getElementById("movieCards1");
@@ -116,8 +119,10 @@ alt="${movie.name}">
     <script>
         $(function () {
             $("#franchises").load("nav.html");
-            $("#footer").load("footer.html")
-        })
+            $("#footer").load("footer.html");
+            $("#navbar").load("navbar.html");
+
+        });
     </script>
 </body>
 
