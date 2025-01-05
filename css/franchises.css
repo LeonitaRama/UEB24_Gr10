@@ -18,7 +18,7 @@ ol li {
     list-style: none;
 }
 
-a {
+.nav-link {
     color: black;
     padding: 10px 15px;
     border-radius: 20px;
