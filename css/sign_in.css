@@ -158,3 +158,14 @@ i:active{
 h1{
    color:white;
 }
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+    margin-top: 5px;
+  }
+  .form__input.invalid {
+    border-color: red;
+  }
+  
