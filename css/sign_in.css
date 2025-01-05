@@ -21,6 +21,11 @@ body{
     background-position: center;
 }
 
+.font-size{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
 .container{
     width:400px;
     height:auto;
@@ -105,6 +110,7 @@ body{
     border-radius:3px;
     border:1px solid transparent;
     transition:all 0.2s;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .btn:hover{
