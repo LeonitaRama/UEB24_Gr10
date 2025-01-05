@@ -6,17 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/franchises.css">
+    <link rel="stylesheet" href="../css/movies.css">
+    <link rel="stylesheet" href="../css/footer.css">
+
 
 </head>
 
 <body>
     <div id="franchises"></div>
+    <div class="movie-cards" id="movieCards1"></div>
+    <div id="footer"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <script>
+        const missionImpossibleMovies = [
+            {
+                name: "Mission: Impossible",
+                poster: ""
+            },
+            {
+                name: "Mission: Impossible 2",
+                poster: ""
+            },
+            {
+                name: "Mission: Impossible III",
+                poster: ""
+            },
+            {
+                name: "Mission: Impossible – Ghost Protocol",
+                poster: ""
+            },
+            {
+                name: "Mission: Impossible – Rogue Nation",
+                poster: ""
+            },
+            {
+                name: "Mission: Impossible – Fallout",
+                poster: ""
+            },
+            {
+                name: "Mission: Impossible 7",
+                poster: ""
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const movieCardsContainer = document.getElementById("movieCards1");
+
+            missionImpossibleMovies.forEach(movie => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.name}">
+                    <h3>${movie.name}</h3>
+                `;
+                movieCardsContainer.appendChild(card);
+            });
+        });
+
+        console.log(missionImpossibleMovies);
     </script>
     <script>
-        $(function(){
+        $(function () {
             $("#franchises").load("nav.html");
+            $("#footer").load("footer.html");
         })
     </script>
 </body>
