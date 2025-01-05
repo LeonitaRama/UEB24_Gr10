@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cineverse FAQ</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family:'Times New Roman', Times, serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .faq-section {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .faq-item {
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .faq-question {
+      padding: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-question:hover {
+      background-color: #333;
+    }
+    .faq-answer {
+      display: none;
+      padding: 15px;
+      border-top: 1px solid #333;
+    }
+    .faq-answer p {
+      margin: 0;
+    }
+    .join-now {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .join-now button {
+      background-color: #e50914;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .join-now button:hover {
+      background-color: #ff0a16;
+    }
+  </style>
+</head>
+<body>
+  <div class="faq-section">
+    <h2 class="faq-header">Frequently Asked Questions</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What is Cineverse?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Cineverse is your ultimate destination for streaming the latest movies, classic films, and exclusive Cineverse Originals.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How much does Cineverse cost?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Cineverse is all free, you can watch unlimited movies anytime.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Can I download movies for offline viewing?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes! Cineverse allows you to download select movies and shows on your device to watch offline anytime.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What devices can I use to stream Cineverse?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>You can stream Cineverse on your smartphone, tablet, smart TV, gaming console, or desktop browser.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Does Cineverse offer family-friendly content?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, Cineverse offers a dedicated Family Zone with a wide range of kid-friendly movies and shows.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Does Cineverse have subtitles and multiple languages?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        <p>Yes, Cineverse provides subtitles and audio in multiple languages for most of our content.</p>
+      </div>
+    </div>
+
+    <div class="join-now">
+        <a href="sign_in.html" target="_blank">
+      <button>Join Now</button>
+   </a> </div>
+  </div>
+
+  <script>
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(question => {
+      question.addEventListener("click", () => {
+        const answer = question.nextElementSibling;
+        const isVisible = answer.style.display === "block";
+        answer.style.display = isVisible ? "none" : "block";
+        question.querySelector("span:last-child").textContent = isVisible ? "+" : "-";
+      });
+    });
+
+    $(document).ready(function () {
+        $("#footer").load("footer.html");
+    });
+    
+  </script>
+  <div id="footer"></div>
+</body>
+</html>
