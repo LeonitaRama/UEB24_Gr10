@@ -130,3 +130,65 @@ document.addEventListener('DOMContentLoaded', () => {
         movieCardsContainer.appendChild(card);
     });
 });
+
+
+
+// tv shows 
+const mostWatchedActionTVShows = [
+    {
+        title: "Game of Thrones",
+        poster: "",
+    },
+    {
+        title: "The Flash",
+        poster: "",
+    },
+    {
+        title: "Arrow",
+        poster: "",
+    },
+    {
+        title: "Money Heist",
+        poster: "",
+    },
+    {
+        title: "Vikings",
+        poster: "",
+    },
+    {
+        title: "Prison Break",
+        poster: "",
+    },
+    {
+        title: "Teen Wolf",
+        poster: "",
+    },
+    {
+        title: "Daredevil",
+        poster: "",
+    },
+    {
+        title: "Shadowhunters",
+        poster: "",
+    },
+    {
+        title: "Agents of S.H.I.E.L.D.",
+        poster: "",
+    },
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tvShowsContainer = document.getElementById("tvShows");
+
+    mostWatchedActionTVShows.forEach(tvShow => {
+        const card = document.createElement("div");
+        card.classList.add("tv-show");
+        card.innerHTML = `
+            <a class="hovertext">
+                <img src="${tvShow.poster}" class="images" alt="${tvShow.title}">
+                <p>${tvShow.title}</p>
+            </a>
+        `;
+        tvShowsContainer.appendChild(card);
+    });
+});
