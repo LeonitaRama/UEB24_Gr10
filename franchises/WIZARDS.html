@@ -6,17 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/franchises.css">
+    <link rel="stylesheet" href="../css/movies.css">
+    <link rel="stylesheet" href="../css/footer.css">
 
 </head>
 
 <body>
+    <div id="navbar"></div>
     <div id="franchises"></div>
+    <div class="movie-cards" id="movieCards1"></div>
+<div id="footer"></div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
     <script>
+        const wizardsMovies = [
+            {
+                name: "Harry Potter and the Sorcerer's Stone",
+                poster: ""
+            },
+            {
+                name: "Harry Potter and the Chamber of Secrets",
+                poster: ""
+            },
+            {
+                name: "Harry Potter and the Prisoner of Azkaban",
+                poster: ""
+            },
+            {
+                name: "Harry Potter and the Goblet of Fire",
+                poster: ""
+            },
+            {
+                name: "Harry Potter and the Order of the Phoenix",
+                poster: ""
+            },
+            {
+                name: "Harry Potter and the Half-Blood Prince",
+                poster: ""
+            },
+            {
+                name: "Harry Potter and the Deathly Hallows – Part 1",
+                poster: ""
+            },
+            {
+                name: "Harry Potter and the Deathly Hallows – Part 2",
+                poster: ""
+            },
+            {
+                name: "Fantastic Beasts and Where to Find Them",
+                poster: ""
+            },
+            {
+                name: "Fantastic Beasts: The Crimes of Grindelwald",
+                poster: ""
+            },
+            {
+                name: "Fantastic Beasts: The Secrets of Dumbledore",
+                poster: ""
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const movieCardsContainer = document.getElementById("movieCards1");
+
+            wizardsMovies.forEach(movie => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.name}">
+                    <h3>${movie.name}</h3>
+                `;
+                movieCardsContainer.appendChild(card);
+            });
+        });
+
+        console.log(wizardsMovies);
+    </script>
+    <script>
         $(function(){
             $("#franchises").load("nav.html");
+            $("#footer").load("footer.html");
+            $("#navbar").load("navbar.html");
         })
     </script>
 </body>
