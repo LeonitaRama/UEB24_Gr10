@@ -4,9 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-</head>
+
 <link rel="stylesheet" href="./css//about.css">
-    <header class="navbar">
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin:0;
+        padding:0;
+        background-color: #121212;
+        color:#c1bbbb;
+    }
+        header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            position:sticky;
+            top: 0;
+            z-index: 1000;
+    
+ 
+        }
+        header .container{
+          display:flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        header .nav-links a{
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10 px;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 30px 10px;
+            background-color: #111; 
+            color: #fff;
+            margin-top: 20px; 
+            background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 1.4)), 
+    url(assets/images/360_F_513507583_NMhbvJPHsZ7g0WJYowvvjPPBm8J17KP6.jpg);
+    background-size: cover;
+        }
+        .hero-section h1 {
+            font-size: 2em;
+            margin: 200px;
+            font-style: italic;
+        }
+        .carousel-container {
+            margin: 100px auto;
+            padding: 20px 0;
+            text-align: center;
+            background-color: #111;
+        }
+        .carousel img {
+            width: 250px;
+            height: 170px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            background-color: #111;
+            margin-top: 20px;
+        }
+        .feature {
+            flex: 1;
+            max-width: calc(33.333% - 20px);
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(221, 220, 220, 0.2);
+        }
+        .feature img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .feature p {
+            font-size: 0.95em;
+            color: #797777;
+            line-height: 1.6;
+        }
+        address {
+            margin-top: 20px;
+            text-align: center;
+        }
+</style>
+</head>   
+<body>
+ <header class="navbar">
         <div class="container">
             <img src="./assets/images/logo.png" alt="Logo" class="logo">
             <nav class="nav-links">
@@ -23,7 +119,7 @@
         </nav>
     </div>
     </header>
-    <div class="container">
+    <div class="hero-section">
     <h1><i> "Experience the Power of Film - Dive into Endless Entertainment."</i></h1></div>
     <div class="carousel-container">
         <div class="carousel">
@@ -37,14 +133,35 @@
 
         </div>
       </div>
-      <address style="color: aliceblue;">
+      <div class="features">
+            <div class="feature">
+                <img src="assets/images/543-5438370_innovation-free-download-png-innovation-png-clipart.png" alt="Icon 1">
+                <h3>Innovation</h3>
+                <p>
+                    We strive to bring the latest technology to provide an unmatched streaming experience to our users worldwide.
+                </p>
+            </div>
+            <div class="feature">
+                <img src="assets/images/10554416.png" alt="Icon 2">
+                <h3>Global Reach</h3>
+                <p>
+                    Our platform is available in over 190 countries, connecting cultures and stories like never before.
+                </p>
+            </div>
+            <div class="feature">
+                <img src="assets/images/9375545.png" alt="Icon 3">
+                <h3>Quality Content</h3>
+                <p>
+                    From award-winning originals to beloved classics, we provide a diverse range of content for all tastes.
+                </p>
+            </div>
+        </div>
+    </div>
+      <address>
         For more informations, contact: <br>
-        email: <a href="contact.html">cinemaverse@example.com</a><br>
-        phone: +1234567890
-        <p>Prishtin&euml;</p>
+        Email: <a href="contact.html">cinemaverse@example.com</a><br>
+        Phone: +1234567890
+        Location: Prishtin&euml;
     </address>
-    
-    
-
 </body>
 </html>
