@@ -143,7 +143,7 @@
     <input type="text" id="search-bar" placeholder="Search movies...">
 
     <select id="genre-filter" onchange="navigateToPage()">
-      <option value="">All Genres</option>
+      <option value="data.html">All Genres</option>
       <option value="action.html">Action</option>
       <option value="comedy.html">Comedy</option>
       <option value="drama.html">Drama</option>
@@ -1733,13 +1733,10 @@ sortOptions.addEventListener('change', applyFiltersAndRender);
 
 }
 function navigateToPage() {
-        const dropdown = document.getElementById("genre-filter");
-        const selectedValue = dropdown.value;
+  var selectedValue = document.getElementById("genre-filter").value;
 
-        if (selectedValue) {
-            window.location.href = selectedValue; // Navigon në faqen e zgjedhur
-        }
-    }
+  window.location.href = selectedValue;
+}
     
     $(document).ready(function () {
         $("#footer").load("footer.html");
