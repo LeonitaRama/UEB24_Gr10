@@ -21,56 +21,62 @@
     <div class="movie-cards" id="movieCards1"></div>
 <div id="footer"></div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
      <script>
-        const starWarsMovies = [
-            {
-                name: "Star Wars: Episode IV – A New Hope",
-                poster: ""
-            },
-            {
-                name: "Star Wars: Episode V – The Empire Strikes Back",
-                poster: ""
-            },
-            {
-                name: "Star Wars: Episode VI – Return of the Jedi",
-                poster: ""
-            },
-            {
-                name: "Star Wars: Episode I – The Phantom Menace",
-                poster: ""
+         const starWarsMovies = [
+             {
+                 name: "Star Wars: Episode I – The Phantom Menace",
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYVZOnqsOjjx9AkGi1aN18x6HtTA4jYJ98sEmNbCUODl4f4WxnSU9ZVxcZ_JcXxYnfuSsY"
             },
             {
                 name: "Star Wars: Episode II – Attack of the Clones",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ0RLw_LVHq-suyUft1JYjeMNzAHW4Muvog0NmiMETmlJ2NdPmYcHxFsGaWDt4Vb3cXu3Os4g"
             },
             {
                 name: "Star Wars: Episode III – Revenge of the Sith",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRL0NYOfNPvWSQ5bCzcEljS1K2B_XFI5XHgUBd0r6pj8jPa4EeqV5QyVyElBD6wE6HtUBmH7w"
+            },
+            {
+                name: "Star Wars: Episode IV – A New Hope",
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSBBTGgVQq5SADx7QduQTcJZnNO2I9qHUD0iTavGzrb5Piy9PyOig0xSBuHGhBsgIT8xNs_sw"
+            },
+            {
+                name: "Star Wars: Episode V – The Empire Strikes Back",
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSmPLuX6fI7ZerePFQEV6KjR-y3QQNJIIEyoZ6bexjYRs_rbnVbLu1BBVjFOd_rhfQO2RFS"
+            },
+            {
+                name: "Star Wars: Episode VI – Return of the Jedi",
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTn3_WWnedq7QR4lHDrTZj0t2TzC7gLAIt-btmy9C1ywhqsoB0-FHPVlII9Znd8Gyl4QNaIfg"
             },
             {
                 name: "Star Wars: Episode VII – The Force Awakens",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHR2NneKt_16c38_ue5lZn-4lpMbfE7iEUSpOJPZ8ZiO2xPdXhfFriiSLfrpgWwJZdwdczlw"
             },
             {
                 name: "Star Wars: Episode VIII – The Last Jedi",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRYhPcwHmFkzuKpzRcd2AOcy2OXIuOsYXiNcU2NFtvX_WOAeKnLa7fK5uZuj8xXHbk8wB-S"
             },
             {
                 name: "Star Wars: Episode IX – The Rise of Skywalker",
-                poster: ""
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTNfecddT48cbU2xdV9tzXsp3WYw5rL8xeN5RCPiXwpkXogC9Y9sHwKYjOhgC9PAaDJYyHL"
             },
             {
                 name: "Rogue One: A Star Wars Story",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRb4s0szOVKmJPZDnQgb7TyhMlWFW2_qeoq1CVVXR9MZGkNyD-OGxyOnYDOJOMGGNB6_lJT"
             },
             {
                 name: "Solo: A Star Wars Story",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6KNtdf8yRIm2GIYCRUGJKitEAR4ugQQ0xd01or8HgYTn8eAjSnbXyxzcDdhUhYJd_BEYOgA"
             }
         ];
+
+        const h1 = document.createElement("h1");
+h1.textContent = "STAR WARS Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const movieCardsContainer = document.getElementById("movieCards1");

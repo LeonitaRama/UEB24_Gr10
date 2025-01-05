@@ -27,26 +27,31 @@
             const piratesOfTheCaribbeanMovies = [
                 {
                     name: "Pirates of the Caribbean: The Curse of the Black Pearl",
-                    poster: ""
+                    poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQT8Jo9NaRJZCjwve-zYih5Ut9pn010OUkaFh0Aw3RktQgfUIU6zqbutcs0EhAtsClj_Ad8Ag"
                 },
                 {
                     name: "Pirates of the Caribbean: Dead Man's Chest",
-                    poster: ""
+                    poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQec56pHDHp3QcsVmP9ZsI6fSw0HJHKiqf98fcnpYiUaXPDmm08e0z4wH4756P-qleyJme4iQ"
                 },
                 {
                     name: "Pirates of the Caribbean: At World's End",
-                    poster: ""
+                    poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSegWB2p5Fy9ADi1AoD7g_tfM5pvRi19QhTnlucOdvDndf_cWv5mDs6_Z__LlwlZu-WwcWN"
                 },
                 {
                     name: "Pirates of the Caribbean: On Stranger Tides",
-                    poster: ""
+                    poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSumCv6oxURZvO_NbKoVtT9iOh6tM1UpXV_04JGz2x9w6bXQNsxKNHAQ_szhmDtrOwdKAqh"
                 },
                 {
                     name: "Pirates of the Caribbean: Dead Men Tell No Tales",
-                    poster: ""
+                    poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT_WuQDqN5zceCmGqozD2_y2WtsnguFaE5ph7hRJ8gQO2CpXHcaisHHUJ_GTcIwKZyWjwcTRQ"
                 }
-            ];
-    
+            ];   
+            
+            const h1 = document.createElement("h1");
+h1.textContent = "PIRATES OF THE CARIBBEAN Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
             document.addEventListener('DOMContentLoaded', () => {
                 const movieCardsContainer = document.getElementById("movieCards1");
     

@@ -28,33 +28,39 @@
         const missionImpossibleMovies = [
             {
                 name: "Mission: Impossible",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7kvkF7_qGi7Y25vxUauQ19gkBewhlZPyp-f2RX95zCaQW5pbgmogKZDX_aVEcZ34XSs4l7w"
             },
             {
                 name: "Mission: Impossible 2",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc4A6ZaJqNZVw0Nm_NTpgV_z8QWwvqe36eR6u2Gqt0TbSIa9dB3iKhxgrCIPGHqJin3OiB1Q"
             },
             {
                 name: "Mission: Impossible III",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTtpoUMH6yhIc1LUOWgCc5mf74vd8RUC0u1n9duvktdABsdn46WaEGfdZM9vRIfxB-WnehEuw"
             },
             {
                 name: "Mission: Impossible – Ghost Protocol",
-                poster: ""
+                poster: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTQZ1GCrQgbLhF6QUhcaoUXvqxcLJOzFrhlm7I55WcBxZDkxxRL674ET4zCW5kj6UeHl0QY"
             },
             {
                 name: "Mission: Impossible – Rogue Nation",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI5PMujMZB-_SOjOU8HWUnt-a72n7lekk9z_zqoz7knpEeUDkpMeZ7bvaKSA1hjV55pxLXtg"
             },
             {
                 name: "Mission: Impossible – Fallout",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwGiTGirAfkHRwhcTAZP1Ub4f5AkVItHJNxRjg3vPFgC1kZZCn-Dx-vbyhplLidZraFMn6"
             },
             {
                 name: "Mission: Impossible 7",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR34_otMSvSpe1Nn8Iip4kpkcaAHrUGaIITwQYC9iRIL4q34rHhTY2cTYrbRe303iD5fdsm"
             }
         ];
+
+        const h1 = document.createElement("h1");
+h1.textContent = "MISSION: IMPOSSIBLE Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const movieCardsContainer = document.getElementById("movieCards1");

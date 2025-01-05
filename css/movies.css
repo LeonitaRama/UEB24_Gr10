@@ -123,6 +123,7 @@ h3 {
 }
 
 .films h3 {
+    color: white;
     width: 100%;
     margin: 20px 0;
     text-align: center;
@@ -167,3 +168,12 @@ h3 {
     margin: 20px 0;
 }
 
+
+
+.titles {
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin: 50px 0;
+}

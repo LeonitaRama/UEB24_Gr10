@@ -28,29 +28,35 @@
         const transformersMovies = [
             {
                 name: "Transformers",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTrr0R1JOEiV-sdjkcuQAME5FoR-8QJjcNtkzabh6a1C6o8bRQk4IbN8GeYfkIZCGg8f_Lu"
             },
             {
                 name: "Transformers: Revenge of the Fallen",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlpsHnP_FcwrGD7Za8Keg6uhpAt8ZsEO3H5h60Zq-1c0iZXa6MTjq-ZIxu18ddRVP23efR"
             },
             {
                 name: "Transformers: Dark of the Moon",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRt63ZL-Od7FEshFDZ6I2bRrmx6hePZLYT63OdQIqpyXZn-GZTd6qFl81rqALVoJyJcsRNZ7A"
             },
             {
                 name: "Transformers: Age of Extinction",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS_RP4vkCjcSvZcLm9zOYDG1GNFxlMywvVtDOjuR19TkrPVmD1e0iaxG79kLhvzr3PEIohU"
             },
             {
                 name: "Transformers: The Last Knight",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTLIBOzRVL-LER18XmR_8VGLikOzmyo0OIPh7QDjhCcS7RWmkmb2fLuLDMWPmARNs68jveG"
             },
             {
                 name: "Bumblebee",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwDo2cbyxTbQxiM6LN-oxrN75EahNcGnSk7ThSenXJlRSJgy6nEx4syLBE_fWTq8N1_vOn"
             }
         ];
+
+        const h1 = document.createElement("h1");
+h1.textContent = "TRANSFORMERS Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const movieCardsContainer = document.getElementById("movieCards1");

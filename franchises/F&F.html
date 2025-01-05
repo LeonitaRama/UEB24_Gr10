@@ -32,45 +32,51 @@
         const fastAndFuriousMovies = [
             {
                 name: "The Fast and the Furious",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS6SuDf_oH4lj9YNW4lmNOvGBIZ5IcQp-oX5sryTJ5xR4s6KTm6bdH3PJ7pPuOXF3WpbWol"
             },
             {
                 name: "2 Fast 2 Furious",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ9yscrO42zr_OpRFSKBXZTOQNWyfQbDecGZTYlrwT23I6GpbV6LpaW1JbE2TFm1n2saUEF"
             },
             {
-                name: "Fast & Furious",
-                poster: ""
+                name: "The Fast and the Furious: Tokyo Drift",
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcR-QzjtMRGD0ky6jZ1OCahgoxH4ULqoED0qenp1e2k0uXCoO272nz-NQJXwNwSNi4iPdzru3w"
             },
             {
                 name: "Fast Five",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRMLD9qRmZMHFY1Df3rHD2eCzjT6z2KXYWb3NfN6DsLtnH-5tKFmOdnNfVqM7r6qPVeYjkQLA"
             },
             {
                 name: "Fast & Furious 6",
-                poster: ""
+                poster: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSelABS4Crk6ZRak97JgRb8eLms2vfMW5z1wtoWnWglBi0v0tIqTAcLilHqI0W3r8yna2WooQ"
             },
             {
                 name: "Furious 7",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQwDSr04G9nxA9g-dPSTGbn84k5wjNQYltRYiOMt6MWgkSH9L9vlEnsBHz0pX7PG8b8Olq3"
             },
             {
                 name: "The Fate of the Furious",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpw6csm4FjHgisRGQEOsB7MQcU6kgihUIOu9hivK5hb4DKN9MBvLadSPFKZDqhRSJ1qdLYbg"
             },
             {
                 name: "Fast & Furious Presents: Hobbs & Shaw",
-                poster: ""
+                poster: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRUU4PKzcA1_xSQvZ98dA8skSkMINl-s485PcYlNejC19KRd8k2kT9DawvY-r3vVxBQhM-TOw"
             },
             {
                 name: "F9: The Fast Saga",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU3iWdrBTmDEQb5Lv405Ku76AsOpmtWCCaMG9qI_TaM4iaNhqajdzJL5oeLunsDCEHlHmjZQ"
             },
             {
                 name: "Fast & Furious 10",
-                poster: ""
+                poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanLn4C93_fZCHLoMmGhQHJLjM4eHbhN23Eu8OpF7-8wDqBw2ehb_TvjAknVD-8NvtqAinXw"
             }
         ];
+
+        const h1 = document.createElement("h1");
+h1.textContent = "FAST & FURIOUS Movies in Order of Release:";
+h1.classList.add("titles");
+document.body.insertBefore(h1, document.getElementById("movieCards1"));
+
 
         document.addEventListener('DOMContentLoaded', () => {
             const movieCardsContainer = document.getElementById("movieCards1");

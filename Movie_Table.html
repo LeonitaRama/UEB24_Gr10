@@ -16,7 +16,45 @@
                 <input type="search" id="search-input" placeholder="Search Movies..." onkeyup="searchTable()">
             </div>
         </section>
-
+        <style>
+            /* Modal container */
+            .modal {
+                display: none; /* Fsheh modalin fillimisht */
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0); /* Rrjedhja e ngjyrës së modalit */
+                background-color: rgba(0,0,0,0.4); /* Ngjyra e modalit */
+            }
+    
+            /* Modal përmbajtja */
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
+    
+            /* Butoni për të mbyllur modalin */
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+    
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
         <section class="table__body">
             <table id="movie-table">
                 <thead>
@@ -40,14 +78,14 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Good Will Hunting</td>
+                        <td><a href="#" onclick="openModal('goodwill.mp4')">Good Will Hunting</a></td>
                         <td>Ben Affleck, Matt Damon, Robin Williams</td>
                         <td>05 Dec, 1997</td>
                         <td><span class="status out">Out</span></td>
                         <td>8/10</td>
                     </tr>
                     <tr>
-                        <td>Split</td>
+                        <td><a href="#" onclick="openModal('Split.mp4')">Split</a></td>
                         <td>Anya Taylor-Joy, James McAvoy, Haley Lu Richardson</td>
                         <td>26 Sep, 2016</td>
                         <td><span class="status out">Out</span></td>
@@ -61,7 +99,7 @@
                         <td>8.5/10</td>
                     </tr>
                     <tr>
-                        <td>What Happened to Monday</td>
+                        <td><a href="#" onclick="openModal('monday.mp4')">What Happened to Monday</a></td>
                         <td>Noomi Rapace, Willem Dafoe, Glenn Close</td>
                         <td>30 Aug, 2017</td>
                         <td><span class="status out">Out</span></td>
@@ -75,14 +113,14 @@
                         <td>7.3/10</td>
                     </tr>
                     <tr>
-                        <td>Maze Runner</td>
+                        <td><a href="#" onclick="openModal('mazerunner.mp4')">Maze Runner</a></td>
                         <td>Dylan O'Brien, Kaya Scodelario, Thomas Brodie-Sangster</td>
                         <td>19 Sep, 2014</td>
                         <td><span class="status out">Out</span></td>
                         <td>6.8/10</td>
                     </tr>
                     <tr>
-                        <td>Dead Poets Society</td>
+                        <td><a href="#" onclick="openModal('mazerunner.mp4')">Dead Poets Society</a></td>
                         <td>Robin Williams, Robert Sean Leonard, Ethan Hawke</td>
                         <td>02 Jun, 1989</td>
                         <td><span class="status out">Out</span></td>
@@ -92,6 +130,39 @@
             </table>
         </section>
     </main>  
+    
+    <!-- Modal Video -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <video id="modalVideo" controls width="100%">
+                <source id="videoSource" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Funksioni për të hapur modalin
+        function openModal(videoName) {
+            var modal = document.getElementById("videoModal");
+            var video = document.getElementById("modalVideo");
+            var source = document.getElementById("videoSource");
+            source.src = "assets/videos/" + videoName; 
+            video.load(); 
+            modal.style.display = "block"; 
+        }
+
+     // Funksioni për të mbyllur modalin dhe ndaluar videon
+function closeModal() {
+    var modal = document.getElementById("videoModal");
+    var video = document.getElementById("modalVideo");
+
+    video.pause();
+    modal.style.display = "none";
+}
+
+    </script>
 </body>
 <script src="js/table.js"></script>
 </html>
