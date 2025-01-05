@@ -22,7 +22,7 @@ body{
 }
 
 .font-size{
-    font-family: Garamond, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 
@@ -110,7 +110,7 @@ body{
     border-radius:3px;
     border:1px solid transparent;
     transition:all 0.2s;
-    font-family: garamond serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .btn:hover{

@@ -8,7 +8,7 @@ body {
 }
 
 .font-size{
-    font-family: Garamond, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -91,7 +91,7 @@ body {
     font-size: 14px;
     margin-top: 10px;
     transition: background-color 0.3s ease;
-    font-family: garamond serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .show-more-btn:hover {

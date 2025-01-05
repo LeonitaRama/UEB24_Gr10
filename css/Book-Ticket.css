@@ -28,7 +28,7 @@ body {
 }
 
 .font-size{
-    font-family: Garamond, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 
@@ -166,7 +166,7 @@ padding:10px;
 }
 
 .submit{
-    font-family: garamond serif;
+    font-family: 'Times New Roman', Times, serif;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;

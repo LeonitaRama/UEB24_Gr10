@@ -6,14 +6,14 @@
 }
 
 body{
-    font-family: "Roboto", sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-weight:400;
     background-color: #000;
     color:#fff;
 }
 
 .font-size{
-    font-family: Garamond, serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .container{
@@ -299,7 +299,7 @@ select option{
     border-radius:3px;
     color:#fff;
     border:0;
-    font-family: garamond serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 @media screen and(max-width:600px){

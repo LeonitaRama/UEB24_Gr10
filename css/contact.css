@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -16,7 +16,7 @@ body {
 }
 
 .font-size{
-    font-family: garamond serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .contact-container {
@@ -62,7 +62,7 @@ button {
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    font-family: garamond serif;
+    font-family:'Times New Roman', Times, serif;
 }
 
 button:hover {
