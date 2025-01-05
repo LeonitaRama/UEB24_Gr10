@@ -6,28 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/franchises.css">
-<link rel="stylesheet" href="../css/movies.css">
-<link rel="stylesheet" href="../css/footer">
-<script src="../js/jquery.js"></script> 
-<link rel="stylesheet" href="../css/returnToTop.css"> 
+    <link rel="stylesheet" href="../css/movies.css">
+    <link rel="stylesheet" href="../css/footer">
+    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="../css/returnToTop.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
 </head>
 
 <body>
-    
-        <div class="return-to-top"> 
-            <img src="../assets/images/returnToTop.png" alt=""> 
-        </div>
+    <div id="navbar"></div>
+
+    <div class="return-to-top">
+        <img src="../assets/images/returnToTop.png" alt="">
+    </div>
     <div id="franchises"></div>
     <div class="movie-cards" id="movieCards1"></div>
-<div id="footer"></div>
+    <div id="footer"></div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"
-integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
-    </script>
-     <script>
-         const starWarsMovies = [
-             {
-                 name: "Star Wars: Episode I – The Phantom Menace",
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
+    <script>
+        const starWarsMovies = [
+            {
+                name: "Star Wars: Episode I – The Phantom Menace",
                 poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYVZOnqsOjjx9AkGi1aN18x6HtTA4jYJ98sEmNbCUODl4f4WxnSU9ZVxcZ_JcXxYnfuSsY"
             },
             {
@@ -73,9 +76,9 @@ integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="ano
         ];
 
         const h1 = document.createElement("h1");
-h1.textContent = "STAR WARS Movies in Order of Release:";
-h1.classList.add("titles");
-document.body.insertBefore(h1, document.getElementById("movieCards1"));
+        h1.textContent = "STAR WARS Movies in Order of Release:";
+        h1.classList.add("titles");
+        document.body.insertBefore(h1, document.getElementById("movieCards1"));
 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -95,9 +98,10 @@ document.body.insertBefore(h1, document.getElementById("movieCards1"));
         console.log(starWarsMovies);
     </script>
     <script>
-        $(function(){
+        $(function () {
             $("#franchises").load("nav.html");
             $("#footer").load("footer.html");
+            $("#navbar").load("navbar.html");
         })
     </script>
 </body>

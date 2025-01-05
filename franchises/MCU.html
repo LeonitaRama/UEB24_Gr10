@@ -8,128 +8,132 @@
     <link rel="stylesheet" href="../css/franchises.css">
     <link rel="stylesheet" href="../css/movies.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <script src="../js/jquery.js"></script> 
-<link rel="stylesheet" href="../css/returnToTop.css"> 
+    <script src="../js/jquery.js"></script>
+    <link rel="stylesheet" href="../css/returnToTop.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
 </head>
 
 <body>
-    
-        <div class="return-to-top"> 
-            <img src="../assets/images/returnToTop.png" alt=""> 
-        </div>
-    
+    <div id="navbar"></div>
+
+    <div class="return-to-top">
+        <img src="../assets/images/returnToTop.png" alt="">
+    </div>
+
     <div id="franchises">
     </div>
     <div class="movie-cards" id="movieCards1"></div>
     <div id="footer"></div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mcuMovies = [
-            {
-                phase: "Phase 1 (2008–2012)",
-                movies: [
-                    { title: "Iron Man", poster: "https://upload.wikimedia.org/wikipedia/en/0/02/Iron_Man_%282008_film%29_poster.jpg" },
-                    { title: "The Incredible Hulk", poster: "https://upload.wikimedia.org/wikipedia/en/f/f0/The_Incredible_Hulk_%28film%29_poster.jpg" },
-                    { title: "Iron Man 2", poster: "https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg" },
-                    { title: "Thor", poster: "https://upload.wikimedia.org/wikipedia/en/9/95/Thor_%28film%29_poster.jpg" },
-                    { title: "Captain America: The First Avenger", poster: "https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg" },
-                    { title: "The Avengers", poster: "https://upload.wikimedia.org/wikipedia/en/8/8a/The_Avengers_%282012_film%29_poster.jpg" }
-                ]
-            },
-            {
-                phase: "Phase 2 (2013–2015)",
-                movies: [
-                    { title: "Iron Man 3", poster: "https://upload.wikimedia.org/wikipedia/en/1/19/Iron_Man_3_poster.jpg" },
-                    { title: "Thor: The Dark World", poster: "https://upload.wikimedia.org/wikipedia/en/7/7f/Thor_The_Dark_World_poster.jpg" },
-                    { title: "Captain America: The Winter Soldier", poster: "https://upload.wikimedia.org/wikipedia/en/9/9e/Captain_America_The_Winter_Soldier_poster.jpg" },
-                    { title: "Guardians of the Galaxy", poster: "https://upload.wikimedia.org/wikipedia/en/3/33/Guardians_of_the_Galaxy_%28film%29_poster.jpg" },
-                    { title: "Avengers: Age of Ultron", poster: "https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg" },
-                    { title: "Ant-Man", poster: "https://upload.wikimedia.org/wikipedia/en/1/12/Ant-Man_%28film%29_poster.jpg" }
-                ]
-            },
-            {
-                phase: "Phase 3 (2016–2019)",
-                movies: [
-                    { title: "Captain America: Civil War", poster: "https://upload.wikimedia.org/wikipedia/en/5/53/Captain_America_Civil_War_poster.jpg" },
-                    { title: "Doctor Strange", poster: "https://upload.wikimedia.org/wikipedia/en/a/a1/Doctor_Strange_%282016_film%29_poster.jpg" },
-                    { title: "Guardians of the Galaxy Vol. 2", poster: "https://upload.wikimedia.org/wikipedia/en/3/32/Guardians_of_the_Galaxy_Vol._2_poster.jpg" },
-                    { title: "Spider-Man: Homecoming", poster: "https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg" },
-                    { title: "Thor: Ragnarok", poster: "https://upload.wikimedia.org/wikipedia/en/7/7d/Thor_Ragnarok_poster.jpg" },
-                    { title: "Black Panther", poster: "https://upload.wikimedia.org/wikipedia/en/d/d6/Black_Panther_%28film%29_poster.jpg" },
-                    { title: "Avengers: Infinity War", poster: "https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg" },
-                    { title: "Ant-Man and the Wasp", poster: "https://upload.wikimedia.org/wikipedia/en/2/2c/Ant-Man_and_the_Wasp_poster.jpg" },
-                    { title: "Captain Marvel", poster: "https://upload.wikimedia.org/wikipedia/en/4/4e/Captain_Marvel_%28film%29_poster.jpg" },
-                    { title: "Avengers: Endgame", poster: "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" },
-                    { title: "Spider-Man: Far From Home", poster: "https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg" }
-                ]
-            },
-            {
-                phase: "Phase 4",
-                movies: [
-                    { title: "Black Widow", poster: "https://upload.wikimedia.org/wikipedia/en/e/e9/Black_Widow_%282021_film%29_poster.jpg" },
-                    { title: "Shang-Chi and the Legend of the Ten Rings", poster: "https://upload.wikimedia.org/wikipedia/en/7/74/Shang-Chi_and_the_Legend_of_the_Ten_Rings_poster.jpeg" },
-                    { title: "Eternals", poster: "https://upload.wikimedia.org/wikipedia/en/9/9b/Eternals_%28film%29_poster.jpeg" },
-                    { title: "Spider-Man: No Way Home", poster: "https://upload.wikimedia.org/wikipedia/en/0/00/Spider-Man_No_Way_Home_poster.jpg" },
-                    { title: "Doctor Strange in the Multiverse of Madness", poster: "https://upload.wikimedia.org/wikipedia/en/1/17/Doctor_Strange_in_the_Multiverse_of_Madness_poster.jpg" },
-                    { title: "Thor: Love and Thunder", poster: "https://upload.wikimedia.org/wikipedia/en/8/88/Thor_Love_and_Thunder_poster.jpeg" },
-                    { title: "Black Panther: Wakanda Forever", poster: "https://upload.wikimedia.org/wikipedia/en/3/3b/Black_Panther_Wakanda_Forever_poster.jpg" }
-                ]
-            },
-            {
-                phase: "Phase 5",
-                movies: [
-                    { title: "Ant-Man and the Wasp: Quantumania", poster: "https://upload.wikimedia.org/wikipedia/en/3/30/Ant-Man_and_the_Wasp_Quantumania_poster.jpg" },
-                    { title: "Guardians of the Galaxy Vol. 3", poster: "https://upload.wikimedia.org/wikipedia/en/7/74/Guardians_of_the_Galaxy_Vol._3_poster.jpg" },
-                    { title: "The Marvels", poster: "https://upload.wikimedia.org/wikipedia/en/7/7a/The_Marvels_poster.jpg" },
-                    { title: "Captain America: Brave New World", poster: "https://upload.wikimedia.org/wikipedia/en/4/4c/Deadpool_%26_Wolverine_poster.jpg" },
-                    { title: "Thunderbolts", poster: "https://upload.wikimedia.org/wikipedia/en/9/90/Thunderbolts%2A_poster.jpg" }
-                ]
-            },
-            {
-                phase: "Phase 6",
-                movies: [
-                    { title: "Deadpool & Wolverine", poster: "https://upload.wikimedia.org/wikipedia/en/4/4c/Deadpool_%26_Wolverine_poster.jpg" }
-                ]
-            }
-        ];
-        const h1 = document.createElement("h1");
-h1.textContent = " MCU Movies in Order of Release:";
-h1.classList.add("titles");
-document.body.insertBefore(h1, document.getElementById("movieCards1"));
+                {
+                    phase: "Phase 1 (2008–2012)",
+                    movies: [
+                        { title: "Iron Man", poster: "https://upload.wikimedia.org/wikipedia/en/0/02/Iron_Man_%282008_film%29_poster.jpg" },
+                        { title: "The Incredible Hulk", poster: "https://upload.wikimedia.org/wikipedia/en/f/f0/The_Incredible_Hulk_%28film%29_poster.jpg" },
+                        { title: "Iron Man 2", poster: "https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg" },
+                        { title: "Thor", poster: "https://upload.wikimedia.org/wikipedia/en/9/95/Thor_%28film%29_poster.jpg" },
+                        { title: "Captain America: The First Avenger", poster: "https://upload.wikimedia.org/wikipedia/en/3/37/Captain_America_The_First_Avenger_poster.jpg" },
+                        { title: "The Avengers", poster: "https://upload.wikimedia.org/wikipedia/en/8/8a/The_Avengers_%282012_film%29_poster.jpg" }
+                    ]
+                },
+                {
+                    phase: "Phase 2 (2013–2015)",
+                    movies: [
+                        { title: "Iron Man 3", poster: "https://upload.wikimedia.org/wikipedia/en/1/19/Iron_Man_3_poster.jpg" },
+                        { title: "Thor: The Dark World", poster: "https://upload.wikimedia.org/wikipedia/en/7/7f/Thor_The_Dark_World_poster.jpg" },
+                        { title: "Captain America: The Winter Soldier", poster: "https://upload.wikimedia.org/wikipedia/en/9/9e/Captain_America_The_Winter_Soldier_poster.jpg" },
+                        { title: "Guardians of the Galaxy", poster: "https://upload.wikimedia.org/wikipedia/en/3/33/Guardians_of_the_Galaxy_%28film%29_poster.jpg" },
+                        { title: "Avengers: Age of Ultron", poster: "https://upload.wikimedia.org/wikipedia/en/f/ff/Avengers_Age_of_Ultron_poster.jpg" },
+                        { title: "Ant-Man", poster: "https://upload.wikimedia.org/wikipedia/en/1/12/Ant-Man_%28film%29_poster.jpg" }
+                    ]
+                },
+                {
+                    phase: "Phase 3 (2016–2019)",
+                    movies: [
+                        { title: "Captain America: Civil War", poster: "https://upload.wikimedia.org/wikipedia/en/5/53/Captain_America_Civil_War_poster.jpg" },
+                        { title: "Doctor Strange", poster: "https://upload.wikimedia.org/wikipedia/en/a/a1/Doctor_Strange_%282016_film%29_poster.jpg" },
+                        { title: "Guardians of the Galaxy Vol. 2", poster: "https://upload.wikimedia.org/wikipedia/en/3/32/Guardians_of_the_Galaxy_Vol._2_poster.jpg" },
+                        { title: "Spider-Man: Homecoming", poster: "https://upload.wikimedia.org/wikipedia/en/f/f9/Spider-Man_Homecoming_poster.jpg" },
+                        { title: "Thor: Ragnarok", poster: "https://upload.wikimedia.org/wikipedia/en/7/7d/Thor_Ragnarok_poster.jpg" },
+                        { title: "Black Panther", poster: "https://upload.wikimedia.org/wikipedia/en/d/d6/Black_Panther_%28film%29_poster.jpg" },
+                        { title: "Avengers: Infinity War", poster: "https://upload.wikimedia.org/wikipedia/en/4/4d/Avengers_Infinity_War_poster.jpg" },
+                        { title: "Ant-Man and the Wasp", poster: "https://upload.wikimedia.org/wikipedia/en/2/2c/Ant-Man_and_the_Wasp_poster.jpg" },
+                        { title: "Captain Marvel", poster: "https://upload.wikimedia.org/wikipedia/en/4/4e/Captain_Marvel_%28film%29_poster.jpg" },
+                        { title: "Avengers: Endgame", poster: "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" },
+                        { title: "Spider-Man: Far From Home", poster: "https://upload.wikimedia.org/wikipedia/en/b/bd/Spider-Man_Far_From_Home_poster.jpg" }
+                    ]
+                },
+                {
+                    phase: "Phase 4",
+                    movies: [
+                        { title: "Black Widow", poster: "https://upload.wikimedia.org/wikipedia/en/e/e9/Black_Widow_%282021_film%29_poster.jpg" },
+                        { title: "Shang-Chi and the Legend of the Ten Rings", poster: "https://upload.wikimedia.org/wikipedia/en/7/74/Shang-Chi_and_the_Legend_of_the_Ten_Rings_poster.jpeg" },
+                        { title: "Eternals", poster: "https://upload.wikimedia.org/wikipedia/en/9/9b/Eternals_%28film%29_poster.jpeg" },
+                        { title: "Spider-Man: No Way Home", poster: "https://upload.wikimedia.org/wikipedia/en/0/00/Spider-Man_No_Way_Home_poster.jpg" },
+                        { title: "Doctor Strange in the Multiverse of Madness", poster: "https://upload.wikimedia.org/wikipedia/en/1/17/Doctor_Strange_in_the_Multiverse_of_Madness_poster.jpg" },
+                        { title: "Thor: Love and Thunder", poster: "https://upload.wikimedia.org/wikipedia/en/8/88/Thor_Love_and_Thunder_poster.jpeg" },
+                        { title: "Black Panther: Wakanda Forever", poster: "https://upload.wikimedia.org/wikipedia/en/3/3b/Black_Panther_Wakanda_Forever_poster.jpg" }
+                    ]
+                },
+                {
+                    phase: "Phase 5",
+                    movies: [
+                        { title: "Ant-Man and the Wasp: Quantumania", poster: "https://upload.wikimedia.org/wikipedia/en/3/30/Ant-Man_and_the_Wasp_Quantumania_poster.jpg" },
+                        { title: "Guardians of the Galaxy Vol. 3", poster: "https://upload.wikimedia.org/wikipedia/en/7/74/Guardians_of_the_Galaxy_Vol._3_poster.jpg" },
+                        { title: "The Marvels", poster: "https://upload.wikimedia.org/wikipedia/en/7/7a/The_Marvels_poster.jpg" },
+                        { title: "Captain America: Brave New World", poster: "https://upload.wikimedia.org/wikipedia/en/4/4c/Deadpool_%26_Wolverine_poster.jpg" },
+                        { title: "Thunderbolts", poster: "https://upload.wikimedia.org/wikipedia/en/9/90/Thunderbolts%2A_poster.jpg" }
+                    ]
+                },
+                {
+                    phase: "Phase 6",
+                    movies: [
+                        { title: "Deadpool & Wolverine", poster: "https://upload.wikimedia.org/wikipedia/en/4/4c/Deadpool_%26_Wolverine_poster.jpg" }
+                    ]
+                }
+            ];
+            const h1 = document.createElement("h1");
+            h1.textContent = " MCU Movies in Order of Release:";
+            h1.classList.add("titles");
+            document.body.insertBefore(h1, document.getElementById("movieCards1"));
 
-       
-        const movieCardsContainer = document.getElementById("movieCards1");
 
-mcuMovies.forEach(phase => {
+            const movieCardsContainer = document.getElementById("movieCards1");
 
-    const titulliFazes = document.createElement("div");
-    titulliFazes.classList.add("phase-title");
-    titulliFazes.textContent = phase.phase;
-    movieCardsContainer.appendChild(titulliFazes);
+            mcuMovies.forEach(phase => {
 
-    phase.movies.forEach(movie => {
-        const card = document.createElement("div");
-        card.classList.add("card");
+                const titulliFazes = document.createElement("div");
+                titulliFazes.classList.add("phase-title");
+                titulliFazes.textContent = phase.phase;
+                movieCardsContainer.appendChild(titulliFazes);
 
-        card.innerHTML = `
+                phase.movies.forEach(movie => {
+                    const card = document.createElement("div");
+                    card.classList.add("card");
+
+                    card.innerHTML = `
             <img src="${movie.poster}" 
                  alt="${movie.title}">
             <h3 class='title'>${movie.title}</h3>
         `;
 
-        movieCardsContainer.appendChild(card);
-    });
-});
-});
+                    movieCardsContainer.appendChild(card);
+                });
+            });
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
-    </script>
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+        </script>
     <script>
-        $(function(){
+        $(function () {
             $("#franchises").load("nav.html");
             $("#footer").load("footer.html");
+            $("#navbar").load("navbar.html");
         })
     </script>
 </body>

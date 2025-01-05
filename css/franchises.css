@@ -33,7 +33,7 @@ a.nav-link.active {
     border: 2px solid white;
 }
 
-a:hover {
+a.nav-link:hover {
     border-radius: 20px;
     color: white;
     font-weight: bold;

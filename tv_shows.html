@@ -11,9 +11,11 @@
     <script type="text/javascript" src="./js/javascript.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/nav.css">
 </head>
 
 <body>
+    <div id="navbar"></div>
     <div class="return-to-top">
         <img src="./assets/images/returnToTop.png" alt="">
     </div>
@@ -86,7 +88,9 @@
 <script>
 
     $(function () {
+
         $("#footer").load("footer.html");
+        $("#navbar").load("nav.html");
     })
     $(function () {
         $(".nav-link").hide(2).show(2000);
