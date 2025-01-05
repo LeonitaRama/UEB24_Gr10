@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-ul {
+.navbari {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.1);
     display: flex;
@@ -51,17 +51,17 @@ p {
     margin-inline: 80px;
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    align-content: center;
+    gap: 20px;
 
 }
 
 .card {
-    /* display: flex; */
     color: white;
     margin: 20px 0;
     background-color: rgba(255, 255, 255, 0.11);
-    ;
 }
 
 .card:hover {
@@ -73,7 +73,7 @@ h3 {
     width: 200px;
     margin: 20px 0;
     text-align: center;
-    height: 30px;
+    height: 45px;
 }
 
 .card img {
@@ -135,3 +135,35 @@ h3 {
     justify-content: center;
     align-items: center;
 }
+
+
+
+.tableFranchises{
+    margin: 100px 0;
+    margin-inline: auto auto;
+    background-color: gray;
+    width: 80%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+.tableFranchises th, .tableFranchises td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    color: white;
+}
+
+.tableFranchises .one:hover {
+    background-color: rgb(50, 47, 47);
+
+}
+
+.phase-title {
+    width: 100%;
+    color: white;
+    font-size: xx-large;
+    text-align: center;
+    margin: 20px 0;
+}
+

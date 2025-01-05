@@ -6,17 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/franchises.css">
-
+    <link rel="stylesheet" href="../css/movies.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../js/jquery.js"></script> 
+    <link rel="stylesheet" href="../css/returnToTop.css"> 
 </head>
 
 <body>
+    
+        <div class="return-to-top"> 
+            <img src="../assets/images/returnToTop.png" alt=""> 
+        </div>
     <div id="franchises"></div>
+    <div class="movie-cards" id="movieCards1"></div>
+    <div id="footer"></div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+    </script>
+      <script>
+        const lotrMovies = [
+            {
+                name: "The Lord of the Rings: The Fellowship of the Ring",
+                poster: ""
+            },
+            {
+                name: "The Lord of the Rings: The Two Towers",
+                poster: ""
+            },
+            {
+                name: "The Lord of the Rings: The Return of the King",
+                poster: ""
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const movieCardsContainer = document.getElementById("movieCards1");
+
+            lotrMovies.forEach(movie => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+                card.innerHTML = `
+                    <img src="${movie.poster}" alt="${movie.name}">
+                    <h3>${movie.name}</h3>
+                `;
+                movieCardsContainer.appendChild(card);
+            });
+        });
+
+        console.log(lotrMovies);
     </script>
     <script>
         $(function(){
             $("#franchises").load("nav.html");
+            $("#footer").load("footer.html");
         })
     </script>
 </body>

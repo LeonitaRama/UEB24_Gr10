@@ -130,102 +130,7 @@
             background: #ccc;
             cursor: not-allowed;
         }
-
-        #main {
-            padding: 20px;
-            background-color: #121212;
-        }
-
-        .box {
-            margin-bottom: 30px;
-        }
-
-        .head {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 0.5px;
-            background-color: #ccc;
-            border-radius: 20px;
-           
-        }
-
-        .title {
-            font-size: 30px;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .video {
-            width: 70%;
-            height: auto;
-            margin-left: 200px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .titlee {
-            font-size: 25px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .p {
-            font-size: 16px;
-            line-height: 1.6;
-            text-align: center;
-            margin: 20px;
-            color: #ccc;
-        }
-
-        #news, #coming {
-            margin-top: 50px;
-        }
-
-        #news .content, #coming .content {
-            margin-bottom: 30px;
-        }
-
-        .content h4 {
-            font-size: 16px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .content p {
-            color: #bbb;
-            font-size: 16px;
-            text-align: center;
-            line-height: 1.5;
-        }
-
-    
         
-        #coming .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        #coming img {
-            border-radius: 8px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-            margin-top: 10px;
-        }
-
-        /* Responsiveness */
-        @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-
-            .title {
-                font-size: 30px;
-            }
-        }
-   
-    
     </style>
 </head>
 <body>
@@ -265,28 +170,24 @@
         // Sample movies data
        
         const movies = [
-    
     {
-      "title": "Underwater",
+      "title": "Like a Boss",
       "year": 2020,
       "cast": [
-        "Kristen Stewart",
-        "Vincent Cassel",
-        "Jessica Henwick",
-        "John Gallagher Jr.",
-        "Mamoudou Athie",
-        "T.J. Miller"
+        "Tiffany Haddish",
+        "Rose Byrne",
+        "Salma Hayek",
+        "Jennifer Coolidge",
+        "Billy Porter"
       ],
       "genres": [
-        "Action",
-        "Horror",
-        "Science Fiction"
+        "Comedy"
       ],
-      "href": "Underwater_(film)",
-      "extract": "Underwater is a 2020 American science fiction action horror film directed by William Eubank. The film stars Kristen Stewart, Vincent Cassel, Jessica Henwick, John Gallagher Jr., Mamoudou Athie, and T.J. Miller.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/4a/Underwater_poster.jpeg",
-      "thumbnail_width": 250,
-      "thumbnail_height": 398
+      "href": "Like_a_Boss_(film)",
+      "extract": "Like a Boss is a 2020 American comedy film directed by Miguel Arteta, written by Sam Pitman and Adam Cole-Kelly, and starring Tiffany Haddish, Rose Byrne, and Salma Hayek. The plot follows two friends who attempt to take back control of their cosmetics company from an industry titan.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9a/LikeaBossPoster.jpg",
+      "thumbnail_width": 259,
+      "thumbnail_height": 383
     },
     {
       "title": "Bad Boys for Life",
@@ -312,6 +213,7 @@
       "thumbnail_width": 219,
       "thumbnail_height": 325
     },
+    
     {
       "title": "The Gentlemen",
       "year": 2020,
@@ -335,23 +237,49 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383
     },
+
     {
-      "title": "The Rhythm Section",
+      "title": "Timmy Failure: Mistakes Were Made",
       "year": 2020,
       "cast": [
-        "Blake Lively",
-        "Jude Law",
-        "Sterling K. Brown"
+        "Winslow Fegley",
+        "Ophelia Lovibond",
+        "Craig Robinson",
+        "Wallace Shawn"
       ],
       "genres": [
-        "Action",
-        "Thriller"
+        "Adventure",
+        "Comedy",
+        "Drama",
+        "Family",
+        "Fantasy"
       ],
-      "href": "The_Rhythm_Section",
-      "extract": "The Rhythm Section is a 2020 action thriller film directed by Reed Morano and with a screenplay by Mark Burnell based on his novel of the same name. Starring Blake Lively, Jude Law and Sterling K. Brown, and follows a grieving woman who seeks revenge after discovering that the plane crash that killed her family was a terrorist attack.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/98/The_Rhythm_Section_poster.jpg",
-      "thumbnail_width": 260,
-      "thumbnail_height": 382
+      "href": "Timmy_Failure:_Mistakes_Were_Made",
+      "extract": "Timmy Failure: Mistakes Were Made is a 2020 American adventure fantasy comedy-drama family film based on the book series of the same name by Stephan Pastis that debuted on Disney+ on February 7, 2020. The film is directed by Tom McCarthy, produced by Alexander Dostal, McCarthy and Jim Whitaker from a screenplay written by McCarthy and Pastis and stars Winslow Fegley, Ophelia Lovibond, Craig Robinson and Wallace Shawn.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c8/Timmy_Failure_Mistakes_Were_Made_Poster.jpeg",
+      "thumbnail_width": 259,
+      "thumbnail_height": 383
+    },
+    {
+      "title": "To All the Boys: P.S. I Still Love You",
+      "year": 2020,
+      "cast": [
+        "Lana Condor",
+        "Noah Centineo",
+        "Jordan Fisher",
+        "Anna Cathcart",
+        "John Corbett"
+      ],
+      "genres": [
+        "Comedy",
+        "Teen",
+        "Romance"
+      ],
+      "href": "To_All_the_Boys:_P.S._I_Still_Love_You",
+      "extract": "To All the Boys: P.S. I Still Love You is a 2020 American teen romantic comedy film directed by Michael Fimognari and written by Sofia Alvarez and J. Mills Goodloe. The film stars Lana Condor, Noah Centineo, Janel Parrish, Anna Cathcart, Trezzo Mahoro, Madeleine Arthur, Emilija Baranac, Kelcey Mawema, Jordan Fisher, Ross Butler, Julie Tao, Sarayu Blue, John Corbett, and Holland Taylor. The film is based on Jenny Han's 2015 novel P.S. I Still Love You.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/b/bc/To_All_the_Boys_-_P.S._I_Still_Love_You_official_release_poster.jpg",
+      "thumbnail_width": 220,
+      "thumbnail_height": 326
     },
     {
       "title": "Sonic the Hedgehog",
@@ -376,7 +304,27 @@
       "thumbnail_width": 259,
       "thumbnail_height": 384
     },
-   
+    
+    {
+      "title": "Downhill",
+      "year": 2020,
+      "cast": [
+        "Julia Louis-Dreyfus",
+        "Will Ferrell",
+        "Miranda Otto",
+        "Zoë Chao",
+        "Zach Woods"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "href": "Downhill_(2020_film)",
+      "extract": "Downhill is a 2020 American black comedy-drama film directed by Nat Faxon and Jim Rash, who also co-wrote the script with Jesse Armstrong. The film is a remake of Force Majeure (2014) by Swedish director Ruben Östlund. It stars Julia Louis-Dreyfus and Will Ferrell as a married couple going through a rough patch after a near-death encounter during a family ski outing.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/6a/Downhill_poster.jpeg",
+      "thumbnail_width": 258,
+      "thumbnail_height": 386
+    },
     {
       "title": "Spy Intervention",
       "year": 2020,
@@ -399,7 +347,50 @@
       "thumbnail_width": 236,
       "thumbnail_height": 350
     },
+    {
+      "title": "Emma",
+      "year": 2020,
+      "cast": [
+        "Anya Taylor-Joy",
+        "Johnny Flynn",
+        "Josh O'Connor",
+        "Callum Turner",
+        "Mia Goth",
+        "Miranda Hart",
+        "Bill Nighy"
+      ],
+      "genres": [
+        "Comedy",
+        "Historical",
+        "Romance"
+      ],
+      "href": "Emma_(2020_film)",
+      "extract": "Emma is a 2020 period romantic comedy film directed by Autumn de Wilde, from a screenplay by Eleanor Catton, based on Jane Austen's 1815 novel of the same name. It stars Anya Taylor-Joy as Miss Emma Woodhouse, a wealthy and elegant young woman living with her father in Regency-era England who amuses herself with matchmaking and meddles in the romantic lives of those closest to her. The film also stars Johnny Flynn, Josh O'Connor, Callum Turner, Mia Goth, Miranda Hart, and Bill Nighy.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/5/53/Emma_poster.jpeg",
+      "thumbnail_width": 220,
+      "thumbnail_height": 326
+    },
 
+    {
+      "title": "Impractical Jokers: The Movie",
+      "year": 2020,
+      "cast": [
+        "Brian Quinn",
+        "Joe Gatto",
+        "Sal Vulcano",
+        "James Murray",
+        "Paula Abdul"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "href": "Impractical_Jokers:_The_Movie",
+      "extract": "Impractical Jokers: The Movie is a 2020 American reality comedy film directed by Chris Henchy, based on the truTV television series Impractical Jokers. The film stars Brian Quinn, James Murray, Sal Vulcano, and Joe Gatto, also known as The Tenderloins. It was theatrically released on February 21, 2020. The film received generally mixed reviews and was a box office success, grossing $10 million against a budget of $3 million.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/6a/Impractical_Jokers_The_Movie_poster.png",
+      "thumbnail_width": 220,
+      "thumbnail_height": 325
+    },
+    
     {
       "title": "Guns Akimbo",
       "year": 2020,
@@ -418,7 +409,7 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383
     },
-
+    
     {
       "title": "Spenser Confidential",
       "year": 2020,
@@ -441,7 +432,25 @@
       "thumbnail_width": 260,
       "thumbnail_height": 383
     },
-
+    {
+      "title": "Big Time Adolescence",
+      "year": 2020,
+      "cast": [
+        "Pete Davidson",
+        "Griffin Gluck",
+        "Jon Cryer",
+        "Oona Laurence",
+        "Sydney Sweeney"
+      ],
+      "genres": [
+        "Comedy"
+      ],
+      "href": "Big_Time_Adolescence",
+      "extract": "Big Time Adolescence is a 2019 American coming-of-age comedy film written and directed by Jason Orley, in his directorial debut. It stars Pete Davidson, Griffin Gluck, Emily Arlook, Colson Baker, Sydney Sweeney and Jon Cryer.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/4d/Big_Time_Adolescences_poster.jpeg",
+      "thumbnail_width": 259,
+      "thumbnail_height": 385
+    },
     
     {
       "title": "Coffee & Kareem",
@@ -464,25 +473,130 @@
       "thumbnail_height": 383
     },
     {
-      "title": "Extraction",
+      "title": "Trolls World Tour",
       "year": 2020,
       "cast": [
-        "Chris Hemsworth",
-        "Rudhraksh Jaiswal",
-        "Randeep Hooda",
-        "Golshifteh Farahani",
-        "Pankaj Tripathi",
-        "David Harbour"
+        "Anna Kendrick",
+        "Justin Timberlake",
+        "Rachel Bloom",
+        "James Corden",
+        "Ron Funches",
+        "Kelly Clarkson",
+        "Anderson Paak",
+        "Sam Rockwell",
+        "George Clinton",
+        "Mary J. Blige"
       ],
       "genres": [
-        "Action",
-        "Thriller"
+        "Animated",
+        "Comedy",
+        "Musical"
       ],
-      "href": "Extraction_(2020_film)",
-      "extract": "Extraction is a 2020 American action thriller film directed by Sam Hargrave and written by Joe Russo, based on the graphic novel Ciudad by Ande Parks, Joe Russo, Anthony Russo, Fernando León González, and Eric Skillman. The film's cast features Chris Hemsworth, Rudhraksh Jaiswal, Randeep Hooda, Golshifteh Farahani, Pankaj Tripathi and David Harbour. The film is about an Australian black ops mercenary whose mission to save an Indian crime lord's kidnapped son in Dhaka, Bangladesh goes awry when he is double-crossed.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/89/Extraction_%282020_film%29.png",
+      "href": "Trolls_World_Tour",
+      "extract": "Trolls World Tour is a 2020 American computer-animated jukebox musical comedy film produced by DreamWorks Animation and distributed by Universal Pictures, based on the Good Luck Trolls dolls created by Thomas Dam. The sequel to Trolls (2016) and the second installment in the franchise, the film was directed by Walt Dohrn and co-directed by David P. Smith, from a screenplay by Maya Forbes, Wallace Wolodarsky, Elizabeth Tippet, and the writing team of Jonathan Aibel and Glenn Berger, and a story by Aibel and Berger. The film features an ensemble cast that includes the voices of Anna Kendrick, Justin Timberlake, Rachel Bloom, James Corden, Ron Funches, Kelly Clarkson, Anderson .Paak, Sam Rockwell, George Clinton, and Mary J. Blige. The film follows Poppy and Branch as they discover several more troll tribes that represent music genres other than their own. Troubles arise when the Queen of the Rock tribe plans to overthrow the foreign music genres to unite the trolls under rock music.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/e/ed/Trolls_World_Tour_poster.jpg",
+      "thumbnail_width": 258,
+      "thumbnail_height": 386
+    },
+    {
+      "title": "Love Wedding Repeat",
+      "year": 2020,
+      "cast": [
+        "Olivia Munn",
+        "Sam Claflin",
+        "Freida Pinto",
+        "Eleanor Tomlinson",
+        "Jack Farthing"
+      ],
+      "genres": [
+        "Comedy",
+        "Romance"
+      ],
+      "href": "Love_Wedding_Repeat",
+      "extract": "Love Wedding Repeat is a 2020 romantic comedy film written and directed by Dean Craig, in his feature directorial debut. A remake of the 2012 French romantic comedy film Plan de Table, the film stars Sam Claflin, Olivia Munn and Eleanor Tomlinson. It was released on 10 April 2020 by Netflix.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/39/Love_Wedding_Repeat.jpg",
+      "thumbnail_width": 220,
+      "thumbnail_height": 326
+    },
+    {
+      "title": "The Main Event",
+      "year": 2020,
+      "cast": [
+        "Seth Carr",
+        "Tichina Arnold",
+        "Ken Marino",
+        "Adam Pally"
+      ],
+      "genres": [
+        "Comedy",
+        "Sports"
+      ],
+      "href": "The_Main_Event_(2020_film)",
+      "extract": "The Main Event is a 2020 American sports comedy film directed by Jay Karas, from a screenplay by Larry Postel and starring Seth Carr, Tichina Arnold, Ken Marino and Adam Pally. It was released on April 10, 2020, by Netflix.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/7/77/The_Main_Event_%282020_film%29.png",
+      "thumbnail_width": 220,
+      "thumbnail_height": 326
+    },
+    
+    
+    {
+      "title": "Corona Zombies",
+      "year": 2020,
+      "cast": [
+        "Cody Renee Cameron",
+        "Russell Coker",
+        "Robin Sydney"
+      ],
+      "genres": [
+        "Comedy",
+        "Horror"
+      ],
+      "href": "Corona_Zombies",
+      "extract": "Corona Zombies is a 2020 American comedy horror film directed by Charles Band, and produced and distributed by Full Moon Features. Inspired by the COVID-19 pandemic, the film stars Cody Renee Cameron as Barbie, a woman who finds herself facing an outbreak of zombies infected by coronavirus disease 2019 (COVID-19). Alongside Cameron, the film stars Russell Coker and Robin Sydney.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/2/2c/Corona_Zombies_%282020%29_poster.jpg",
+      "thumbnail_width": 245,
+      "thumbnail_height": 367
+    },
+    {
+      "title": "The Willoughbys",
+      "year": 2020,
+      "cast": [
+        "Will Forte",
+        "Maya Rudolph",
+        "Alessia Cara",
+        "Terry Crews",
+        "Martin Short",
+        "Jane Krakowski",
+        "Ricky Gervais"
+      ],
+      "genres": [
+        "Animated",
+        "Comedy"
+      ],
+      "href": "The_Willoughbys",
+      "extract": "The Willoughbys is a 2020 computer-animated comedy film directed by Kris Pearn and co-directed by Rob Lodermeier. Based on the book of the same name by Lois Lowry, the film's screenplay was written by Pearn and Mark Stanleigh, and stars the voices of Will Forte, Maya Rudolph, Alessia Cara, Terry Crews, Martin Short, Jane Krakowski, Seán Cullen, and Ricky Gervais, who also narrates the film and follows four kids trying to find new parents to replace their self-centered and neglectful ones.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/a/a0/The_Willoughbys_Theatrical_release_poster.jpg",
       "thumbnail_width": 259,
-      "thumbnail_height": 384
+      "thumbnail_height": 383
+    },
+    {
+      "title": "Braking for Whales",
+      "year": 2020,
+      "cast": [
+        "Tom Felton",
+        "Tammin Sursok",
+        "Wendi McLendon-Covey",
+        "David Koechner"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "href": "Braking_for_Whales",
+      "extract": "Braking for Whales is a 2019 American comedy-drama film directed by Sean McEwen and starring Tammin Sursok and Tom Felton. Sursok co-wrote the screenplay with McEwen.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/62/Braking_for_Whales.jpg",
+      "thumbnail_width": 220,
+      "thumbnail_height": 330
     },
         ];
         const moviesPerPage = 20;
@@ -631,91 +745,14 @@ function navigateToPage() {
         }
     }
     
-    let text = "This page shows only action movies!";
-    let matchResult = text.match(/action/g); 
-    console.log("Përshtatjet e 'action':", matchResult);
-
-    let newText = text.replace(/action/g, "action content"); 
-    console.log("Teksti pas zëvendësimit:", newText);
-    
     $(document).ready(function () {
         $("#footer").load("footer.html");
     });
     
 </script>
-<div id="match-result"></div>
-<div id="replace-result"></div>
-<div id="main">
-    <div id="content">
-        <div class="box">
-            <div class="head">
-                <p class="title">Action Movies, TV Shows</p>
-            </div>
-            <video autoplay class="video" playsinline muted loop>
-                <source src="assets/videos/home_alone.mp4" type="video/mp4">
-            </video>
-            <h1 class="titlee"><mark>Home Sweet Home Alone</mark></h1>
-            <p class="p">
-                A married couple tries to steal back a valuable heirloom from a troublesome kid.<br><br>
-                <strong>Country:</strong> United States<br>
-                <strong>Genre:</strong> Comedy, Action, Family<br>
-                <strong>Release:</strong> 2021-11-12<br>
-                <strong>Director:</strong> Dan Mazer<br>
-                <strong>Production:</strong> 20th Century Studios, Hutch Parker Entertainment<br>
-                <strong>Cast:</strong> Ellie Kemper, Rob Delaney, Archie Yates<br>
-                <strong>Tags:</strong> watch home sweet home alone free, watch home sweet home alone hd, home sweet home alone online...
-            </p>
-        </div>
+      <div id="footer">
 
-        <!-- News Section -->
-        <div id="news">
-            <div class="head">
-                <a href="" class="news"><strong>NEWS!</strong></a>
-            </div>
-
-            <div class="content">
-                <p class="date">17.04.2019</p>
-                <h4>TAYLOR SWIFT</h4>
-                <p>Most of us are lucky if our Fourth of July party host remembers to buy enough ice to last the gang until after the fireworks go off...</p>
-                
-            </div>
-
-            <div class="content">
-                <p class="date">18.04.2019</p>
-                <h4>Michael Nyqvist Dies; Veteran Actor Was 56</h4>
-                <p>Michael Nyqvist, a Swedish actor who took on the lead role in the initial big screen adaption of The Girl with the Dragon Tattoo...</p>
-            
-            </div>
-
-            <div class="content">
-                <p class="date">20.04.2019</p>
-                <h4>Spider-Man: Homecoming is the latest film to feature trailer scenes you’ll never see</h4>
-                <p>In the official trailers for Spider-Man: Homecoming, the web-slinging superhero can be seen soaring through the sky next to Robert Downey Jr.’s Iron Man...</p>
-    
-            </div>
-        </div>
-
-        <!-- Coming Soon Section -->
-        <div id="coming">
-            <div class="head">
-                <a class="comming-soon" href="#">COMING SOON!</a>
-            </div>
-
-            <div class="content">
-                <h4>IRON MAN 4</h4>
-                <a href="#"><img src="assets/images/iron_man.png"  width="200px" height="200px" alt="Iron Man 4" <abbr title="Image of Iron Man"></abbr></a>
-                <p>When Marvel announced their massive Phase Three lineup back in October, the studio revealed nine movies that will conclude with the release of Avengers...</p>
-            </div>
-
-            <div class="content">
-                <h4>THOR RAGNAROK</h4>
-                <a href="#"><img src="assets/images/Thor_Ragnarok.png" width="200px" height="200px" alt="Thor Ragnarok"></a>
-                <p>Thor Ragnarok: is an upcoming American superhero film based on the Marvel Comics character Thor, produced by Marvel Studios...</p>
-            </div>
-        </div>
-
-    </div>
-</div>
+      </div>
     
 </body>
 </html>

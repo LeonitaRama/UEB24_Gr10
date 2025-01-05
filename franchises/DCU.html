@@ -6,16 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/franchises.css">
+<link rel="stylesheet" href="../css/movies.css">
+<link rel="stylesheet" href="../footer.html">
+<script src="../js/jquery.js"></script> 
+<link rel="stylesheet" href="../css/returnToTop.css"> 
 </head>
 
-<body>
+<body >
+    <div class="return-to-top"> 
+        <img src="../assets/images/returnToTop.png" alt=""> 
+    </div>
     <div id="franchises"></div>
+    <div class="movie-cards" id="movieCards1"></div>
+<div id="footer"></div>
     <script src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
     </script>
     <script>
+        const dcuMovies = [
+    {
+        name: "Man of Steel",
+        poster: ""
+    },
+    {
+        name: "Batman v Superman: Dawn of Justice",
+        poster: ""
+    },
+    {
+        name: "Suicide Squad",
+        poster: ""
+    },
+    {
+        name: "Wonder Woman",
+        poster: ""
+    },
+    {
+        name: "Justice League",
+        poster: ""
+    },
+    {
+        name: "Aquaman",
+        poster: ""
+    },
+    {
+        name: "Shazam!",
+        poster: ""
+    },
+    {
+        name: "Birds of Prey",
+        poster: ""
+    },
+    {
+        name: "Wonder Woman 1984",
+        poster: ""
+    },
+    {
+        name: "Zack Snyder's Justice League",
+        poster: ""
+    },
+    {
+        name: "The Suicide Squad",
+        poster: ""
+    },
+    {
+        name: "Black Adam",
+        poster: ""
+    },
+    {
+        name: "Shazam! Fury of the Gods",
+        poster: ""
+    },
+    {
+        name: "The Flash",
+        poster: ""
+    },
+    {
+        name: "Blue Beetle",
+        poster: ""
+    },
+    {
+        name: "Aquaman and the Lost Kingdom",
+        poster: ""
+    }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+    const movieCardsContainer = document.getElementById("movieCards1");
+
+    dcuMovies.forEach(movie => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.innerHTML = `
+<img src="${movie.poster}" 
+alt="${movie.name}">
+<h3>${movie.name}</h3>
+`;
+        movieCardsContainer.appendChild(card);
+    });
+});
+
+console.log(dcuMovies);
+
+    </script>
+    <script>
         $(function(){
             $("#franchises").load("nav.html");
+            $("#footer").load("footer.html")
         })
     </script>
 </body>

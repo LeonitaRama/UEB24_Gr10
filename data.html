@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Center</title>
     <link rel="stylesheet" href="css/data.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/returnToTop.css">
     <style>
         body {
             font-family:'Times New Roman', Times, serif;
@@ -128,15 +131,19 @@
             cursor: not-allowed;
         }
         
-        
     </style>
 </head>
 <body>
+  <div class="return-to-top">
+    <img src="./assets/images/returnToTop.png" alt="">
+
+</div>
+  
     <div class="controls">
     <input type="text" id="search-bar" placeholder="Search movies...">
 
     <select id="genre-filter" onchange="navigateToPage()">
-      <option value="">All Genres</option>
+      <option value="data.html">All Genres</option>
       <option value="action.html">Action</option>
       <option value="comedy.html">Comedy</option>
       <option value="drama.html">Drama</option>
@@ -159,6 +166,7 @@
     </div>
   
     <script>
+
         // Sample movies data
        
         const movies = [
@@ -1725,15 +1733,19 @@ sortOptions.addEventListener('change', applyFiltersAndRender);
 
 }
 function navigateToPage() {
-        const dropdown = document.getElementById("genre-filter");
-        const selectedValue = dropdown.value;
+  var selectedValue = document.getElementById("genre-filter").value;
 
-        if (selectedValue) {
-            window.location.href = selectedValue; // Navigon në faqen e zgjedhur
-        }
-    }
+  window.location.href = selectedValue;
+}
+    
+    $(document).ready(function () {
+        $("#footer").load("footer.html");
+    });
+    
+</script>
+      <div id="footer">
 
-    </script>
+      </div>
     
 </body>
 </html>
