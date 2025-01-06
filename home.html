@@ -7,6 +7,45 @@
 </head>
 <link rel="stylesheet" href="css/home.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .notification {
+        position: fixed;
+        right: -350px;
+        top: 20px;
+        opacity: 0;
+        background-color: #4caf50;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1000;
+        font-size: 16px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .notification p {
+        margin: 0;
+    }
+
+    #notifyBtn {
+        padding: 20px 20px;
+        font-size: 16px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #notifyBtn:hover {
+        background-color: rgba(255, 0, 0, 0.575);
+    }
+</style>
 <body>
     <div class="font-size">
     <div class="header">
@@ -103,154 +142,10 @@
         <p>Email submitted successfully!</p>
     </div> 
     <div id="Most_Viewed_and_comming"></div>
-
-    <section>
-        <div class="container section-faq">
-            <h1>Frequently Asked Questions</h1>
-
-            <div class="accordion">
-                <div class="question">
-                    <input type="checkbox" id="q1">
-                    <label for="q1" class="title">
-                        What is CineVerse?
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </label>
-
-                    <div class="answer">
-                        <p>CineVerse is a streaming service that offers a wide variety of award-winning TV shows,
-                            movies, anime, documentaries, and more on thousands of internet-connected devices.</p>
-                        <p>You can watch as much as you want, whenever you want without a single commercial – all
-                            for one low monthly price. There's always something new to discover and new TV shows and
-                            movies are added every week!</p>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <input type="checkbox" id="q2">
-                    <label for="q2" class="title">
-                        How much does CineVerse cost?
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </label>
-
-                    <div class="answer">
-                        <p> Watch CineVerse on your smartphone, tablet, Smart TV, laptop, or streaming device, all for
-                            one fixed monthly free. Plans range from USD3.99 to USD11.99 a month. No extra costs, no
-                            contracts.</p>
-                    </div>
-                </div>
+    <div id="FAQ"></div>
 
 
-                <div class="question">
-                    <input type="checkbox" id="q3">
-                    <label class="title" for="q3">
-                        How do I cancel?
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-
-                    </label>
-                    <div class="answer">
-                        <p>Watch anywhere, anytime. Sign in with your CineVerse account to watch instantly on the web at
-                            CineVerse.com from your personal computer or on any internet-connected device that offers
-                            the CineVerse app, including smart TVs, smartphones, tablets, streaming media players and
-                            game consoles.</p>
-
-                        <p>You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use
-                            downloads to watch while you're on the go and without an internet connection. Take CineVerse
-                            with you anywhere.</p>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <input type="checkbox" id="q4">
-                    <label class="title" for="q4">
-                        Where can I watch?
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-
-                    </label>
-                    <div class="answer">
-                        <p>Watch anywhere, anytime. Sign in with your CineVerse account to watch instantly on the web at
-                            CineVerse.com from your personal computer or on any internet-connected device that offers
-                            the CineVerse app, including smart TVs, smartphones, tablets, streaming media players and
-                            game consoles.</p>
-
-                        <p>You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use
-                            downloads to watch while you're on the go and without an internet connection. Take CineVerse
-                            with you anywhere.</p>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <input type="checkbox" id="q5">
-                    <label class="title" for="q5">
-                        What can I watch on CineVerse?
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-
-                    </label>
-                    <div class="answer">
-                        <p>CineVerse has an extensive library of feature films, documentaries, TV shows, anime,
-                            award-winning CineVerse originals, and more. Watch as much as you want, anytime you want.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <input type="checkbox" id="q6">
-                    <label class="title" for="q6">
-                        Is CineVerse good for kids?
-
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-
-                    </label>
-                    <div class="answer">
-                        <p>The CineVerse Kids experience is included in your membership to give parents control while
-                            kids enjoy family-friendly TV shows and movies in their own space.</p>
-
-                        <p>Kids profiles come with PIN-protected parental controls that let you restrict the
-                            maturity rating of content kids can watch and block specific titles you don’t want kids
-                            to see.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="form-field">
-                <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
-
-                <form class="form">
-                    <div class="form-group">
-                        <input type="email" class="form-input" placeholder=" " id="email">
-                        <label for="email" class="form-label">Email Address</label>
-                    </div>
-
-                    <button class="get-btn">
-                        <span>Get Started</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-
-    </section>
-
-    <div id="footer"></div>
-   </div>
+   
     <script>
         $(function () {
                     $('#notifyBtn').on("click", function (e) {
@@ -276,58 +171,18 @@
                         $('.notification').fadeOut(500); 
                     }
                 });
-            </script>
-             <style>
-                body {
-                    font-family: Arial, sans-serif;
-                }
-        
-                .notification {
-                    position: fixed;
-                    right: -350px;
-                    top: 20px;
-                    opacity: 0;
-                    background-color: #4caf50;
-                    color: white;
-                    padding: 15px 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                    display: none;
-                    z-index: 1000;
-                    font-size: 16px;
-                    transition: all 0.3s ease-in-out;
-                }
-        
-                .notification p {
-                    margin: 0;
-                }
-        
-                #notifyBtn {
-                    padding: 20px 20px;
-                    font-size: 16px;
-                    background-color: red;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
-        
-                #notifyBtn:hover {
-                    background-color: rgba(255, 0, 0, 0.575);
-                }
-            </style>
+    
 
-<script>
+     $(function () {
+        $("#FAQ").load("faq.html");
+    })
 
     $(function () {
         $("#Most_Viewed_and_comming").load("Most_Viewed_and_comming.html");
     })
 
-    $(function () {
-        $("#footer").load("footer.html");
-    })
-    
-</script>
+
+     </script>  
             
 </body>
 </html>

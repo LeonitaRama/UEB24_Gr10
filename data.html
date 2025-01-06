@@ -28,9 +28,9 @@
         .controls input, .controls select {
          padding: 5px;
          border: 1px solid #ccc; 
-         background-color: #222; 
-         color: white; 
-         }
+           background-color: #222; 
+    color: white; 
+}
 
         h1 {
             text-align: center;
@@ -140,6 +140,7 @@
     </style>
 </head>
 <body>
+  <div id="nav"></div>
   <div class="return-to-top">
     <img src="./assets/images/returnToTop.png" alt="">
 
@@ -1743,6 +1744,13 @@ function navigateToPage() {
 
   window.location.href = selectedValue;
 }
+$(function () {
+            $("#footer").load("footer.html");
+            $("#nav").load("nav.html");
+        })
+        $(function () {
+            $(".nav-link").hide(2).show(2000);
+        });
     
     $(document).ready(function () {
         $("#footer").load("footer.html");
