@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/In-Cinema.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/jquery.js"></script>
-<link rel="stylesheet" href="./css/returnToTop.css">
+    <link rel="stylesheet" href="./css/returnToTop.css">
 </head>
 
 <body>
@@ -17,99 +17,105 @@
         <img src="./assets/images/returnToTop.png" alt="">
     </div>
     <div class="font-size">
-    <div id="nav"></div>
-    <div class="header">
-        
-        <div class="container">
-            <div class="movie-card">
-                <img src="./assets/images/Pirates.png" alt="Pirates of the Caribbean">
-                <h2>Pirates of the Caribbean: Dead Men Tell No Tales</h2>
-                <p>
-                    The filmmakers cited the series' first installment, <i>The Curse of the Black Pearl (2003)</i>,
-                    as inspiration for the script and tone of the film...
-                </p>
-                <div id="moreText1" class="hidden">
-                    <p>
-                        Pre-production for the film started shortly before <i>On Stranger Tides</i> was released in
-                        early 2011, with Terry Rossio writing the initial script. In early 2013, Jeff Nathanson was hired to write a new script...
-                    </p>
-                </div>
-                <button class="show-more-btn" onclick="toggleText('moreText1', this)">More</button>
-                <ul>
-                    <li>Director: Joachim Rønning</li>
-                    <li>Genre: Fantasy/Action Movie</li>
-                    <li>Venue: QFX, Trademall</li>
-                    <li>Time: 11:00 - 14:00</li>
-                </ul>
-                <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
-            </div>
+        <div id="nav"></div>
+        <div class="header">
 
-            <div class="movie-card">
-                <img src="./assets/images/GOG.png" alt="Guardians of the Galaxy">
-                <h2>Guardians of the Galaxy Vol. 2</h2>
-                <p>
-                    Guardians of the Galaxy Vol. 2 is a 2017 American superhero film based on the Marvel Comics superhero team...
-                </p>
-                <div id="moreText2" class="hidden">
+            <div class="container">
+                <div class="movie-card">
+                    <img src="./assets/images/Pirates.png" alt="Pirates of the Caribbean">
+                    <h2>Pirates of the Caribbean: Dead Men Tell No Tales</h2>
                     <p>
-                        Written and directed by James Gunn, the film stars an ensemble cast featuring Chris Pratt, Zoe Saldaña, Dave Bautista, and many more...
+                        The filmmakers cited the series' first installment, <i>The Curse of the Black Pearl (2003)</i>,
+                        as inspiration for the script and tone of the film...
                     </p>
+                    <div id="moreText1" class="hidden">
+                        <p>
+                            Pre-production for the film started shortly before <i>On Stranger Tides</i> was released in
+                            early 2011, with Terry Rossio writing the initial script. In early 2013, Jeff Nathanson was
+                            hired to write a new script...
+                        </p>
+                    </div>
+                    <button class="show-more-btn" onclick="toggleText('moreText1', this)">More</button>
+                    <ul>
+                        <li>Director: Joachim Rønning</li>
+                        <li>Genre: Fantasy/Action Movie</li>
+                        <li>Venue: QFX, Trademall</li>
+                        <li>Time: 11:00 - 14:00</li>
+                    </ul>
+                    <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
                 </div>
-                <button class="show-more-btn" onclick="toggleText('moreText2', this)">More</button>
-                <ul>
-                    <li>Director: James Gunn</li>
-                    <li>Genre: Hollywood Action Sci-Fi</li>
-                    <li>Venue: QFX, Trademall</li>
-                    <li>Time: 12:00 - 15:00</li>
-                </ul>
-                <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
-            </div>
 
-            <div class="movie-card">
-                <img src="./assets/images/TM.png" alt="The Mummy">
-                <h2>The Mummy</h2>
-                <p>
-                    The Mummy is a 1999 American action-adventure film written and directed by Stephen Sommers...
-                </p>
-                <div id="moreText3" class="hidden">
+                <div class="movie-card">
+                    <img src="./assets/images/GOG.png" alt="Guardians of the Galaxy">
+                    <h2>Guardians of the Galaxy Vol. 2</h2>
                     <p>
-                        Starring Brendan Fraser, Rachel Weisz, and Arnold Vosloo, the film follows adventurer Rick O'Connell as he travels to Hamunaptra...
+                        Guardians of the Galaxy Vol. 2 is a 2017 American superhero film based on the Marvel Comics
+                        superhero team...
                     </p>
+                    <div id="moreText2" class="hidden">
+                        <p>
+                            Written and directed by James Gunn, the film stars an ensemble cast featuring Chris Pratt,
+                            Zoe Saldaña, Dave Bautista, and many more...
+                        </p>
+                    </div>
+                    <button class="show-more-btn" onclick="toggleText('moreText2', this)">More</button>
+                    <ul>
+                        <li>Director: James Gunn</li>
+                        <li>Genre: Hollywood Action Sci-Fi</li>
+                        <li>Venue: QFX, Trademall</li>
+                        <li>Time: 12:00 - 15:00</li>
+                    </ul>
+                    <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
                 </div>
-                <button class="show-more-btn" onclick="toggleText('moreText3', this)">More</button>
-                <ul>
-                    <li>Director: Stephen Sommers</li>
-                    <li>Genre: 3D Horror</li>
-                    <li>Venue: QFX, Trademall</li>
-                    <li>Time: 17:00 - 20:00</li>
-                </ul>
-                <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
-            </div>
 
-            <div class="movie-card">
-                <img src="./assets/images/WM.png" alt="Wonder Woman">
-                <h2>Wonder Woman</h2>
-                <p>
-                    Wonder Woman is a superhero created by the American psychologist and writer William Moulton Marston...
-                </p>
-                <div id="moreText4" class="hidden">
+                <div class="movie-card">
+                    <img src="./assets/images/TM.png" alt="The Mummy">
+                    <h2>The Mummy</h2>
                     <p>
-                        In her homeland, the island nation of Themyscira, her official title is Princess Diana of Themyscira. When blending into the outside world, she adopts the identity Diana Prince...
+                        The Mummy is a 1999 American action-adventure film written and directed by Stephen Sommers...
                     </p>
+                    <div id="moreText3" class="hidden">
+                        <p>
+                            Starring Brendan Fraser, Rachel Weisz, and Arnold Vosloo, the film follows adventurer Rick
+                            O'Connell as he travels to Hamunaptra...
+                        </p>
+                    </div>
+                    <button class="show-more-btn" onclick="toggleText('moreText3', this)">More</button>
+                    <ul>
+                        <li>Director: Stephen Sommers</li>
+                        <li>Genre: 3D Horror</li>
+                        <li>Venue: QFX, Trademall</li>
+                        <li>Time: 17:00 - 20:00</li>
+                    </ul>
+                    <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
                 </div>
-                <button class="show-more-btn" onclick="toggleText('moreText4', this)">More</button>
-                <ul>
-                    <li>Director: Patty Jenkins</li>
-                    <li>Genre: Marvel's Action Movie</li>
-                    <li>Venue: QFX, Trademall</li>
-                    <li>Time: 10:00 - 13:00</li>
-                </ul>
-                <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
-            </div>
 
+                <div class="movie-card">
+                    <img src="./assets/images/WM.png" alt="Wonder Woman">
+                    <h2>Wonder Woman</h2>
+                    <p>
+                        Wonder Woman is a superhero created by the American psychologist and writer William Moulton
+                        Marston...
+                    </p>
+                    <div id="moreText4" class="hidden">
+                        <p>
+                            In her homeland, the island nation of Themyscira, her official title is Princess Diana of
+                            Themyscira. When blending into the outside world, she adopts the identity Diana Prince...
+                        </p>
+                    </div>
+                    <button class="show-more-btn" onclick="toggleText('moreText4', this)">More</button>
+                    <ul>
+                        <li>Director: Patty Jenkins</li>
+                        <li>Genre: Marvel's Action Movie</li>
+                        <li>Venue: QFX, Trademall</li>
+                        <li>Time: 10:00 - 13:00</li>
+                    </ul>
+                    <a href="Book-Ticket.html" class="book-ticket-btn">BOOK TICKET</a>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
     <div id="footer"></div>
 
     <script>

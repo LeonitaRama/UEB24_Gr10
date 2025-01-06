@@ -10,11 +10,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet">
-        <script src="./js/jquery.js"></script>
-        <link rel="stylesheet" href="./css/returnToTop.css">
+    <script src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/returnToTop.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/footer.css">
 </head>
 
 <body>
+    <div id="nav"></div>
     <div class="return-to-top">
         <img src="./assets/images/returnToTop.png" alt="">
     </div>
@@ -112,6 +115,7 @@
         </div>
     </div>
     </div>
+    <div id="footer"></div>
     <script>
         function calculateAmount() {
             const pricePerTicket = 10;
@@ -141,27 +145,33 @@
         });
 
 
-        document.getElementById("form").addEventListener("submit", function(event) {
-    const form = document.getElementById("form");
-    const fields = form.querySelectorAll("[required]");
-    let valid = true;
+        document.getElementById("form").addEventListener("submit", function (event) {
+            const form = document.getElementById("form");
+            const fields = form.querySelectorAll("[required]");
+            let valid = true;
 
-    fields.forEach((field) => {
-        if (!field.value.trim()) {
-            valid = false;
-            field.style.border = "2px solid red"; 
-        } else {
-            field.style.border = ""; 
-        }
-    });
+            fields.forEach((field) => {
+                if (!field.value.trim()) {
+                    valid = false;
+                    field.style.border = "2px solid red";
+                } else {
+                    field.style.border = "";
+                }
+            });
 
-    if (!valid) {
-        event.preventDefault(); 
-        alert("Please fill in all required fields.");
-    }
-});
+            if (!valid) {
+                event.preventDefault();
+                alert("Please fill in all required fields.");
+            }
+        });
 
 
+    </script>
+    <script>
+        $(function () {
+            $("#footer").load("footer.html");
+            $("#nav").load("nav.html");
+        })
     </script>
 
 </body>

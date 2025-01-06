@@ -1,153 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Center</title>
-    <link rel="stylesheet" href="css/data.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/jquery.js"></script>
-    <link rel="stylesheet" href="./css/returnToTop.css">
-    <style>
-        body {
-            font-family:'Times New Roman', Times, serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            color: white;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Center</title>
+  <link rel="stylesheet" href="css/data.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./js/jquery.js"></script>
+  <link rel="stylesheet" href="./css/returnToTop.css">
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      color: white;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #000000;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .controls input, .controls select {
-         padding: 5px;
-         border: 1px solid #ccc; 
-         background-color: #222; 
-         color: white; 
-         }
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #000000;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .controls input,
+    .controls select {
+      padding: 5px;
+      border: 1px solid #ccc;
+      background-color: #222;
+      color: white;
+    }
 
 
-        h1 {
-            text-align: center;
-        }
+    h1 {
+      text-align: center;
+    }
 
-        .movies-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
+    .movies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-        .movie-card {
-            width: 200px;
-            height: 330px;
-            perspective: 1000px;
-            padding-bottom: 30px;
-        }
+    .movie-card {
+      width: 200px;
+      height: 330px;
+      perspective: 1000px;
+      padding-bottom: 30px;
+    }
 
-        .movie-card-inner {
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            position: relative;
-        }
+    .movie-card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
 
-        .movie-card:hover .movie-card-inner {
-            transform: rotateY(180deg);
-        }
+    .movie-card:hover .movie-card-inner {
+      transform: rotateY(180deg);
+    }
 
-        .movie-card-front, .movie-card-back {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            backface-visibility: hidden;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+    .movie-card-front,
+    .movie-card-back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .movie-card-front {
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+    .movie-card-front {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .movie-card-front img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    .movie-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        .movie-card-front h3 {
-            position: absolute;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            padding: 10px;
-            width: 100%;
-            text-align: center;
-            margin: 0;
-            font-size: 15px;
-        }
+    .movie-card-front h3 {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      font-size: 15px;
+    }
 
-        .movie-card-back {
-            background: #910000;
-            color: white;
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+    .movie-card-back {
+      background: #910000;
+      color: white;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-        .movie-card-back p {
-            margin: 5px 0;
-            font-size: 11px;
-        }
+    .movie-card-back p {
+      margin: 5px 0;
+      font-size: 11px;
+    }
 
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            gap: 10px;
-        }
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
 
-        .pagination button {
-            padding: 10px 20px;
-            border: none;
-            background: #007BFF;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    .pagination button {
+      padding: 10px 20px;
+      border: none;
+      background: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
 
-        .pagination button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-        
-    </style>
+    .pagination button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
+
 <body>
   <div id="nav"></div>
   <div class="return-to-top">
     <img src="./assets/images/returnToTop.png" alt="">
 
-</div>
-  
-    <div class="controls">
+  </div>
+
+  <div class="controls">
     <input type="text" id="search-bar" placeholder="Search movies...">
 
     <select id="genre-filter" onchange="navigateToPage()">
@@ -155,576 +159,576 @@
       <option value="action.html">Action</option>
       <option value="comedy.html">Comedy</option>
       <option value="drama.html">Drama</option>
-  </select>
+    </select>
 
     <select id="sort-options">
-        <option value="title">Sort by Title</option>
-        <option value="year">Sort by Year</option>
+      <option value="title">Sort by Title</option>
+      <option value="year">Sort by Year</option>
     </select>
+  </div>
+
+  <div class="container">
+    <h1>Movies Gallery</h1>
+    <div id="movie-container" class="movies-grid"></div>
+    <div class="pagination">
+      <button id="prev-btn" disabled>Previous</button>
+      <span id="page-info"></span>
+      <button id="next-btn">Next</button>
     </div>
+  </div>
 
-    <div class="container">
-        <h1>Movies Gallery</h1>
-        <div id="movie-container" class="movies-grid"></div>
-        <div class="pagination">
-            <button id="prev-btn" disabled>Previous</button>
-            <span id="page-info"></span>
-            <button id="next-btn">Next</button>
-        </div>
-    </div>
-  
-    <script>
+  <script>
 
-        // Sample movies data
-       
-        const movies = [
-    
-    {
-      "title": "Three Christs",
-      "year": 2020,
-      "cast": [
-        "Richard Gere",
-        "Peter Dinklage",
-        "Walton Goggins",
-        "Bradley Whitford"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "Three_Christs",
-      "extract": "Three Christs, also known as State of Mind, is a 2017 American drama film directed, co-produced, and co-written by Jon Avnet and based on Milton Rokeach's nonfiction book The Three Christs of Ypsilanti. It screened in the Gala Presentations section at the 2017 Toronto International Film Festival. The film is also known as: Three Christs of Ypsilanti, The Three Christs of Ypsilanti, Three Christs of Santa Monica, and The Three Christs of Santa Monica.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/a/a1/Three_Christs_poster.jpg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "Inherit the Viper",
-      "year": 2020,
-      "cast": [
-        "Josh Hartnett",
-        "Margarita Levieva",
-        "Chandler Riggs",
-        "Bruce Dern",
-        "Owen Teague"
-      ],
-      "genres": [
-        "Crime",
-        "Drama"
-      ],
-      "href": "Inherit_the_Viper",
-      "extract": "Inherit the Viper is a 2019 American crime drama film directed by Anthony Jerjen, in his feature directorial debut, from a screenplay by Andrew Crabtree. It stars Josh Hartnett, Margarita Levieva, Chandler Riggs, Bruce Dern, Valorie Curry, Owen Teague, and Dash Mihok.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/1c/Inherit_the_Viper_%282019%29_Film_Poster.jpg",
-      "thumbnail_width": 236,
-      "thumbnail_height": 350
-    },
-    
-    {
-      "title": "The Last Full Measure",
-      "year": 2020,
-      "cast": [
-        "Sebastian Stan",
-        "Christopher Plummer",
-        "William Hurt",
-        "Ed Harris",
-        "Samuel L. Jackson",
-        "Peter Fonda",
-        "LisaGay Hamilton",
-        "Jeremy Irvine",
-        "Diane Ladd",
-        "Amy Madigan",
-        "John Savage",
-        "Bradley Whitford"
-      ],
-      "genres": [
-        "Drama",
-        "War"
-      ],
-      "href": "The_Last_Full_Measure_(2019_film)",
-      "extract": "The Last Full Measure is a 2019 American war drama film written and directed by Todd Robinson. It follows the efforts of fictional Pentagon staffer Scott Huffman and many veterans to see the Medal of Honor awarded to William H. Pitsenbarger, a United States Air Force Pararescueman who flew in helicopter rescue missions during the Vietnam War to aid downed soldiers and pilots. Based on true events, the film stars Sebastian Stan, Christopher Plummer, William Hurt, Ed Harris, Samuel L. Jackson, Jeremy Irvine, and Peter Fonda. It was the final film appearance of Fonda, who died before the film’s release; and Plummer's final on screen appearance before his death in 2021, though it had filmed prior to Knives Out which was released before it.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9d/The_Last_Full_Measure_2019_poster.jpg",
-      "thumbnail_width": 256,
-      "thumbnail_height": 378
-    },
-    {
-      "title": "John Henry",
-      "year": 2020,
-      "cast": [
-        "Terry Crews",
-        "Ludacris",
-        "Jamila Velazquez",
-        "Ken Foree",
-        "Tyler Alvarez",
-        "Joseph Julian Soria"
-      ],
-      "genres": [
-        "Drama",
-        "Thriller"
-      ],
-      "href": "John_Henry_(2020_film)",
-      "extract": "John Henry is a 2020 American thriller drama film starring Terry Crews and Ludacris, and directed by Will Forbes. Inspired by the folk lore of John Henry, the plot follows an ex-gang member from Los Angeles who must help two immigrant children who are on the run from his former crime boss. The film had a limited release on January 24, 2020, and received negative reviews from critics.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/b/b8/JohnHenryPoster.jpeg",
-      "thumbnail_width": 220,
-      "thumbnail_height": 316
-    },
-    {
-      "title": "The Assistant",
-      "year": 2020,
-      "cast": [
-        "Julia Garner",
-        "Matthew Macfadyen"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "The_Assistant_(2019_film)",
-      "extract": "The Assistant is a 2019 American drama film written, directed, produced, and edited by Kitty Green. The film stars Julia Garner as a junior assistant at a film production company. Matthew Macfadyen, Makenzie Leigh, Kristine Froseth, Jon Orsini, and Noah Robbins also star.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9b/The_Assistant_poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "Timmy Failure: Mistakes Were Made",
-      "year": 2020,
-      "cast": [
-        "Winslow Fegley",
-        "Ophelia Lovibond",
-        "Craig Robinson",
-        "Wallace Shawn"
-      ],
-      "genres": [
-        "Adventure",
-        "Comedy",
-        "Drama",
-        "Family",
-        "Fantasy"
-      ],
-      "href": "Timmy_Failure:_Mistakes_Were_Made",
-      "extract": "Timmy Failure: Mistakes Were Made is a 2020 American adventure fantasy comedy-drama family film based on the book series of the same name by Stephan Pastis that debuted on Disney+ on February 7, 2020. The film is directed by Tom McCarthy, produced by Alexander Dostal, McCarthy and Jim Whitaker from a screenplay written by McCarthy and Pastis and stars Winslow Fegley, Ophelia Lovibond, Craig Robinson and Wallace Shawn.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c8/Timmy_Failure_Mistakes_Were_Made_Poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "Horse Girl",
-      "year": 2020,
-      "cast": [
-        "Alison Brie",
-        "Debby Ryan",
-        "John Paul Reynolds",
-        "Molly Shannon",
-        "John Ortiz",
-        "Paul Reiser"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "Horse_Girl",
-      "extract": "Horse Girl is a 2020 American psychological drama film directed and produced by Jeff Baena, from a screenplay written by Baena and Alison Brie. It stars Brie, Debby Ryan, John Reynolds, Molly Shannon, John Ortiz, and Paul Reiser.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/37/Horse_Girl_poster.jpg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "The Photograph",
-      "year": 2020,
-      "cast": [
-        "Issa Rae",
-        "Lakeith Stanfield",
-        "Chelsea Peretti",
-        "Lil Rel Howery",
-        "Courtney B. Vance"
-      ],
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "href": "The_Photograph_(2020_film)",
-      "extract": "The Photograph is a 2020 American romantic drama film written and directed by Stella Meghie. It follows the estranged daughter of a famous photographer who falls in love with the journalist who is investigating her late mother's life. Chelsea Peretti, Lil Rel Howery and Courtney B. Vance also star.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c4/The_Photograph_poster.jpg",
-      "thumbnail_width": 251,
-      "thumbnail_height": 397
-    },
-    {
-      "title": "Downhill",
-      "year": 2020,
-      "cast": [
-        "Julia Louis-Dreyfus",
-        "Will Ferrell",
-        "Miranda Otto",
-        "Zoë Chao",
-        "Zach Woods"
-      ],
-      "genres": [
-        "Comedy",
-        "Drama"
-      ],
-      "href": "Downhill_(2020_film)",
-      "extract": "Downhill is a 2020 American black comedy-drama film directed by Nat Faxon and Jim Rash, who also co-wrote the script with Jesse Armstrong. The film is a remake of Force Majeure (2014) by Swedish director Ruben Östlund. It stars Julia Louis-Dreyfus and Will Ferrell as a married couple going through a rough patch after a near-death encounter during a family ski outing.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/6a/Downhill_poster.jpeg",
-      "thumbnail_width": 258,
-      "thumbnail_height": 386
-    },
-    {
-      "title": "The Kindness of Strangers",
-      "year": 2020,
-      "cast": [
-        "Andrea Riseborough",
-        "Tahar Rahim",
-        "Zoe Kazan",
-        "Bill Nighy",
-        "Caleb Landry Jones",
-        "Jay Baruchel"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "The_Kindness_of_Strangers_(film)",
-      "extract": "The Kindness of Strangers is a 2019 internationally co-produced drama film, written and directed by Lone Scherfig. It stars Zoe Kazan, Tahar Rahim, Esben Smed, Andrea Riseborough, and Caleb Landry Jones.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/8d/The_Kindness_of_Strangers_poster.jpg",
-      "thumbnail_width": 263,
-      "thumbnail_height": 379
-    },
+    // Sample movies data
 
-    {
-      "title": "The Night Clerk",
-      "year": 2020,
-      "cast": [
-        "Tye Sheridan",
-        "Ana de Armas",
-        "Helen Hunt",
-        "John Leguizamo"
-      ],
-      "genres": [
-        "Crime",
-        "Drama"
-      ],
-      "href": "The_Night_Clerk",
-      "extract": "The Night Clerk is a 2020 American crime drama film, written and directed by Michael Cristofer. It stars Tye Sheridan, Ana de Armas, John Leguizamo and Helen Hunt, and follows a hotel night clerk who becomes the center of a murder investigation. The film was released on February 21, 2020, by Saban Films. On June 6, 2020, Netflix released the film on its platform. The film has received negative reviews from critics who criticized it for its lackluster story, deriative, and undeveloped characters; however, Sheridan's performance did receive praise.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9f/The_Night_Clerk_poster.jpeg",
-      "thumbnail_width": 220,
-      "thumbnail_height": 330
-    },
-    {
-      "title": "All the Bright Places",
-      "year": 2020,
-      "cast": [
-        "Elle Fanning",
-        "Justice Smith",
-        "Alexandra Shipp",
-        "Keegan-Michael Key",
-        "Luke Wilson"
-      ],
-      "genres": [
-        "Drama",
-        "Teen",
-        "Romance"
-      ],
-      "href": "All_the_Bright_Places_(film)",
-      "extract": "All the Bright Places is a 2020 American teen romantic drama film, directed by Brett Haley, from a screenplay by Jennifer Niven and Liz Hannah, adapted from the novel of the same name by Niven. It stars Elle Fanning, Justice Smith, Alexandra Shipp, Kelli O'Hara, Lamar Johnson, Virginia Gardner, Felix Mallard, Sofia Hasmik, Keegan-Michael Key, and Luke Wilson.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/8c/All_the_Bright_Places.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "Wendy",
-      "year": 2020,
-      "cast": [
-        "Tommie Lynn Milazzo",
-        "Shay Walker"
-      ],
-      "genres": [
-        "Drama",
-        "Fantasy"
-      ],
-      "href": "Wendy_(film)",
-      "extract": "Wendy is a 2020 American fantasy drama film directed by Benh Zeitlin, from a screenplay by Zeitlin and Eliza Zeitlin. The film stars Devin France, Yashua Mack, Gage Naquin, Gavin Naquin, Ahmad Cage, Krzysztof Meyn, and Romyri Ross. It is intended to be a re-imagining of J. M. Barrie's Peter Pan.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/a/ac/Wendy_poster.jpg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "The Way Back",
-      "year": 2020,
-      "cast": [
-        "Ben Affleck",
-        "Al Madrigal",
-        "Michaela Watkins",
-        "Janina Gavankar",
-        "Glynn Turman"
-      ],
-      "genres": [
-        "Drama",
-        "Sports"
-      ],
-      "href": "The_Way_Back_(2020_film)",
-      "extract": "The Way Back is a 2020 American sports drama film directed by Gavin O'Connor and written by Brad Ingelsby. It stars Ben Affleck, Al Madrigal, Michaela Watkins, and Janina Gavankar, and follows an alcoholic construction worker who is recruited to become head coach of the basketball team at the high school where he was a star.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c3/The_Way_Back_poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "The Banker",
-      "year": 2020,
-      "cast": [
-        "Anthony Mackie",
-        "Nicholas Hoult",
-        "Nia Long",
-        "Samuel L. Jackson"
-      ],
-      "genres": [
-        "Drama",
-        "Historical"
-      ],
-      "href": "The_Banker_(2020_film)",
-      "extract": "The Banker is a 2020 American period drama film directed, co-written and produced by George Nolfi. The film stars Anthony Mackie, Nicholas Hoult, Nia Long, Jessie T. Usher and Samuel L. Jackson. The story follows Joe Morris (Jackson) and Bernard Garrett (Mackie), two of the first African-American bankers in the United States.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/7/72/The_Banker_poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "First Cow",
-      "year": 2020,
-      "cast": [
-        "John Magaro",
-        "Orion Hall",
-        "René Auberjonois"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "First_Cow_(film)",
-      "extract": "First Cow is a 2019 American drama film directed by Kelly Reichardt, from a screenplay by Reichardt and Jonathan Raymond based on Raymond's 2004 novel The Half-Life. It stars John Magaro, Orion Lee, Toby Jones, Ewen Bremner, Scott Shepherd, Gary Farmer, Stephen Malkmus, Alia Shawkat, and Lily Gladstone. It also features René Auberjonois in one of his final film roles.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/43/First_Cow_poster.jpeg",
-      "thumbnail_width": 253,
-      "thumbnail_height": 394
-    },
+    const movies = [
 
-    {
-      "title": "I Still Believe",
-      "year": 2020,
-      "cast": [
-        "KJ Apa",
-        "Britt Robertson",
-        "Shania Twain",
-        "Gary Sinise"
-      ],
-      "genres": [
-        "Drama",
-        "Romance"
-      ],
-      "href": "I_Still_Believe_(film)",
-      "extract": "I Still Believe is a 2020 American Christian romantic drama film directed by the Erwin brothers and starring KJ Apa, Britt Robertson, Shania Twain, Melissa Roxburgh, and Gary Sinise. It is based on the life of American contemporary Christian music singer-songwriter Jeremy Camp and his first wife, Melissa Lynn Henning-Camp, who was diagnosed with ovarian cancer shortly before they married. Camp's song \"I Still Believe\" is the film's namesake.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/18/I_Still_Believe_promotional_poster.jpg",
-      "thumbnail_width": 220,
-      "thumbnail_height": 316
-    },
-    {
-      "title": "Lost Girls",
-      "year": 2020,
-      "cast": [
-        "Amy Ryan",
-        "Thomasin McKenzie",
-        "Lola Kirke",
-        "Oona Laurence",
-        "Dean Winters",
-        "Miriam Shor",
-        "Reed Birney",
-        "Kevin Corrigan",
-        "Gabriel Byrne"
-      ],
-      "genres": [
-        "Drama",
-        "Mystery"
-      ],
-      "href": "Lost_Girls_(film)",
-      "extract": "Lost Girls is a 2020 American mystery drama film. Lost Girls was directed by Liz Garbus, from a screenplay by Michael Werwie, and based on the book Lost Girls: An Unsolved American Mystery by Robert Kolker. The film revolves around the murders of young female sex workers on the South Shore barrier islands of Long Island, committed by the Long Island serial killer, who remains unidentified.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/37/Lost_Girls_poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
+      {
+        "title": "Three Christs",
+        "year": 2020,
+        "cast": [
+          "Richard Gere",
+          "Peter Dinklage",
+          "Walton Goggins",
+          "Bradley Whitford"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "Three_Christs",
+        "extract": "Three Christs, also known as State of Mind, is a 2017 American drama film directed, co-produced, and co-written by Jon Avnet and based on Milton Rokeach's nonfiction book The Three Christs of Ypsilanti. It screened in the Gala Presentations section at the 2017 Toronto International Film Festival. The film is also known as: Three Christs of Ypsilanti, The Three Christs of Ypsilanti, Three Christs of Santa Monica, and The Three Christs of Santa Monica.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/a/a1/Three_Christs_poster.jpg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "Inherit the Viper",
+        "year": 2020,
+        "cast": [
+          "Josh Hartnett",
+          "Margarita Levieva",
+          "Chandler Riggs",
+          "Bruce Dern",
+          "Owen Teague"
+        ],
+        "genres": [
+          "Crime",
+          "Drama"
+        ],
+        "href": "Inherit_the_Viper",
+        "extract": "Inherit the Viper is a 2019 American crime drama film directed by Anthony Jerjen, in his feature directorial debut, from a screenplay by Andrew Crabtree. It stars Josh Hartnett, Margarita Levieva, Chandler Riggs, Bruce Dern, Valorie Curry, Owen Teague, and Dash Mihok.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/1c/Inherit_the_Viper_%282019%29_Film_Poster.jpg",
+        "thumbnail_width": 236,
+        "thumbnail_height": 350
+      },
 
-    {
-      "title": "The Roads Not Taken",
-      "year": 2020,
-      "cast": [
-        "Javier Bardem",
-        "Elle Fanning",
-        "Laura Linney",
-        "Salma Hayek"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "The_Roads_Not_Taken",
-      "extract": "The Roads Not Taken is a 2020 drama film written and directed by Sally Potter. The film stars Javier Bardem, Elle Fanning, Salma Hayek and Laura Linney.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/12/The_Roads_Not_Taken_poster.jpeg",
-      "thumbnail_width": 260,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "Never Rarely Sometimes Always",
-      "year": 2020,
-      "cast": [
-        "Sidney Flanigan",
-        "Talia Ryder",
-        "Theodore Pellerin",
-        "Ryan Eggold",
-        "Sharon Van Etten"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "Never_Rarely_Sometimes_Always",
-      "extract": "Never Rarely Sometimes Always is a 2020 drama film written and directed by Eliza Hittman. It stars Sidney Flanigan, Talia Ryder, Théodore Pellerin, Ryan Eggold, and Sharon Van Etten. It had its world premiere at the Sundance Film Festival on January 24, 2020. It was also selected to compete for the Golden Bear in the main competition section at the 70th Berlin International Film Festival, where it won the Silver Bear Grand Jury Prize. The film was released in the United States on March 13, 2020, by Focus Features. It received widespread acclaim from critics, with praise for Flanigan's performance and Hittman's direction.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/44/Never_Rarely_Sometimes_Always.png",
-      "thumbnail_width": 259,
-      "thumbnail_height": 384
-    },
-    {
-      "title": "Lost Transmissions",
-      "year": 2020,
-      "cast": [
-        "Simon Pegg",
-        "Juno Temple",
-        "Alexandra Daddario",
-        "Tao Okamoto",
-        "Rosanna Arquette",
-        "Bria Vinaite"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "Lost_Transmissions",
-      "extract": "Lost Transmissions is a 2019 drama film written and directed by Katharine O'Brien. It stars Simon Pegg, Juno Temple, and Alexandra Daddario. It premiered at the Tribeca Film Festival on April 28, 2019 ati was released on March 13, 2020 by Gravitas Ventures.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/e/ee/LostTransmissionTribeca.png",
-      "thumbnail_width": 258,
-      "thumbnail_height": 387
-    },
-    {
-      "title": "Resistance",
-      "year": 2020,
-      "cast": [
-        "Jesse Eisenberg",
-        "Ed Harris",
-        "Clémence Poésy",
-        "Matthias Schweighöfer",
-        "Félix Moati",
-        "Karl Markovics",
-        "Vica Kerekes",
-        "Bella Ramsey",
-        "Édgar Ramírez"
-      ],
-      "genres": [
-        "Drama",
-        "Biography"
-      ],
-      "href": "Resistance_(2020_film)",
-      "extract": "Resistance is a 2020 biographical drama film written and directed by Jonathan Jakubowicz, inspired by the life of Marcel Marceau. It stars Jesse Eisenberg as Marceau, with Clémence Poésy, Matthias Schweighöfer, Alicia von Rittberg, Félix Moati, Géza Röhrig, Karl Markovics, Vica Kerekes, Bella Ramsey, Ed Harris and Édgar Ramírez.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/1b/Resistance_poster.jpg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "Uncorked",
-      "year": 2020,
-      "cast": [
-        "Mamoudou Athie",
-        "Courtney B. Vance",
-        "Niecy Nash",
-        "Matt McGorry"
-      ],
-      "genres": [
-        "Drama"
-      ],
-      "href": "Uncorked_(2020_film)",
-      "extract": "Uncorked is a 2020 American drama film, written and directed by Prentice Penny. It stars Mamoudou Athie, Courtney B. Vance, Niecy Nash, Matt McGorry, Sasha Compère, Gil Ozeri, Kelly Jenrette, Bernard David Jones, Melisia Lomax and Meera Rohit Kumbhani.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/92/Uncorked_poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
+      {
+        "title": "The Last Full Measure",
+        "year": 2020,
+        "cast": [
+          "Sebastian Stan",
+          "Christopher Plummer",
+          "William Hurt",
+          "Ed Harris",
+          "Samuel L. Jackson",
+          "Peter Fonda",
+          "LisaGay Hamilton",
+          "Jeremy Irvine",
+          "Diane Ladd",
+          "Amy Madigan",
+          "John Savage",
+          "Bradley Whitford"
+        ],
+        "genres": [
+          "Drama",
+          "War"
+        ],
+        "href": "The_Last_Full_Measure_(2019_film)",
+        "extract": "The Last Full Measure is a 2019 American war drama film written and directed by Todd Robinson. It follows the efforts of fictional Pentagon staffer Scott Huffman and many veterans to see the Medal of Honor awarded to William H. Pitsenbarger, a United States Air Force Pararescueman who flew in helicopter rescue missions during the Vietnam War to aid downed soldiers and pilots. Based on true events, the film stars Sebastian Stan, Christopher Plummer, William Hurt, Ed Harris, Samuel L. Jackson, Jeremy Irvine, and Peter Fonda. It was the final film appearance of Fonda, who died before the film’s release; and Plummer's final on screen appearance before his death in 2021, though it had filmed prior to Knives Out which was released before it.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9d/The_Last_Full_Measure_2019_poster.jpg",
+        "thumbnail_width": 256,
+        "thumbnail_height": 378
+      },
+      {
+        "title": "John Henry",
+        "year": 2020,
+        "cast": [
+          "Terry Crews",
+          "Ludacris",
+          "Jamila Velazquez",
+          "Ken Foree",
+          "Tyler Alvarez",
+          "Joseph Julian Soria"
+        ],
+        "genres": [
+          "Drama",
+          "Thriller"
+        ],
+        "href": "John_Henry_(2020_film)",
+        "extract": "John Henry is a 2020 American thriller drama film starring Terry Crews and Ludacris, and directed by Will Forbes. Inspired by the folk lore of John Henry, the plot follows an ex-gang member from Los Angeles who must help two immigrant children who are on the run from his former crime boss. The film had a limited release on January 24, 2020, and received negative reviews from critics.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/b/b8/JohnHenryPoster.jpeg",
+        "thumbnail_width": 220,
+        "thumbnail_height": 316
+      },
+      {
+        "title": "The Assistant",
+        "year": 2020,
+        "cast": [
+          "Julia Garner",
+          "Matthew Macfadyen"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "The_Assistant_(2019_film)",
+        "extract": "The Assistant is a 2019 American drama film written, directed, produced, and edited by Kitty Green. The film stars Julia Garner as a junior assistant at a film production company. Matthew Macfadyen, Makenzie Leigh, Kristine Froseth, Jon Orsini, and Noah Robbins also star.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9b/The_Assistant_poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "Timmy Failure: Mistakes Were Made",
+        "year": 2020,
+        "cast": [
+          "Winslow Fegley",
+          "Ophelia Lovibond",
+          "Craig Robinson",
+          "Wallace Shawn"
+        ],
+        "genres": [
+          "Adventure",
+          "Comedy",
+          "Drama",
+          "Family",
+          "Fantasy"
+        ],
+        "href": "Timmy_Failure:_Mistakes_Were_Made",
+        "extract": "Timmy Failure: Mistakes Were Made is a 2020 American adventure fantasy comedy-drama family film based on the book series of the same name by Stephan Pastis that debuted on Disney+ on February 7, 2020. The film is directed by Tom McCarthy, produced by Alexander Dostal, McCarthy and Jim Whitaker from a screenplay written by McCarthy and Pastis and stars Winslow Fegley, Ophelia Lovibond, Craig Robinson and Wallace Shawn.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c8/Timmy_Failure_Mistakes_Were_Made_Poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "Horse Girl",
+        "year": 2020,
+        "cast": [
+          "Alison Brie",
+          "Debby Ryan",
+          "John Paul Reynolds",
+          "Molly Shannon",
+          "John Ortiz",
+          "Paul Reiser"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "Horse_Girl",
+        "extract": "Horse Girl is a 2020 American psychological drama film directed and produced by Jeff Baena, from a screenplay written by Baena and Alison Brie. It stars Brie, Debby Ryan, John Reynolds, Molly Shannon, John Ortiz, and Paul Reiser.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/37/Horse_Girl_poster.jpg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "The Photograph",
+        "year": 2020,
+        "cast": [
+          "Issa Rae",
+          "Lakeith Stanfield",
+          "Chelsea Peretti",
+          "Lil Rel Howery",
+          "Courtney B. Vance"
+        ],
+        "genres": [
+          "Drama",
+          "Romance"
+        ],
+        "href": "The_Photograph_(2020_film)",
+        "extract": "The Photograph is a 2020 American romantic drama film written and directed by Stella Meghie. It follows the estranged daughter of a famous photographer who falls in love with the journalist who is investigating her late mother's life. Chelsea Peretti, Lil Rel Howery and Courtney B. Vance also star.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c4/The_Photograph_poster.jpg",
+        "thumbnail_width": 251,
+        "thumbnail_height": 397
+      },
+      {
+        "title": "Downhill",
+        "year": 2020,
+        "cast": [
+          "Julia Louis-Dreyfus",
+          "Will Ferrell",
+          "Miranda Otto",
+          "Zoë Chao",
+          "Zach Woods"
+        ],
+        "genres": [
+          "Comedy",
+          "Drama"
+        ],
+        "href": "Downhill_(2020_film)",
+        "extract": "Downhill is a 2020 American black comedy-drama film directed by Nat Faxon and Jim Rash, who also co-wrote the script with Jesse Armstrong. The film is a remake of Force Majeure (2014) by Swedish director Ruben Östlund. It stars Julia Louis-Dreyfus and Will Ferrell as a married couple going through a rough patch after a near-death encounter during a family ski outing.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/6a/Downhill_poster.jpeg",
+        "thumbnail_width": 258,
+        "thumbnail_height": 386
+      },
+      {
+        "title": "The Kindness of Strangers",
+        "year": 2020,
+        "cast": [
+          "Andrea Riseborough",
+          "Tahar Rahim",
+          "Zoe Kazan",
+          "Bill Nighy",
+          "Caleb Landry Jones",
+          "Jay Baruchel"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "The_Kindness_of_Strangers_(film)",
+        "extract": "The Kindness of Strangers is a 2019 internationally co-produced drama film, written and directed by Lone Scherfig. It stars Zoe Kazan, Tahar Rahim, Esben Smed, Andrea Riseborough, and Caleb Landry Jones.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/8d/The_Kindness_of_Strangers_poster.jpg",
+        "thumbnail_width": 263,
+        "thumbnail_height": 379
+      },
 
-    {
-      "title": "Sergio",
-      "year": 2020,
-      "cast": [
-        "Wagner Moura",
-        "Ana de Armas",
-        "Garret Dillahunt",
-        "Brían F. O'Byrne",
-        "Clemens Schick",
-        "Bradley Whitford"
-      ],
-      "genres": [
-        "Drama",
-        "Biography"
-      ],
-      "href": "Sergio_(2020_film)",
-      "extract": "Sergio is a 2020 American biographical drama film about the United Nations diplomat Sérgio Vieira de Mello. The film is directed by Greg Barker, from a screenplay written by Craig Borten. It stars Wagner Moura, Ana de Armas, Garret Dillahunt, Clemens Schick, Will Dalton, Bradley Whitford and Brían F. O'Byrne.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/d/da/Sergio_poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-    {
-      "title": "Braking for Whales",
-      "year": 2020,
-      "cast": [
-        "Tom Felton",
-        "Tammin Sursok",
-        "Wendi McLendon-Covey",
-        "David Koechner"
-      ],
-      "genres": [
-        "Comedy",
-        "Drama"
-      ],
-      "href": "Braking_for_Whales",
-      "extract": "Braking for Whales is a 2019 American comedy-drama film directed by Sean McEwen and starring Tammin Sursok and Tom Felton. Sursok co-wrote the screenplay with McEwen.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/62/Braking_for_Whales.jpg",
-      "thumbnail_width": 220,
-      "thumbnail_height": 330
-    },
-    {
-      "title": "Bad Education",
-      "year": 2020,
-      "cast": [
-        "Hugh Jackman",
-        "Allison Janney",
-        "Geraldine Viswanathan",
-        "Alex Wolff",
-        "Rafael Casal",
-        "Stephen Spinella",
-        "Annaleigh Ashford",
-        "Ray Romano"
-      ],
-      "genres": [
-        "Crime",
-        "Drama"
-      ],
-      "href": "Bad_Education_(2019_film)",
-      "extract": "Bad Education is a 2019 American crime drama film directed by Cory Finley and written by Mike Makowsky. It is based on the 2004 New York magazine article \"The Bad Superintendent\" by Robert Kolker, about the true story of the largest public school embezzlement in American history. It features an ensemble cast including Hugh Jackman, Allison Janney, Geraldine Viswanathan, Alex Wolff, Rafael Casal, Stephen Spinella, Annaleigh Ashford and Ray Romano.",
-      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/3d/Bad_Education_poster.jpeg",
-      "thumbnail_width": 259,
-      "thumbnail_height": 383
-    },
-        ];
-        const moviesPerPage = 20;
-        let currentPage = 1;
+      {
+        "title": "The Night Clerk",
+        "year": 2020,
+        "cast": [
+          "Tye Sheridan",
+          "Ana de Armas",
+          "Helen Hunt",
+          "John Leguizamo"
+        ],
+        "genres": [
+          "Crime",
+          "Drama"
+        ],
+        "href": "The_Night_Clerk",
+        "extract": "The Night Clerk is a 2020 American crime drama film, written and directed by Michael Cristofer. It stars Tye Sheridan, Ana de Armas, John Leguizamo and Helen Hunt, and follows a hotel night clerk who becomes the center of a murder investigation. The film was released on February 21, 2020, by Saban Films. On June 6, 2020, Netflix released the film on its platform. The film has received negative reviews from critics who criticized it for its lackluster story, deriative, and undeveloped characters; however, Sheridan's performance did receive praise.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/9f/The_Night_Clerk_poster.jpeg",
+        "thumbnail_width": 220,
+        "thumbnail_height": 330
+      },
+      {
+        "title": "All the Bright Places",
+        "year": 2020,
+        "cast": [
+          "Elle Fanning",
+          "Justice Smith",
+          "Alexandra Shipp",
+          "Keegan-Michael Key",
+          "Luke Wilson"
+        ],
+        "genres": [
+          "Drama",
+          "Teen",
+          "Romance"
+        ],
+        "href": "All_the_Bright_Places_(film)",
+        "extract": "All the Bright Places is a 2020 American teen romantic drama film, directed by Brett Haley, from a screenplay by Jennifer Niven and Liz Hannah, adapted from the novel of the same name by Niven. It stars Elle Fanning, Justice Smith, Alexandra Shipp, Kelli O'Hara, Lamar Johnson, Virginia Gardner, Felix Mallard, Sofia Hasmik, Keegan-Michael Key, and Luke Wilson.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/8/8c/All_the_Bright_Places.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "Wendy",
+        "year": 2020,
+        "cast": [
+          "Tommie Lynn Milazzo",
+          "Shay Walker"
+        ],
+        "genres": [
+          "Drama",
+          "Fantasy"
+        ],
+        "href": "Wendy_(film)",
+        "extract": "Wendy is a 2020 American fantasy drama film directed by Benh Zeitlin, from a screenplay by Zeitlin and Eliza Zeitlin. The film stars Devin France, Yashua Mack, Gage Naquin, Gavin Naquin, Ahmad Cage, Krzysztof Meyn, and Romyri Ross. It is intended to be a re-imagining of J. M. Barrie's Peter Pan.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/a/ac/Wendy_poster.jpg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "The Way Back",
+        "year": 2020,
+        "cast": [
+          "Ben Affleck",
+          "Al Madrigal",
+          "Michaela Watkins",
+          "Janina Gavankar",
+          "Glynn Turman"
+        ],
+        "genres": [
+          "Drama",
+          "Sports"
+        ],
+        "href": "The_Way_Back_(2020_film)",
+        "extract": "The Way Back is a 2020 American sports drama film directed by Gavin O'Connor and written by Brad Ingelsby. It stars Ben Affleck, Al Madrigal, Michaela Watkins, and Janina Gavankar, and follows an alcoholic construction worker who is recruited to become head coach of the basketball team at the high school where he was a star.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/c/c3/The_Way_Back_poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "The Banker",
+        "year": 2020,
+        "cast": [
+          "Anthony Mackie",
+          "Nicholas Hoult",
+          "Nia Long",
+          "Samuel L. Jackson"
+        ],
+        "genres": [
+          "Drama",
+          "Historical"
+        ],
+        "href": "The_Banker_(2020_film)",
+        "extract": "The Banker is a 2020 American period drama film directed, co-written and produced by George Nolfi. The film stars Anthony Mackie, Nicholas Hoult, Nia Long, Jessie T. Usher and Samuel L. Jackson. The story follows Joe Morris (Jackson) and Bernard Garrett (Mackie), two of the first African-American bankers in the United States.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/7/72/The_Banker_poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "First Cow",
+        "year": 2020,
+        "cast": [
+          "John Magaro",
+          "Orion Hall",
+          "René Auberjonois"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "First_Cow_(film)",
+        "extract": "First Cow is a 2019 American drama film directed by Kelly Reichardt, from a screenplay by Reichardt and Jonathan Raymond based on Raymond's 2004 novel The Half-Life. It stars John Magaro, Orion Lee, Toby Jones, Ewen Bremner, Scott Shepherd, Gary Farmer, Stephen Malkmus, Alia Shawkat, and Lily Gladstone. It also features René Auberjonois in one of his final film roles.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/43/First_Cow_poster.jpeg",
+        "thumbnail_width": 253,
+        "thumbnail_height": 394
+      },
 
-        const movieContainer = document.getElementById('movie-container');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const pageInfo = document.getElementById('page-info');
+      {
+        "title": "I Still Believe",
+        "year": 2020,
+        "cast": [
+          "KJ Apa",
+          "Britt Robertson",
+          "Shania Twain",
+          "Gary Sinise"
+        ],
+        "genres": [
+          "Drama",
+          "Romance"
+        ],
+        "href": "I_Still_Believe_(film)",
+        "extract": "I Still Believe is a 2020 American Christian romantic drama film directed by the Erwin brothers and starring KJ Apa, Britt Robertson, Shania Twain, Melissa Roxburgh, and Gary Sinise. It is based on the life of American contemporary Christian music singer-songwriter Jeremy Camp and his first wife, Melissa Lynn Henning-Camp, who was diagnosed with ovarian cancer shortly before they married. Camp's song \"I Still Believe\" is the film's namesake.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/18/I_Still_Believe_promotional_poster.jpg",
+        "thumbnail_width": 220,
+        "thumbnail_height": 316
+      },
+      {
+        "title": "Lost Girls",
+        "year": 2020,
+        "cast": [
+          "Amy Ryan",
+          "Thomasin McKenzie",
+          "Lola Kirke",
+          "Oona Laurence",
+          "Dean Winters",
+          "Miriam Shor",
+          "Reed Birney",
+          "Kevin Corrigan",
+          "Gabriel Byrne"
+        ],
+        "genres": [
+          "Drama",
+          "Mystery"
+        ],
+        "href": "Lost_Girls_(film)",
+        "extract": "Lost Girls is a 2020 American mystery drama film. Lost Girls was directed by Liz Garbus, from a screenplay by Michael Werwie, and based on the book Lost Girls: An Unsolved American Mystery by Robert Kolker. The film revolves around the murders of young female sex workers on the South Shore barrier islands of Long Island, committed by the Long Island serial killer, who remains unidentified.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/37/Lost_Girls_poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
 
-        function renderMovies() {
-            movieContainer.innerHTML = '';
-            const startIndex = (currentPage - 1) * moviesPerPage;
-            const endIndex = startIndex + moviesPerPage;
+      {
+        "title": "The Roads Not Taken",
+        "year": 2020,
+        "cast": [
+          "Javier Bardem",
+          "Elle Fanning",
+          "Laura Linney",
+          "Salma Hayek"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "The_Roads_Not_Taken",
+        "extract": "The Roads Not Taken is a 2020 drama film written and directed by Sally Potter. The film stars Javier Bardem, Elle Fanning, Salma Hayek and Laura Linney.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/12/The_Roads_Not_Taken_poster.jpeg",
+        "thumbnail_width": 260,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "Never Rarely Sometimes Always",
+        "year": 2020,
+        "cast": [
+          "Sidney Flanigan",
+          "Talia Ryder",
+          "Theodore Pellerin",
+          "Ryan Eggold",
+          "Sharon Van Etten"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "Never_Rarely_Sometimes_Always",
+        "extract": "Never Rarely Sometimes Always is a 2020 drama film written and directed by Eliza Hittman. It stars Sidney Flanigan, Talia Ryder, Théodore Pellerin, Ryan Eggold, and Sharon Van Etten. It had its world premiere at the Sundance Film Festival on January 24, 2020. It was also selected to compete for the Golden Bear in the main competition section at the 70th Berlin International Film Festival, where it won the Silver Bear Grand Jury Prize. The film was released in the United States on March 13, 2020, by Focus Features. It received widespread acclaim from critics, with praise for Flanigan's performance and Hittman's direction.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/4/44/Never_Rarely_Sometimes_Always.png",
+        "thumbnail_width": 259,
+        "thumbnail_height": 384
+      },
+      {
+        "title": "Lost Transmissions",
+        "year": 2020,
+        "cast": [
+          "Simon Pegg",
+          "Juno Temple",
+          "Alexandra Daddario",
+          "Tao Okamoto",
+          "Rosanna Arquette",
+          "Bria Vinaite"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "Lost_Transmissions",
+        "extract": "Lost Transmissions is a 2019 drama film written and directed by Katharine O'Brien. It stars Simon Pegg, Juno Temple, and Alexandra Daddario. It premiered at the Tribeca Film Festival on April 28, 2019 ati was released on March 13, 2020 by Gravitas Ventures.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/e/ee/LostTransmissionTribeca.png",
+        "thumbnail_width": 258,
+        "thumbnail_height": 387
+      },
+      {
+        "title": "Resistance",
+        "year": 2020,
+        "cast": [
+          "Jesse Eisenberg",
+          "Ed Harris",
+          "Clémence Poésy",
+          "Matthias Schweighöfer",
+          "Félix Moati",
+          "Karl Markovics",
+          "Vica Kerekes",
+          "Bella Ramsey",
+          "Édgar Ramírez"
+        ],
+        "genres": [
+          "Drama",
+          "Biography"
+        ],
+        "href": "Resistance_(2020_film)",
+        "extract": "Resistance is a 2020 biographical drama film written and directed by Jonathan Jakubowicz, inspired by the life of Marcel Marceau. It stars Jesse Eisenberg as Marceau, with Clémence Poésy, Matthias Schweighöfer, Alicia von Rittberg, Félix Moati, Géza Röhrig, Karl Markovics, Vica Kerekes, Bella Ramsey, Ed Harris and Édgar Ramírez.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/1/1b/Resistance_poster.jpg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "Uncorked",
+        "year": 2020,
+        "cast": [
+          "Mamoudou Athie",
+          "Courtney B. Vance",
+          "Niecy Nash",
+          "Matt McGorry"
+        ],
+        "genres": [
+          "Drama"
+        ],
+        "href": "Uncorked_(2020_film)",
+        "extract": "Uncorked is a 2020 American drama film, written and directed by Prentice Penny. It stars Mamoudou Athie, Courtney B. Vance, Niecy Nash, Matt McGorry, Sasha Compère, Gil Ozeri, Kelly Jenrette, Bernard David Jones, Melisia Lomax and Meera Rohit Kumbhani.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/9/92/Uncorked_poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
 
-            const currentMovies = movies.slice(startIndex, endIndex);
-            currentMovies.forEach(movie => {
-                const movieCard = document.createElement('div');
-                movieCard.className = 'movie-card';
-                movieCard.innerHTML = `
+      {
+        "title": "Sergio",
+        "year": 2020,
+        "cast": [
+          "Wagner Moura",
+          "Ana de Armas",
+          "Garret Dillahunt",
+          "Brían F. O'Byrne",
+          "Clemens Schick",
+          "Bradley Whitford"
+        ],
+        "genres": [
+          "Drama",
+          "Biography"
+        ],
+        "href": "Sergio_(2020_film)",
+        "extract": "Sergio is a 2020 American biographical drama film about the United Nations diplomat Sérgio Vieira de Mello. The film is directed by Greg Barker, from a screenplay written by Craig Borten. It stars Wagner Moura, Ana de Armas, Garret Dillahunt, Clemens Schick, Will Dalton, Bradley Whitford and Brían F. O'Byrne.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/d/da/Sergio_poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+      {
+        "title": "Braking for Whales",
+        "year": 2020,
+        "cast": [
+          "Tom Felton",
+          "Tammin Sursok",
+          "Wendi McLendon-Covey",
+          "David Koechner"
+        ],
+        "genres": [
+          "Comedy",
+          "Drama"
+        ],
+        "href": "Braking_for_Whales",
+        "extract": "Braking for Whales is a 2019 American comedy-drama film directed by Sean McEwen and starring Tammin Sursok and Tom Felton. Sursok co-wrote the screenplay with McEwen.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/6/62/Braking_for_Whales.jpg",
+        "thumbnail_width": 220,
+        "thumbnail_height": 330
+      },
+      {
+        "title": "Bad Education",
+        "year": 2020,
+        "cast": [
+          "Hugh Jackman",
+          "Allison Janney",
+          "Geraldine Viswanathan",
+          "Alex Wolff",
+          "Rafael Casal",
+          "Stephen Spinella",
+          "Annaleigh Ashford",
+          "Ray Romano"
+        ],
+        "genres": [
+          "Crime",
+          "Drama"
+        ],
+        "href": "Bad_Education_(2019_film)",
+        "extract": "Bad Education is a 2019 American crime drama film directed by Cory Finley and written by Mike Makowsky. It is based on the 2004 New York magazine article \"The Bad Superintendent\" by Robert Kolker, about the true story of the largest public school embezzlement in American history. It features an ensemble cast including Hugh Jackman, Allison Janney, Geraldine Viswanathan, Alex Wolff, Rafael Casal, Stephen Spinella, Annaleigh Ashford and Ray Romano.",
+        "thumbnail": "https://upload.wikimedia.org/wikipedia/en/3/3d/Bad_Education_poster.jpeg",
+        "thumbnail_width": 259,
+        "thumbnail_height": 383
+      },
+    ];
+    const moviesPerPage = 20;
+    let currentPage = 1;
+
+    const movieContainer = document.getElementById('movie-container');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const pageInfo = document.getElementById('page-info');
+
+    function renderMovies() {
+      movieContainer.innerHTML = '';
+      const startIndex = (currentPage - 1) * moviesPerPage;
+      const endIndex = startIndex + moviesPerPage;
+
+      const currentMovies = movies.slice(startIndex, endIndex);
+      currentMovies.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.className = 'movie-card';
+        movieCard.innerHTML = `
                     <div class="movie-card-inner">
                         <div class="movie-card-front">
                             <img src="${movie.thumbnail}" alt="${movie.title} Poster">
@@ -737,42 +741,42 @@
                         </div>
                     </div>
                 `;
-                movieContainer.appendChild(movieCard);
-            });
+        movieContainer.appendChild(movieCard);
+      });
 
-            pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(movies.length / moviesPerPage)}`;
-            prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage === Math.ceil(movies.length / moviesPerPage);
-        }
+      pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(movies.length / moviesPerPage)}`;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === Math.ceil(movies.length / moviesPerPage);
+    }
 
-        prevBtn.addEventListener('click', () => {
-            currentPage--;
-            renderMovies();
-        });
+    prevBtn.addEventListener('click', () => {
+      currentPage--;
+      renderMovies();
+    });
 
-        nextBtn.addEventListener('click', () => {
-            currentPage++;
-            renderMovies();
-        });
+    nextBtn.addEventListener('click', () => {
+      currentPage++;
+      renderMovies();
+    });
 
-        // Initial render
-        renderMovies();
+    // Initial render
+    renderMovies();
 
-        const searchBar = document.getElementById('search-bar');
+    const searchBar = document.getElementById('search-bar');
 
-searchBar.addEventListener('input', () => {
-    const searchQuery = searchBar.value.toLowerCase();
-    const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(searchQuery));
-    renderFilteredMovies(filteredMovies);
-});
+    searchBar.addEventListener('input', () => {
+      const searchQuery = searchBar.value.toLowerCase();
+      const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(searchQuery));
+      renderFilteredMovies(filteredMovies);
+    });
 
-function renderFilteredMovies(filteredMovies) {
-    movieContainer.innerHTML = '';
-    const startIndex = (currentPage - 1) * moviesPerPage;
-    const endIndex = startIndex + moviesPerPage;
+    function renderFilteredMovies(filteredMovies) {
+      movieContainer.innerHTML = '';
+      const startIndex = (currentPage - 1) * moviesPerPage;
+      const endIndex = startIndex + moviesPerPage;
 
-    const currentMovies = filteredMovies.slice(startIndex, endIndex);
-    currentMovies.forEach(movie => {
+      const currentMovies = filteredMovies.slice(startIndex, endIndex);
+      currentMovies.forEach(movie => {
         const movieCard = document.createElement('div');
         movieCard.className = 'movie-card';
         movieCard.innerHTML = `
@@ -789,87 +793,88 @@ function renderFilteredMovies(filteredMovies) {
             </div>
         `;
         movieContainer.appendChild(movieCard);
-    });
+      });
 
-    pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredMovies.length / moviesPerPage)}`;
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === Math.ceil(filteredMovies.length / moviesPerPage);
+      pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredMovies.length / moviesPerPage)}`;
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === Math.ceil(filteredMovies.length / moviesPerPage);
 
-    const genreFilter = document.getElementById('genre-filter');
+      const genreFilter = document.getElementById('genre-filter');
 
-genreFilter.addEventListener('change', () => {
-    const selectedGenre = genreFilter.value;
-    const filteredMovies = selectedGenre
-        ? movies.filter(movie => movie.genres.includes(selectedGenre))
-        : movies;
-    renderFilteredMovies(filteredMovies);
-});
+      genreFilter.addEventListener('change', () => {
+        const selectedGenre = genreFilter.value;
+        const filteredMovies = selectedGenre
+          ? movies.filter(movie => movie.genres.includes(selectedGenre))
+          : movies;
+        renderFilteredMovies(filteredMovies);
+      });
 
 
-const sortOptions = document.getElementById('sort-options');
+      const sortOptions = document.getElementById('sort-options');
 
-sortOptions.addEventListener('change', () => {
-    const sortBy = sortOptions.value;
-    const sortedMovies = [...movies].sort((a, b) => {
-        if (sortBy === 'title') {
+      sortOptions.addEventListener('change', () => {
+        const sortBy = sortOptions.value;
+        const sortedMovies = [...movies].sort((a, b) => {
+          if (sortBy === 'title') {
             return a.title.localeCompare(b.title);
-        } else if (sortBy === 'year') {
+          } else if (sortBy === 'year') {
             return a.year - b.year;
-        }
-    });
-    renderFilteredMovies(sortedMovies);
-});
-function applyFiltersAndRender() {
-    const searchQuery = searchBar.value.toLowerCase();
-    const selectedGenre = genreFilter.value;
-    const sortBy = sortOptions.value;
+          }
+        });
+        renderFilteredMovies(sortedMovies);
+      });
+      function applyFiltersAndRender() {
+        const searchQuery = searchBar.value.toLowerCase();
+        const selectedGenre = genreFilter.value;
+        const sortBy = sortOptions.value;
 
-    let filteredMovies = movies.filter(movie => 
-        movie.title.toLowerCase().includes(searchQuery) && 
-        (selectedGenre ? movie.genres.includes(selectedGenre) : true)
-    );
+        let filteredMovies = movies.filter(movie =>
+          movie.title.toLowerCase().includes(searchQuery) &&
+          (selectedGenre ? movie.genres.includes(selectedGenre) : true)
+        );
 
-    filteredMovies = filteredMovies.sort((a, b) => {
-        if (sortBy === 'title') return a.title.localeCompare(b.title);
-        if (sortBy === 'year') return a.year - b.year;
-        return 0;
-    });
+        filteredMovies = filteredMovies.sort((a, b) => {
+          if (sortBy === 'title') return a.title.localeCompare(b.title);
+          if (sortBy === 'year') return a.year - b.year;
+          return 0;
+        });
 
-    renderFilteredMovies(filteredMovies);
-}
+        renderFilteredMovies(filteredMovies);
+      }
 
-searchBar.addEventListener('input', applyFiltersAndRender);
-genreFilter.addEventListener('change', applyFiltersAndRender);
-sortOptions.addEventListener('change', applyFiltersAndRender);
+      searchBar.addEventListener('input', applyFiltersAndRender);
+      genreFilter.addEventListener('change', applyFiltersAndRender);
+      sortOptions.addEventListener('change', applyFiltersAndRender);
 
 
-}
-function navigateToPage() {
-        const dropdown = document.getElementById("genre-filter");
-        const selectedValue = dropdown.value;
+    }
+    function navigateToPage() {
+      const dropdown = document.getElementById("genre-filter");
+      const selectedValue = dropdown.value;
 
-        if (selectedValue) {
-            window.location.href = selectedValue; // Navigon në faqen e zgjedhur
-        }
+      if (selectedValue) {
+        window.location.href = selectedValue; // Navigon në faqen e zgjedhur
+      }
     }
 
     $(function () {
-            $("#footer").load("footer.html");
-            $("#nav").load("nav.html");
-        })
-        $(function () {
-            $(".nav-link").hide(2).show(2000);
-        });
-    
-    
-    $(document).ready(function () {
-        $("#footer").load("footer.html");
+      $("#footer").load("footer.html");
+      $("#nav").load("nav.html");
+    })
+    $(function () {
+      $(".nav-link").hide(2).show(2000);
     });
-    
-</script>
-      <div id="footer">
 
-      </div>
-    
+
+    $(document).ready(function () {
+      $("#footer").load("footer.html");
+    });
+
+  </script>
+  <div id="footer">
+
+  </div>
+
 </body>
+
 </html>

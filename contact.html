@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="sq">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forma e Kontaktit</title>
     <link rel="stylesheet" href="./css/contact.css">
- 
+
 </head>
+
 <body>
 
     <div class="font-size">
-    <div class="contact-container">
-        <h2>Contact us</h2>
-        <form id="contact-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Write your name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Write your Email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Write your message" rows="5" required></textarea>
-            
-            <button type="submit">Send</button>
-        </form>
-        <p id="response-message"></p>
+        <div class="contact-container">
+            <h2>Contact us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Write your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Write your Email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Write your message" rows="5" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+            <p id="response-message"></p>
+        </div>
     </div>
-</div>
     <script src="script.js">
         document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+            e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
-    emailjs.send("service_id", "template_id", {
-        from_name: name,
-        from_email: email,
-        message: message,
-    }).then(
-        function (response) {
-            document.getElementById("response-message").textContent = "Form submitted successfully!";
-            document.getElementById("response-message").style.color = "green";
-        },
-        function (error) {
-            document.getElementById("response-message").textContent = "Sending failed.Please try again";
-            document.getElementById("response-message").style.color = "red";
-        }
-    );
+            emailjs.send("service_id", "template_id", {
+                from_name: name,
+                from_email: email,
+                message: message,
+            }).then(
+                function (response) {
+                    document.getElementById("response-message").textContent = "Form submitted successfully!";
+                    document.getElementById("response-message").style.color = "green";
+                },
+                function (error) {
+                    document.getElementById("response-message").textContent = "Sending failed.Please try again";
+                    document.getElementById("response-message").style.color = "red";
+                }
+            );
 
-    document.getElementById("contact-form").reset();
-});
+            document.getElementById("contact-form").reset();
+        });
 
     </script>
-    
+
 </body>
+
 </html>

@@ -14,102 +14,104 @@
 
 <body>
   <div class="font-size">
-  <div class="header">
-    <div id="square" class="" width="100%" height="100%">
-    </div>
-    <div class="container">
-      <form class="form" id="signupForm">
-        <div class="form__text">Sign in</div>
-      
-        <div class="form__group">
-          <input type="text" class="form__input" id="firstname" required />
-          <label for="firstname" class="form__label">First name</label>
-          <small class="error-message" id="error-firstname"></small>
-        </div>
-      
-        <div class="form__group">
-          <input type="text" class="form__input" id="lastname" required />
-          <label for="lastname" class="form__label">Last name</label>
-          <small class="error-message" id="error-lastname"></small>
-        </div>
-      
-        <div class="form__group">
-          <input type="email" class="form__input" id="email" required />
-          <label for="email" class="form__label">Email address</label>
-          <small class="error-message" id="error-email"></small>
-        </div>
-      
-        <div class="form__group">
-          <input type="password" class="form__input" id="password" required />
-          <label for="password" class="form__label">Password</label>
-          <small class="error-message" id="error-password"></small>
-        </div>
-      
-        <div class="form__button">
-          <button type="submit" class="btn">Submit</button>
-        </div>
-      </form>      
+    <div class="header">
+      <div id="square" class="" width="100%" height="100%">
+      </div>
+      <div class="container">
+        <form class="form" id="signupForm">
+          <div class="form__text">Sign in</div>
 
-      <div class="form__button">
-        <div class="sign"><a style="text-decoration: none; padding: 4px 4px;margin-right: 4px; background-color: rgba(0, 0, 0, 0.571); color: white; border-radius: 10px;" href="./home.html">Continue as a guest</a>Or Sign up using</div>
-        <br>
-        <div class="social">
-          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://twitter.com/i/flow/signup"><i class="fab fa-twitter"></i></a>
-          <a href="https://support.google.com/mail/answer/56256?hl=en"> <i class="fab fa-google"></i></a>
+          <div class="form__group">
+            <input type="text" class="form__input" id="firstname" required />
+            <label for="firstname" class="form__label">First name</label>
+            <small class="error-message" id="error-firstname"></small>
+          </div>
+
+          <div class="form__group">
+            <input type="text" class="form__input" id="lastname" required />
+            <label for="lastname" class="form__label">Last name</label>
+            <small class="error-message" id="error-lastname"></small>
+          </div>
+
+          <div class="form__group">
+            <input type="email" class="form__input" id="email" required />
+            <label for="email" class="form__label">Email address</label>
+            <small class="error-message" id="error-email"></small>
+          </div>
+
+          <div class="form__group">
+            <input type="password" class="form__input" id="password" required />
+            <label for="password" class="form__label">Password</label>
+            <small class="error-message" id="error-password"></small>
+          </div>
+
+          <div class="form__button">
+            <button type="submit" class="btn">Submit</button>
+          </div>
+        </form>
+
+        <div class="form__button">
+          <div class="sign"><a
+              style="text-decoration: none; padding: 4px 4px;margin-right: 4px; background-color: rgba(0, 0, 0, 0.571); color: white; border-radius: 10px;"
+              href="./home.html">Continue as a guest</a>Or Sign up using</div>
+          <br>
+          <div class="social">
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/i/flow/signup"><i class="fab fa-twitter"></i></a>
+            <a href="https://support.google.com/mail/answer/56256?hl=en"> <i class="fab fa-google"></i></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <script>
     document.getElementById("signupForm").addEventListener("submit", function (event) {
-  event.preventDefault();
+      event.preventDefault();
 
-  try {
-    const firstname = document.getElementById("firstname");
-    if (firstname.value.trim() === "") {
-      throw new Error("First name is required.");
+      try {
+        const firstname = document.getElementById("firstname");
+        if (firstname.value.trim() === "") {
+          throw new Error("First name is required.");
+        }
+
+        const lastname = document.getElementById("lastname");
+        if (lastname.value.trim() === "") {
+          throw new Error("Last name is required.");
+        }
+
+        const email = document.getElementById("email");
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/;
+        if (!emailPattern.test(email.value.trim())) {
+          throw new Error("Please enter a valid email address.");
+        }
+
+        const password = document.getElementById("password");
+        if (password.value.trim().length < 6) {
+          throw new Error("Password must be at least 6 characters long.");
+        }
+
+        alert("Form submitted successfully!");
+
+      } catch (err) {
+        displayError(err.message);
+      }
+    });
+
+    function displayError(message) {
+      const errorDiv = document.createElement("div");
+      errorDiv.textContent = message;
+      errorDiv.style.color = "red";
+      errorDiv.style.marginTop = "10px";
+
+      const form = document.querySelector(".form");
+      const existingError = document.querySelector(".form .global-error");
+      if (existingError) {
+        existingError.remove();
+      }
+
+      errorDiv.classList.add("global-error");
+      form.appendChild(errorDiv);
     }
-
-    const lastname = document.getElementById("lastname");
-    if (lastname.value.trim() === "") {
-      throw new Error("Last name is required.");
-    }
-
-    const email = document.getElementById("email");
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/;
-    if (!emailPattern.test(email.value.trim())) {
-      throw new Error("Please enter a valid email address.");
-    }
-
-    const password = document.getElementById("password");
-    if (password.value.trim().length < 6) {
-      throw new Error("Password must be at least 6 characters long.");
-    }
-
-    alert("Form submitted successfully!");
-
-  } catch (err) {
-    displayError(err.message);
-  }
-});
-
-function displayError(message) {
-  const errorDiv = document.createElement("div");
-  errorDiv.textContent = message;
-  errorDiv.style.color = "red";
-  errorDiv.style.marginTop = "10px";
-
-  const form = document.querySelector(".form");
-  const existingError = document.querySelector(".form .global-error");
-  if (existingError) {
-    existingError.remove(); 
-  }
-
-  errorDiv.classList.add("global-error");
-  form.appendChild(errorDiv);
-}
 
   </script>
 </body>
