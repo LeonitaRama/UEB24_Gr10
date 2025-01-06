@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,12 @@
 </head>
 <link rel="stylesheet" href="css/home.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+    </script>
 <link rel="stylesheet" href="./css/returnToTop.css">
 <script src="./js/jquery.js"></script>
+<script src="./js/drag&drop.js"></script>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -47,150 +52,241 @@
     #notifyBtn:hover {
         background-color: rgba(255, 0, 0, 0.575);
     }
+
+    #mydiv {
+        position: absolute;
+        z-index: 10;
+        background-color: rgb(0, 0, 0, 0.3);
+        border: 1px solid rgb(0, 0, 0, 0.9);
+        text-align: center;
+        left: 25%;
+        top: 20%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 200px;
+    }
+
+    #mydivheader {
+        padding: 10px;
+        cursor: move;
+        z-index: 20;
+        background-color: rgb(0, 0, 0, 0.8);
+        color: #fff;
+    }
+
+    #datasot {
+            color: white;
+            margin: 10px 0;
+        }
 </style>
+
 <body>
-    
+    <div id="mydiv">
+        <div id="mydivheader">Move from here</div>
+        <p id="datasot">Date:</p>
+    </div>
+<!-- 
+    <div id="mydiv" style="top:50;left:50%;">
+        <div id="mydivheader">Move from here</div>
+        <p id="datasot" style="color:white;">Date:</p>
+    </div> -->
     <!-- return to top call -->
     <div class="return-to-top">
         <img src="./assets/images/returnToTop.png" alt="">
     </div>
 
     <div class="font-size">
-    <div class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="./home.html" class="logo">
-                    <img src="assets/images/logo.png" width="150px">
-                </a>
-                <a href="home.html" class="Home">Home</a>
-                <div class="dropdown">
-                    <a href="./data.html" class="Genre">Movies</a>
-                </div>
-                <a href="In-Cinema.html" class="In-Theaters">In Cinema</a>
-                <a href="Book-Ticket.html" class="Book-Ticket">Book Ticket</a>
-                <a href="./movies.html" style="margin-right: 35px;" class="Book-Ticket">Most Watched</a>
-                
-                <div class="select-box">
-                    <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M8,14.5c0.23033,0 0.84266,-0.2257 1.48679,-1.514c0.27614,-0.5523 0.51294,-1.2239 0.68801,-1.986h-4.3496c0.17507,0.7621 0.41187,1.4337 0.68801,1.986c0.64413,1.2883 1.25646,1.514 1.48679,1.514zM10.4224,9.5c0.0504,-0.47923 0.0776,-0.98089 0.0776,-1.5c0,-0.51911 -0.0272,-1.02077 -0.0776,-1.5h-4.84478c-0.05046,0.47923 -0.07762,0.98089 -0.07762,1.5c0,0.51911 0.02716,1.02077 0.07762,1.5zM11.7092,11c-0.227,1.1217 -0.5775,2.117 -1.0178,2.9184c1.3223,-0.6023 2.4073,-1.6347 3.0764,-2.9184zM14.5,8c0,-0.51627 -0.0602,-1.01848 -0.1739,-1.5h-2.3963c0.0461,0.48588 0.0702,0.98731 0.0702,1.5c0,0.51269 -0.0241,1.01412 -0.0702,1.5h2.3963c0.1137,-0.48152 0.1739,-0.98373 0.1739,-1.5zM4,8c0,-0.51269 0.02411,-1.01412 0.0702,-1.5h-2.39627c-0.11374,0.48152 -0.17393,0.98373 -0.17393,1.5c0,0.51627 0.06019,1.01848 0.17393,1.5h2.39627c-0.04609,-0.48588 -0.0702,-0.98731 -0.0702,-1.5zM5.30864,13.9184c-0.44032,-0.8014 -0.79085,-1.7967 -1.01788,-2.9184h-2.05855c0.66907,1.2837 1.75414,2.3161 3.07643,2.9184zM5.8252,5h4.3496c-0.17507,-0.76207 -0.41187,-1.43374 -0.68801,-1.98603c-0.64413,-1.28826 -1.25646,-1.51397 -1.48679,-1.51397c-0.23033,0 -0.84266,0.22571 -1.48679,1.51397c-0.27614,0.55229 -0.51294,1.22396 -0.68801,1.98603zM11.7092,5h2.0586c-0.6691,-1.28373 -1.7541,-2.31611 -3.0764,-2.91838c0.4403,0.8014 0.7908,1.79668 1.0178,2.91838zM2.23221,5h2.05855c0.22703,-1.1217 0.57756,-2.11698 1.01788,-2.91838c-1.32229,0.60227 -2.40736,1.63466 -3.07643,2.91838zM8,0c4.4183,0 8,3.58172 8,8c0,4.4183 -3.5817,8 -8,8c-4.41828,0 -8,-3.5817 -8,-8c0,-4.41828 3.58172,-8 8,-8z"
-                        fill="currentColor"></path>
-                    </svg>
+        <div class="header">
+            <div class="container">
+                <nav class="navbar">
+                    <a href="./home.html" class="logo">
+                        <img src="assets/images/logo.png" width="150px">
+                    </a>
+                    <a href="home.html" class="Home">Home</a>
+                    <div class="dropdown">
+                        <a href="./data.html" class="Genre">Movies</a>
+                    </div>
+                    <a href="In-Cinema.html" class="In-Theaters">In Cinema</a>
+                    <a href="Book-Ticket.html" class="Book-Ticket">Book Ticket</a>
+                    <a href="./movies.html" style="margin-right: 35px;" class="Book-Ticket">Most Watched</a>
 
-                    <select>
-                        <option value="">English</option>
-                    </select>
-                </div>
+                    <div class="select-box">
+                        <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M8,14.5c0.23033,0 0.84266,-0.2257 1.48679,-1.514c0.27614,-0.5523 0.51294,-1.2239 0.68801,-1.986h-4.3496c0.17507,0.7621 0.41187,1.4337 0.68801,1.986c0.64413,1.2883 1.25646,1.514 1.48679,1.514zM10.4224,9.5c0.0504,-0.47923 0.0776,-0.98089 0.0776,-1.5c0,-0.51911 -0.0272,-1.02077 -0.0776,-1.5h-4.84478c-0.05046,0.47923 -0.07762,0.98089 -0.07762,1.5c0,0.51911 0.02716,1.02077 0.07762,1.5zM11.7092,11c-0.227,1.1217 -0.5775,2.117 -1.0178,2.9184c1.3223,-0.6023 2.4073,-1.6347 3.0764,-2.9184zM14.5,8c0,-0.51627 -0.0602,-1.01848 -0.1739,-1.5h-2.3963c0.0461,0.48588 0.0702,0.98731 0.0702,1.5c0,0.51269 -0.0241,1.01412 -0.0702,1.5h2.3963c0.1137,-0.48152 0.1739,-0.98373 0.1739,-1.5zM4,8c0,-0.51269 0.02411,-1.01412 0.0702,-1.5h-2.39627c-0.11374,0.48152 -0.17393,0.98373 -0.17393,1.5c0,0.51627 0.06019,1.01848 0.17393,1.5h2.39627c-0.04609,-0.48588 -0.0702,-0.98731 -0.0702,-1.5zM5.30864,13.9184c-0.44032,-0.8014 -0.79085,-1.7967 -1.01788,-2.9184h-2.05855c0.66907,1.2837 1.75414,2.3161 3.07643,2.9184zM5.8252,5h4.3496c-0.17507,-0.76207 -0.41187,-1.43374 -0.68801,-1.98603c-0.64413,-1.28826 -1.25646,-1.51397 -1.48679,-1.51397c-0.23033,0 -0.84266,0.22571 -1.48679,1.51397c-0.27614,0.55229 -0.51294,1.22396 -0.68801,1.98603zM11.7092,5h2.0586c-0.6691,-1.28373 -1.7541,-2.31611 -3.0764,-2.91838c0.4403,0.8014 0.7908,1.79668 1.0178,2.91838zM2.23221,5h2.05855c0.22703,-1.1217 0.57756,-2.11698 1.01788,-2.91838c-1.32229,0.60227 -2.40736,1.63466 -3.07643,2.91838zM8,0c4.4183,0 8,3.58172 8,8c0,4.4183 -3.5817,8 -8,8c-4.41828,0 -8,-3.5817 -8,-8c0,-4.41828 3.58172,-8 8,-8z"
+                                fill="currentColor"></path>
+                        </svg>
 
-                <a href="sign_in.html" class="signin-btn">Sign In</a>
-            </nav>
-            <div class="header-content">
-                <h1>Unlimited movies, TV shows, and more...</h1>
-                <h2>Watch anywhere. Cancel anytime.</h2>
+                        <select>
+                            <option value="">English</option>
+                        </select>
+                    </div>
 
-                <div class="form-field">
-                    <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
-                
-                    <form class="form">
-                        <div class="form-group">
-                            <input type="email" class="form-input" placeholder="" id="email">
-                          <a href="mailto:example@example.com"> <label for="email" class="form-label">Email Address</label></a> 
-                        </div>
-                        <a id="notifyBtn" class="get-btn" style="text-decoration: none;" href="./index.html">Get Started</a>
-                    </form>
+                    <a href="sign_in.html" class="signin-btn">Sign In</a>
+                </nav>
+                <div class="header-content">
+                    <h1>Unlimited movies, TV shows, and more...</h1>
+                    <h2>Watch anywhere. Cancel anytime.</h2>
+
+                    <div class="form-field">
+                        <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+
+                        <form class="form">
+                            <div class="form-group">
+                                <input type="email" class="form-input" placeholder="" id="email">
+                                <a href="mailto:example@example.com"> <label for="email" class="form-label">Email
+                                        Address</label></a>
+                            </div>
+                            <a id="notifyBtn" class="get-btn" style="text-decoration: none;" href="./index.html">Get
+                                Started</a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <main>
-        <section>
-            <div class="container">
-                <div class="section-wrap">
-                    <div class="section-content">
-                        <h1>Enjoy on your TV</h1>
-                        <p>Watch on smart TVs, Playstation, Xbox, chromecast, Apple TV, Bluray players and more</p>
-                    </div>
+        <main>
+            <section>
+                <div class="container">
+                    <div class="section-wrap">
+                        <div class="section-content">
+                            <h1>Enjoy on your TV</h1>
+                            <p>Watch on smart TVs, Playstation, Xbox, chromecast, Apple TV, Bluray players and more</p>
+                        </div>
 
-                    <div class="section-media">
-                        <img src="assets/images/tv.png" alt="">
+                        <div class="section-media">
+                            <img src="assets/images/tv.png" alt="">
 
-                        <div class="video-div video-1">
-                            <video autoplay="" playsinline="" muted="" loop="">
-                                <source src="assets/videos/liridonavideo.mp4" type="video/mp4">
-                            </video>
+                            <div class="video-div video-1">
+                                <video autoplay="" playsinline="" muted="" loop="">
+                                    <source src="assets/videos/liridonavideo.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section>
-            <div class="container">
-                <div class="section-wrap reverse">
-                    <div class="section-content">
-                        <h1>Watch everywhere.</h1>
-                        <p>Stream unlimited films and TV Programmes on your phone, tablet, laptop and TV without paying more.</p>
-                    </div>
+            <section>
+                <div class="container">
+                    <div class="section-wrap reverse">
+                        <div class="section-content">
+                            <h1>Watch everywhere.</h1>
+                            <p>Stream unlimited films and TV Programmes on your phone, tablet, laptop and TV without
+                                paying more.</p>
+                        </div>
 
-                    <div class="section-media">
-                        <img src="assets/images/liridonaa.png" alt="">
+                        <div class="section-media">
+                            <img src="assets/images/liridonaa.png" alt="">
 
-                        <div class="video-div video-2">
-                            <video autoplay="" playsinline="" muted="" loop="">
-                                <source src="assets/videos/liridona-video.mp4" type="video/mp4">
-                            </video>
+                            <div class="video-div video-2">
+                                <video autoplay="" playsinline="" muted="" loop="">
+                                    <source src="assets/videos/liridona-video.mp4" type="video/mp4">
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>  
-    </main>
+            </section>
+        </main>
 
-    <div class="notification">
-        <p>Email submitted successfully!</p>
-    </div> 
-    <div id="Most_Viewed_and_comming"></div>
-    <div id="FAQ"></div>
+        <div class="notification">
+            <p>Email submitted successfully!</p>
+        </div>
+        <div id="Most_Viewed_and_comming"></div>
+        <div id="FAQ"></div>
 
 
-   
-    <script>
-        $(function () {
-                    $('#notifyBtn').on("click", function (e) {
-                        e.preventDefault(); 
-        
-                        const email = $('#email').val();
-                        if (email.trim() === "") {
-                            alert("Please enter a valid email address!");
-                            return;
-                        }
-        
-                        $('.notification')
-                            .css({ display: "block" })
-                            .animate({ right: '20px', opacity: "1" }, 500) 
-                            .animate({ top: "100px" }, 500);
-        
-                        window.setTimeout(function () {
-                            window.location.href = "./index.html";
-                        }, 3000); 
-                    });
-        
-                    function dismissNotification() {
-                        $('.notification').fadeOut(500); 
+
+        <script>
+            $(function () {
+                $('#notifyBtn').on("click", function (e) {
+                    e.preventDefault();
+
+                    const email = $('#email').val();
+                    if (email.trim() === "") {
+                        alert("Please enter a valid email address!");
+                        return;
                     }
+
+                    $('.notification')
+                        .css({ display: "block" })
+                        .animate({ right: '20px', opacity: "1" }, 500)
+                        .animate({ top: "100px" }, 500);
+
+                    window.setTimeout(function () {
+                        window.location.href = "./index.html";
+                    }, 3000);
                 });
-    
 
-     $(function () {
-        $("#FAQ").load("faq.html");
-    })
-
-    $(function () {
-        $("#Most_Viewed_and_comming").load("Most_Viewed_and_comming.html");
-    })
+                function dismissNotification() {
+                    $('.notification').fadeOut(500);
+                }
+            });
 
 
-     </script>  
+            $(function () {
+                $("#FAQ").load("faq.html");
+                $("#Most_Viewed_and_comming").load("Most_Viewed_and_comming.html");
+            })
             
+            </script>
+
+<!-- drag and drop -->
+<script>
+    let today = new Date();
+console.log(today.toLocaleDateString());
+let date = today.toISOString().slice(0, 10);
+
+var pdata = document.getElementById("datasot");
+pdata.innerHTML = date;
+
+
+
+dragElement(document.getElementById("mydiv"));
+
+function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+        // if present, the header is where you move the DIV from:
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+        // otherwise, move the DIV from anywhere inside the DIV:
+        elmnt.onmousedown = dragMouseDown;
+    }
+    
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // get the mouse cursor position at startup:
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // call a function whenever the cursor moves:
+        document.onmousemove = elementDrag;
+    }
+    
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // calculate the new cursor position:
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        // set the element's new position:
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+    
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+$("#mydiv").animate({
+width: '200px'
+}, 3000);
+</script>
 </body>
+
 </html>
