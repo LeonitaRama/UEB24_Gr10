@@ -139,6 +139,12 @@ body{
     justify-content: center;
 }
 
+div.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .social i{
     height:30px;
     width:30px;
@@ -146,6 +152,7 @@ body{
     border-radius:50%;
     background:white;
     cursor:pointer;
+    display: flex;
     align-items:center;
     justify-content: center;
     box-shadow:0 5px 10px rgba(0,0,0,0.4);

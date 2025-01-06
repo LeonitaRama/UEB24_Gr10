@@ -73,9 +73,9 @@
     }
 
     #datasot {
-            color: white;
-            margin: 10px 0;
-        }
+        color: white;
+        margin: 10px 0;
+    }
 </style>
 
 <body>
@@ -83,7 +83,7 @@
         <div id="mydivheader">Move from here</div>
         <p id="datasot">Date:</p>
     </div>
-<!-- 
+    <!-- 
     <div id="mydiv" style="top:50;left:50%;">
         <div id="mydivheader">Move from here</div>
         <p id="datasot" style="color:white;">Date:</p>
@@ -101,9 +101,7 @@
                         <img src="assets/images/logo.png" width="150px">
                     </a>
                     <a href="home.html" class="Home">Home</a>
-                    <div class="dropdown">
-                        <a href="./data.html" class="Genre">Movies</a>
-                    </div>
+                    <a href="./data.html" class="Genre">Movies</a>
                     <a href="In-Cinema.html" class="In-Theaters">In Cinema</a>
                     <a href="Book-Ticket.html" class="Book-Ticket">Book Ticket</a>
                     <a href="./movies.html" style="margin-right: 35px;" class="Book-Ticket">Most Watched</a>
@@ -226,66 +224,66 @@
                 $("#FAQ").load("faq.html");
                 $("#Most_Viewed_and_comming").load("Most_Viewed_and_comming.html");
             })
-            
-            </script>
 
-<!-- drag and drop -->
-<script>
-    let today = new Date();
-console.log(today.toLocaleDateString());
-let date = today.toISOString().slice(0, 10);
+        </script>
 
-var pdata = document.getElementById("datasot");
-pdata.innerHTML = date;
+        <!-- drag and drop -->
+        <script>
+            let today = new Date();
+            console.log(today.toLocaleDateString());
+            let date = today.toISOString().slice(0, 10);
+
+            var pdata = document.getElementById("datasot");
+            pdata.innerHTML = date;
 
 
 
-dragElement(document.getElementById("mydiv"));
+            dragElement(document.getElementById("mydiv"));
 
-function dragElement(elmnt) {
-    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-    if (document.getElementById(elmnt.id + "header")) {
-        // if present, the header is where you move the DIV from:
-        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-    } else {
-        // otherwise, move the DIV from anywhere inside the DIV:
-        elmnt.onmousedown = dragMouseDown;
-    }
-    
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // get the mouse cursor position at startup:
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        // call a function whenever the cursor moves:
-        document.onmousemove = elementDrag;
-    }
-    
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // calculate the new cursor position:
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
+            function dragElement(elmnt) {
+                var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                if (document.getElementById(elmnt.id + "header")) {
+                    // if present, the header is where you move the DIV from:
+                    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+                } else {
+                    // otherwise, move the DIV from anywhere inside the DIV:
+                    elmnt.onmousedown = dragMouseDown;
+                }
 
-        // set the element's new position:
-        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-    }
-    
-    function closeDragElement() {
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
-$("#mydiv").animate({
-width: '200px'
-}, 3000);
-</script>
+                function dragMouseDown(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // get the mouse cursor position at startup:
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    // call a function whenever the cursor moves:
+                    document.onmousemove = elementDrag;
+                }
+
+                function elementDrag(e) {
+                    e = e || window.event;
+                    e.preventDefault();
+                    // calculate the new cursor position:
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+
+                    // set the element's new position:
+                    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                }
+
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+            $("#mydiv").animate({
+                width: '200px'
+            }, 3000);
+        </script>
 </body>
 
 </html>
