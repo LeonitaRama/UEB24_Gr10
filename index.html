@@ -7,12 +7,23 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/returnToTop.css">
 
 </head>
 
 <body>
+    <!-- canvas call -->
+    
+    <div class="return-to-top">
+        <img src="./assets/images/returnToTop.png" alt="">
+    </div>
     <div id="nav"></div>
-    <h1 style="text-align: center; color: white; margin-top:20px ; margin-bottom: 20px;">Most Watched and IMDb</h1>
+    <h1 style="text-align: center; color: white; margin-top:20px ; margin-bottom: 20px; background-color: transparent;">Most Watched and IMDb</h1>
+    <canvas id="circleCanvas"></canvas>
     <div class="row">
         <div class="card-wrapper">
             <div class="card">
@@ -23,8 +34,9 @@
                     classic hits to the latest
                     releases. Whether you're a fan of action, comedy, drama, or romance, we have something for everyone.
                 </p>
-                <button class="btn">
-                    Browse
+                <button class="btn"><a class="white" href="./movies.html" style="text-decoration: none;">Browse
+                        Browse
+                    </a>
                 </button>
             </div>
         </div>
@@ -37,8 +49,9 @@
                     catch up on old favorites. Our wide selection of shows spans multiple genres and includes something
                     for
                     everyone.</p>
-                <button class="btn">
+                <button class="btn"><a class="white" href="./tv_shows.html" style="text-decoration: none;">Browse
                     Browse
+                </a>
                 </button>
             </div>
         </div>
@@ -50,8 +63,9 @@
                     IMDb users, including top movies, TV shows, and celebrities. Our website features a user-friendly
                     interface that allows you to easily browse through the lists and discover new and interesting
                     content.</p>
-                <button class="btn">
+                <button class="btn"><a class="white" href="./Movie_Table.html" style="text-decoration: none;">Browse
                     Browse
+                </a>
                 </button>
             </div>
         </div>
@@ -66,6 +80,48 @@
     <script>
         $("#footer").load("footer.html");
         $("#nav").load("nav.html");
+    </script>
+           <script>
+        const canvas = document.getElementById("circleCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // vendosja e canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let radius = 100; // radiusi fillestar
+        let growing = true; // me shiku se apo rritet rrethi
+
+        function drawCircle() {
+            //fshirja e canvas ne fillim
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // qendra e canvas
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+
+            // vizatimi i rrethit
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            ctx.fillStyle = "orange"; // ngjyra e rrethit
+            ctx.fill();
+            ctx.closePath();
+
+            // me if dhe else me rrit ose me zvogelu rrethin
+            if (growing) {
+                radius += 1;
+                if (radius >= 250) growing = false; // kur e arrin madhesine e caktuar kthehet prap(reverse)
+            } else {
+                radius -= 1;
+                if (radius <= 50) growing = true; // poashtu kur e arrin minimalen rritet
+            }
+
+            // thirrja e funksionit per nje animacion me te mire
+            requestAnimationFrame(drawCircle);
+        }
+
+        // fillimi i animacionit
+        drawCircle();
     </script>
 </body>
 

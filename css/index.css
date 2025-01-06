@@ -13,12 +13,16 @@ body {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    z-index: 1; 
+    position: relative; 
 }
 
 .card-wrapper {
     border-radius: 20px;
     margin: 30px;
     outline: 8px solid #222;
+    z-index: 1;
+    position: relative; 
     background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -28,7 +32,7 @@ body {
 }
 
 .card {
-    color: black;
+    border-radius: 20px;
     width: 300px;
     height: 440px;
     display: flex;
@@ -36,6 +40,10 @@ body {
     justify-content: flex-start;
     text-align: center;
     color: white;
+    z-index: 1;
+    position: relative; 
+    background-color: #181818;
+
 }
 
 .card p {
@@ -47,7 +55,7 @@ body {
 .card img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 18px;
     margin-bottom: 15px;
 }
 
@@ -60,6 +68,18 @@ button.btn {
     border: 2px solid transparent;
     margin-top: 20px;
     color: white;
+    z-index: 1;
+    position: relative;
+
+}
+
+button.btn a {
+    color:white;
+}
+button.btn:hover, 
+a.white:hover {
+    color:black;
+    padding: 10px 5px;
 }
 
 button.btn:hover {
@@ -74,6 +94,8 @@ align-items: center;
 justify-content: center;
 margin:30px;
 margin-bottom:60px;
+z-index: 1;
+position: relative; 
 }
 
 .butoniIndex {
@@ -82,6 +104,8 @@ margin-bottom:60px;
     border: none;
     padding: 20px 30px;
     margin-inline:auto;
+    z-index: 1; 
+    position: relative;
 }
 
 .butoniIndex:hover {
@@ -91,11 +115,27 @@ margin-bottom:60px;
 
 
 .linkuIndex {
+
     color: white;
     text-decoration: none;
     font-size: x-large;
+    z-index: 1; 
+    position: relative;
 }
 
 .linkuIndex:hover {
 color: black;
+}
+
+#circleCanvas {
+    position: absolute;
+    top: 100;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
