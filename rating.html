@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Website</title>
+  <link rel="stylesheet" href="./css/rating.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="nav"></div>
+  <header>
+    <h1>Featured Movie: Movie Ratings Analysis</h1>
+  </header>
+  <main>
+    <div class="movie">
+      <h2>The Great Adventure</h2>
+      <p>Genre: Action, Adventure</p>
+      <p>Year: 2022</p>
+      <div class="ratings">
+        <p>IMDb Rating: <span id="imdbRating">8.4</span></p>
+        <p>Rotten Tomatoes: <span id="rtRating">95%</span></p>
+      </div>
+      <button id="analyzeRatings">Analyze Ratings</button>
+      <div id="analysisResults" style="margin-top: 20px;"></div>
+    </div>
+    <div class="movie">
+      <h2>Love in Paris</h2>
+      <p>Genre: Romance, Drama</p>
+      <p>Year: 2020</p>
+      <div class="ratings">
+        <p>IMDb Rating: <span id="imdbRating2">7.1</span></p>
+        <p>Rotten Tomatoes: <span id="rtRating2">88%</span></p>
+      </div>
+      <button onclick="analyzeRatings(2)">Analyze Ratings</button>
+      <div id="analysisResults2" class="analysis-results"></div>
+    </div>
+
+    <!-- Movie 3 -->
+    <div class="movie">
+      <h2>Cosmic Voyage</h2>
+      <p>Genre: Sci-Fi, Thriller</p>
+      <p>Year: 2021</p>
+      <div class="ratings">
+        <p>IMDb Rating: <span id="imdbRating3">9.2</span></p>
+        <p>Rotten Tomatoes: <span id="rtRating3">98%</span></p>
+      </div>
+      <button onclick="analyzeRatings(3)">Analyze Ratings</button>
+      <div id="analysisResults3" class="analysis-results"></div>
+    </div>
+  </main>
+  <script>
+    // script.js
+
+// Function to analyze ratings
+function analyzeRatings(movieNumber) {
+  const imdbRating = parseFloat(document.getElementById(`imdbRating${movieNumber}`).textContent);
+  const rtRating = parseFloat(document.getElementById(`rtRating${movieNumber}`).textContent);
+
+  // 1. Use MAX_VALUE to simulate maximum rating comparison
+  const maxRating = Math.min(imdbRating, Number.MAX_VALUE);
+  
+  // 2. Check if Rotten Tomatoes rating is a number
+  const isRtValid = !isNaN(rtRating);
+
+  // 3. Convert IMDb rating to exponential format
+  const imdbExponential = imdbRating.toExponential();
+
+  // 4. Convert Rotten Tomatoes rating to string
+  const rtString = rtRating.toString();
+
+  // Display results
+  const analysisResults = `
+    <p>Maximum possible rating (safe comparison): ${maxRating}</p>
+    <p>Is Rotten Tomatoes rating valid? ${isRtValid}</p>
+    <p>IMDb rating in exponential format: ${imdbExponential}</p>
+    <p>Rotten Tomatoes rating as a string: ${rtString}</p>
+  `;
+
+  document.getElementById(`analysisResults${movieNumber}`).innerHTML = analysisResults;
+}
+$(function () {
+            $("#footer").load("footer.html");
+            $("#nav").load("nav.html");
+        })
+        $(function () {
+            $(".nav-link").hide(2).show(2000);
+        });
+ 
+  </script>
+  <div id="footer"></div>
+
+</body>
+</html>
