@@ -67,3 +67,35 @@ button.btn:hover {
     color: black;
     border: 2px solid #222;
 }
+
+.return {
+display: flex;
+align-items: center;
+justify-content: center;
+margin:30px;
+margin-bottom:60px;
+}
+
+.butoniIndex {
+    background-color: rgb(31, 30, 30);
+    border-radius: 50px;
+    border: none;
+    padding: 20px 30px;
+    margin-inline:auto;
+}
+
+.butoniIndex:hover {
+    background-color: rgb(171, 171, 171);
+
+}
+
+
+.linkuIndex {
+    color: white;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+.linkuIndex:hover {
+color: black;
+}
