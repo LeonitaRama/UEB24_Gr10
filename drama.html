@@ -141,6 +141,7 @@
     </style>
 </head>
 <body>
+  <div id="nav"></div>
   <div class="return-to-top">
     <img src="./assets/images/returnToTop.png" alt="">
 
@@ -851,6 +852,15 @@ function navigateToPage() {
             window.location.href = selectedValue; // Navigon në faqen e zgjedhur
         }
     }
+
+    $(function () {
+            $("#footer").load("footer.html");
+            $("#nav").load("nav.html");
+        })
+        $(function () {
+            $(".nav-link").hide(2).show(2000);
+        });
+    
     
     $(document).ready(function () {
         $("#footer").load("footer.html");

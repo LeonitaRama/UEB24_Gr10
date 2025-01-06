@@ -6,102 +6,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/Book-Ticket.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div class="font-size">
-    <div class="header">
-        <div class="container" >
-            <div class="l1">
-                <form id="form" action="Book_Ticket.html" method="post">
-                    <div id="square" class="form" width="100%" heigh="100%" >
-                        <fieldset>
-                            <legend>TICKET BOOKING SYSTEM</legend> <br><br>
-                            <label> Your Name:
-                                <input id="name1" type="text" name="username">
-                            </label>
-                            <label> Surname :
-                                <input id="name2" type="text" name="username">
-                            </label> <br><br>
-                            <label> Location :
-                                <input id="address" type="text" name="address">
-                            </label><br><br>
-                            <label> Contact :
-                                <input id="phone" type="number" name="Phone">
-                            </label><br><br>
-                            <label> Email Address :
-                                <input id="email" type="text" name="email">
-                            </label><br><br>
-                            <label for="ex">Movie : </label>
-                            <select id="movie" name="level">
-                                <option value="">Select a Movie</option>
-                                <option value="fate8">POC</option>
-                                <option value="fist5">Fist Five</option>
-                                <option value="logan">Guardians of galaxy 2</option>
-                                <option value="ww">Wonder Woman</option>
-                                <option value="cars3">Cars 3</option>
-                                <option value="mummy">Mummy</option>
-                            </select>
-                            <label for="ext">Seat: </label>
-                            <select id="seat" name="level">
-                                <option value="">Select a Quantity</option>
-                                <option value="1">Cabin</option>
-                                <option value="2">Balcony</option>
-                                <option value="3">Deluxe</option>
-                                <option value="4">Special</option>
-                                <option value="5">Drescal</option>
-
-                            </select>
-                            <label for="ext">Show Time: </label>
-                            <select id="showtime" name="level">
-                                <option value="">Select a Time</option>
-                                <option value="1">8:00AM</option>
-                                <option value="2">12:00PM</option>
-                                <option value="3">3:00PM</option>
-                                <option value="4">6:00PM</option>
-                                <option value="5">9:00PM</option>
-
-                            </select>
-                            <br><br>
-                            <p>Payment:
-                                <label>Payment Method:
-                                    <input id="paymentMethod" list="paymentOptions" name="payment">
+        <div class="header">
+            <div class="container">
+                <div class="l1">
+                    <form id="form" action="Book_Ticket.html" method="post">
+                        <div id="square" class="form" width="100%" heigh="100%">
+                            <fieldset>
+                                <legend>TICKET BOOKING SYSTEM</legend> <br><br>
+                                <label> Your Name:
+                                    <input id="name1" type="text" name="username" required>
                                 </label>
-                                <datalist id="paymentOptions">
-                                    <option value="Esewa">
-                                    <option value="Cash on Book">
-                                    <option value="PayPal">
-                                    <option value="Credit Card">
-                                    <option value="Debit Card">
-                                </datalist>
-                                
-                                <br>
-                            </p>
-                            <br>
-                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ID :
-                                <input id="card" type="number" name="card">
-                            </label><br>
-                            <label> Amount :
-                                <input id="amount" type="number" name="amount">
-                            </label><br>
-                            <br>
-                            <input type="submit" style="background-color: red; color:white;" class="submit"
-                                value="Book Now">
-                            <br>
-                            <p id="errorMessage" class="error">
-                                <br>
-                            </p>
-                        </fieldset>
-                </form>
-            </div>
-            <p id="successMessage" class="success">
-            </p>
+                                <label> Surname :
+                                    <input id="name2" type="text" name="username" required>
+                                </label> <br><br>
+                                <label> Location :
+                                    <input id="address" type="text" name="address" required>
+                                </label><br><br>
+                                <label> Contact :
+                                    <input id="phone" type="number" name="Phone" required>
+                                </label><br><br>
+                                <label> Email Address :
+                                    <input id="email" type="text" name="email" required>
+                                </label><br><br>
+                                <label for="ex">Movie : </label>
+                                <select id="movie" name="level" required>
+                                    <option value="">Select a Movie</option>
+                                    <option value="fate8">POC</option>
+                                    <option value="fist5">Fist Five</option>
+                                    <option value="logan">Guardians of galaxy 2</option>
+                                    <option value="ww">Wonder Woman</option>
+                                    <option value="cars3">Cars 3</option>
+                                    <option value="mummy">Mummy</option>
+                                </select>
+                                <label for="ext">Seat: </label>
+                                <select id="seat" name="level" required>
+                                    <option value="">Select a Quantity</option>
+                                    <option value="1">Cabin</option>
+                                    <option value="2">Balcony</option>
+                                    <option value="3">Deluxe</option>
+                                    <option value="4">Special</option>
+                                    <option value="5">Drescal</option>
 
+                                </select>
+                                <label for="ext">Show Time: </label>
+                                <select id="showtime" name="level" required>
+                                    <option value="">Select a Time</option>
+                                    <option value="1">8:00AM</option>
+                                    <option value="2">12:00PM</option>
+                                    <option value="3">3:00PM</option>
+                                    <option value="4">6:00PM</option>
+                                    <option value="5">9:00PM</option>
+
+                                </select>
+                                <br><br>
+                                <p>
+                                    <label>Payment Method:
+                                        <input id="paymentMethod" list="paymentOptions" name="payment">
+                                    </label>
+                                    <datalist id="paymentOptions" required>
+                                        <option value="Esewa">
+                                        <option value="Cash on Book">
+                                        <option value="PayPal">
+                                        <option value="Credit Card">
+                                        <option value="Debit Card">
+                                    </datalist>
+                                    <br><br>
+                                    <keygen name="securityKey">
+                                    <label for="amount">Enter Ticket Quantity:</label>
+                                    <input id="quantity" type="number" name="quantity" min="1" max="10" value="1"
+                                        onchange="calculateAmount()" required>
+                                    <label>Total Amount:</label>
+
+                                    <output id="totalAmount">0</output>
+                                </p>
+                                <br>
+                                <label> ID :
+                                    <input id="card" type="number" name="card" required>
+                                </label><br>
+                                <br>
+                                <label> Amount :
+                                    <input id="amount" type="number" name="amount" required>
+                                </label><br>
+                                <button id="animateBtn">Submit</button>
+                                <br>
+                                <p id="errorMessage" class="error">
+                                    <br>
+                                </p>
+                            </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     </div>
-</div>
+    <script>
+        function calculateAmount() {
+            const pricePerTicket = 10;
+            const quantity = document.getElementById("quantity").value;
+            const totalAmount = pricePerTicket * quantity;
+            document.getElementById("totalAmount").value = `$${totalAmount}`;
+        }
+
+        function animateBox(callback) {
+            const box = document.getElementById("box");
+            box.style.transition = "all 2s";
+            box.style.transform = "translateX(300px)";
+
+
+            setTimeout(function () {
+                callback();
+            }, 2000);
+        }
+
+        function changeColor() {
+            const box = document.getElementById("box");
+            box.style.backgroundColor = "blue";
+        }
+
+        document.getElementById("animateBtn").addEventListener("click", function () {
+            animateBox(changeColor);
+        });
+
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+    const form = document.getElementById("form");
+    const fields = form.querySelectorAll("[required]");
+    let valid = true;
+
+    fields.forEach((field) => {
+        if (!field.value.trim()) {
+            valid = false;
+            field.style.border = "2px solid red"; 
+        } else {
+            field.style.border = ""; 
+        }
+    });
+
+    if (!valid) {
+        event.preventDefault(); 
+        alert("Please fill in all required fields.");
+    }
+});
+
+
+    </script>
+
 </body>
 
 </html>

@@ -28,9 +28,9 @@
         .controls input, .controls select {
          padding: 5px;
          border: 1px solid #ccc; 
-         background-color: #222; 
-         color: white; 
-         }
+           background-color: #222; 
+    color: white; 
+}
 
         h1 {
             text-align: center;
@@ -140,6 +140,7 @@
     </style>
 </head>
 <body>
+  <div id="nav"></div>
   <div class="return-to-top">
     <img src="./assets/images/returnToTop.png" alt="">
 
@@ -149,7 +150,7 @@
     <input type="text" id="search-bar" placeholder="Search movies...">
 
     <select id="genre-filter" onchange="navigateToPage()">
-      <option value="data.html">All Genres</option>
+      <option value="data.html" href="data.html">All Genres</option>
       <option value="action.html">Action</option>
       <option value="comedy.html">Comedy</option>
       <option value="drama.html">Drama</option>
@@ -1743,6 +1744,13 @@ function navigateToPage() {
 
   window.location.href = selectedValue;
 }
+$(function () {
+            $("#footer").load("footer.html");
+            $("#nav").load("nav.html");
+        })
+        $(function () {
+            $(".nav-link").hide(2).show(2000);
+        });
     
     $(document).ready(function () {
         $("#footer").load("footer.html");

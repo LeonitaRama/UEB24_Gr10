@@ -236,6 +236,7 @@
     </style>
 </head>
 <body>
+    <div id="nav"></div>
   <div class="return-to-top">
     <img src="./assets/images/returnToTop.png" alt="">
 
@@ -644,6 +645,15 @@ function navigateToPage() {
 
     let newText = text.replace(/action/g, "action content"); 
     console.log("Teksti pas zëvendësimit:", newText);
+    
+    $(function () {
+            $("#footer").load("footer.html");
+            $("#nav").load("nav.html");
+        })
+        $(function () {
+            $(".nav-link").hide(2).show(2000);
+        });
+    
     
     $(document).ready(function () {
         $("#footer").load("footer.html");
