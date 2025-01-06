@@ -3,6 +3,10 @@ body footer {
         color: #fff;
         padding: 20px 0;
       }
+
+      .font{
+        font-family: 'Times New Roman', Times, serif;
+      }
       
       .footer-container {
         display: flex;
