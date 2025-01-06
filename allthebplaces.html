@@ -5,72 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All the Bright Places</title>
   <link rel="stylesheet" href="./css/allthebplaces.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+  <div id="nav"></div>
+
+  <div id="strangerthings"></div>
+
   <div class="container">
-    <div class="poster">
-      <img src="assets/images/All_the_Bright_Places.jpeg" alt="All the Bright Places Poster">
+    <!-- Movie Entry -->
+    <div class="movie">
+      <div class="poster">
+        <img src="assets/images/All_the_Bright_Places.jpeg" alt="All the Bright Places Poster">
+      </div>
+      <div class="content">
+        <h1>All the Bright Places</h1>
+        <p class="director">Directed by Brett Haley</p>
+        <div class="details">
+          <span class="rating">R</span>
+          <span>2020</span>
+          <span>1h 48m</span>
+          <span>Drama, Romance</span>
+        </div>
+        <div class="ratings">
+          <div>
+            <span>IMDb</span>
+            <span>6.6</span>
+          </div>
+          <div>
+            <span>Rotten Tomatoes</span>
+            <span>67%</span>
+          </div>
+          <div>
+            <span>Audience</span>
+            <span>62%</span>
+          </div>
+        </div>
+        <button class="watchlist" id="watchTrailerButton">Watch trailer</button>
+        <p class="description">
+          The story of Violet and Theodore, who meet and change each other's lives forever. 
+          As they struggle with the emotional and physical scars of their past, they discover 
+          that even the smallest places and moments can mean something.
+        </p>
+      </div>
     </div>
-    <div class="content">
-      <h1>All the Bright Places</h1>
-      <p class="director">Directed by Brett Haley</p>
-      <div class="details">
-        <span class="rating">R</span>
-        <span>2020</span>
-        <span>1h 48m</span>
-        <span>Drama, Romance</span>
-      </div>
-      <div class="ratings">
-        <div>
-          <span>IMDb</span>
-          <span>6.6</span>
-        </div>
-        <div>
-          <span>Rotten Tomatoes</span>
-          <span>67%</span>
-        </div>
-        <div>
-          <span>Audience</span>
-          <span>62%</span>
-        </div>
-      </div>
-      <button class="watchlist" id="watchTrailerButton">Watch trailer</button>
-      <p class="description">
-        The story of Violet and Theodore, who meet and change each other's lives forever. 
-        As they struggle with the emotional and physical scars of their past, they discover 
-        that even the smallest places and moments can mean something.
-      </p>
-    </div>
- </div>
-    <div id="videoContainer" style="display: none;">
-        <video id="trailerVideo" width="640" height="360" controls>
-          <source src="assets/videos/All the Bright Places starring Elle Fanning & Justice Smith _ Official Trailer _ Netflix.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <button id="closeVideoButton" class="watchlist">Close Trailer</button>
-      </div>
-    
-      <script>
-        // Get elements
-const watchTrailerButton = document.getElementById("watchTrailerButton");
-const videoContainer = document.getElementById("videoContainer");
-const trailerVideo = document.getElementById("trailerVideo");
-const closeVideoButton = document.getElementById("closeVideoButton");
 
-// Show video container and play trailer when button is clicked
-watchTrailerButton.addEventListener("click", () => {
-  videoContainer.style.display = "flex"; // Make the video container visible
-  trailerVideo.play(); // Play the trailer
-});
+    <!-- Other movie entries here -->
+  </div>
 
-// Hide video container and pause trailer when close button is clicked
-closeVideoButton.addEventListener("click", () => {
-  trailerVideo.pause(); // Pause the trailer
-  trailerVideo.currentTime = 0; // Reset the trailer to the beginning
-  videoContainer.style.display = "none"; // Hide the video container
-});
+  <div id="videoContainer" style="display: none;">
+    <video id="trailerVideo" width="640" height="360" controls>
+      <source src="assets/videos/All the Bright Places starring Elle Fanning & Justice Smith _ Official Trailer _ Netflix.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="closeVideoButton" class="watchlist">Close Trailer</button>
+  </div>
 
-      </script>
- 
+  <script>
+    // Function to handle event listener for trailer play and close actions
+    function setupVideoEventListeners() {
+      const watchTrailerButton = document.getElementById("watchTrailerButton");
+      const videoContainer = document.getElementById("videoContainer");
+      const trailerVideo = document.getElementById("trailerVideo");
+      const closeVideoButton = document.getElementById("closeVideoButton");
+
+      if (watchTrailerButton) {
+        watchTrailerButton.removeEventListener("click", playTrailer); // Remove any existing event
+        watchTrailerButton.addEventListener("click", playTrailer); // Add the new one
+      }
+
+      if (closeVideoButton) {
+        closeVideoButton.removeEventListener("click", closeTrailer); // Remove any existing event
+        closeVideoButton.addEventListener("click", closeTrailer); // Add the new one
+      }
+
+      // Play trailer function
+      function playTrailer() {
+        videoContainer.style.display = "flex"; // Show the video container
+        trailerVideo.play(); // Play the trailer
+      }
+
+      // Close trailer function
+      function closeTrailer() {
+        trailerVideo.pause(); // Pause the video
+        trailerVideo.currentTime = 0; // Reset to the start
+        videoContainer.style.display = "none"; // Hide the video container
+      }
+    }
+
+    // Wait until the DOM is ready, then initialize
+    $(document).ready(function() {
+      // Load external HTML content for strangerthings and nav
+      $("#strangerthings").load("strangerthings.html", function() {
+        // Ensure the events are properly bound after loading
+        setupVideoEventListeners();
+      });
+
+      $("#nav").load("nav.html");
+
+      // Ensure the video event listeners are set up
+      setupVideoEventListeners();
+    });
+  </script>
 </body>
 </html>

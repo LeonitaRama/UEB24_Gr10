@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stranger Things Season 4</title>
+  <link rel="stylesheet" href="./css/strangerthings.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="movie">
+      <div class="poster">
+        <img src="assets/images/stranger_things_season_4___poster_by_rosereystock_dewaex6-pre.jpg" alt="Stranger Things Season 4 Poster">
+      </div>
+      <div class="content">
+        <h1>Stranger Things Season 4</h1>
+        <p class="director">Created by The Duffer Brothers</p>
+        <div class="details">
+          <span class="rating">TV-14</span>
+          <span>2022</span>
+          <span>9 Episodes</span>
+          <span>Drama, Horror, Sci-Fi</span>
+        </div>
+        <div class="ratings">
+          <div>
+            <span>IMDb</span>
+            <span>8.7</span>
+          </div>
+          <div>
+            <span>Rotten Tomatoes</span>
+            <span>89%</span>
+          </div>
+          <div>
+            <span>Audience</span>
+            <span>92%</span>
+          </div>
+        </div>
+        <button class="watchlist" id="watchTrailerButton">Watch trailer</button>
+        <p class="description">
+          In the fourth season of Stranger Things, the group faces new supernatural threats and 
+          confronts the challenges of growing up, as they uncover dark secrets and battle a new enemy 
+          from the Upside Down.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="videoContainer" style="display: none;">
+    <video id="trailerVideo" width="640" height="360" controls>
+      <source src="assets/videos/strangerthings.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="closeVideoButton" class="watchlist">Close Trailer</button>
+  </div>
+
+  <script>
+    // Get elements
+    const watchTrailerButton = document.getElementById("watchTrailerButton");
+    const videoContainer = document.getElementById("videoContainer");
+    const trailerVideo = document.getElementById("trailerVideo");
+    const closeVideoButton = document.getElementById("closeVideoButton");
+
+    // Show video container and play trailer when button is clicked
+    watchTrailerButton.addEventListener("click", () => {
+      console.log("Watch Trailer button clicked"); // Debugging log
+      videoContainer.style.display = "flex"; // Make the video container visible
+      trailerVideo.play(); // Play the trailer
+    });
+
+    // Hide video container and pause trailer when close button is clicked
+    closeVideoButton.addEventListener("click", () => {
+      trailerVideo.pause(); // Pause the trailer
+      trailerVideo.currentTime = 0; // Reset the trailer to the beginning
+      videoContainer.style.display = "none"; // Hide the video container
+    });
+  </script>
+</body>
+</html>
