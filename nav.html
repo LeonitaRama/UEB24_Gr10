@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
@@ -17,7 +18,13 @@
         <a href="./data.html" class="Genre">Movies</a>
         <a href="In-Cinema.html" class="In-Theaters">In Cinema</a>
         <a href="Book-Ticket.html" class="Book-Ticket">Book Ticket</a>
-        <a href="./movies.html" style="margin-right: 35px;" class="Book-Ticket">Most Watched</a>
+        <div style="position: relative;">
+            <button class="Home" id="menuBtn">Most Watched</button>
+            <ul id="menu">
+                <li><a href="./movies.html">Movies</a></li>
+                <li><a href="./tv_shows.html">TV-Shows</a></li>
+            </ul>
+        </div>
 
         <div class="select-box">
             <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
@@ -33,6 +40,14 @@
 
         <a href="sign_in.html" class="signin-btn">Sign In</a>
     </nav>
-</body>
+    <script>
+         $("#menuBtn").on("mouseenter", function () {
+                $("#menu").slideToggle(300);
+            });
 
+            $(document).on("click", function (e) {
+                $("#menu").slideUp(300);
+            });
+    </script>
+</body>
 </html>

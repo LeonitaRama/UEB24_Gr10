@@ -1,6 +1,7 @@
 
 
 .return-to-top {
+    z-index: 10000;
     position: fixed;
     bottom: 20px;
     right: 20px;
