@@ -59,8 +59,8 @@
         background-color: rgba(255, 0, 0, 0.374);
         border: 1px solid rgba(255, 0, 0, 0.326);
         text-align: center;
-        left: 70%;
-        top: 20%;
+        left: 80%;
+        top: 30%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
@@ -83,12 +83,6 @@
         <div id="mydivheader">Move from here</div>
         <p id="datasot">Date:</p>
     </div>
-    <!-- 
-    <div id="mydiv" style="top:50;left:50%;">
-        <div id="mydivheader">Move from here</div>
-        <p id="datasot" style="color:white;">Date:</p>
-    </div> -->
-    <!-- return to top call -->
     <div class="return-to-top">
         <img src="./assets/images/returnToTop.png" alt="">
     </div>
@@ -104,7 +98,13 @@
                     <a href="./data.html" class="Genre">Movies</a>
                     <a href="In-Cinema.html" class="In-Theaters">In Cinema</a>
                     <a href="Book-Ticket.html" class="Book-Ticket">Book Ticket</a>
-                    <a href="./movies.html" style="margin-right: 35px;" class="Book-Ticket">Most Watched</a>
+                    <div style="position: relative;">
+                        <button class="Home underline" id="menuBtn">Most Watched</button>
+                        <ul id="menu">
+                            <li><a href="./movies.html">Movies</a></li>
+                            <li><a href="./tv_shows.html">TV-Shows</a></li>
+                        </ul>
+                    </div>
 
                     <div class="select-box">
                         <svg width="16" height="16" viewbox="0 0 16 16" fill="none">
@@ -289,9 +289,23 @@
                     document.onmousemove = null;
                 }
             }
+
+            // drag and drop animation
             $("#mydiv").animate({
                 width: '200px'
             }, 3000);
+
+
+
+
+            // dropdown
+            $("#menuBtn").on("mouseenter", function () {
+                $("#menu").slideToggle(300);
+            });
+
+            $(document).on("click", function (e) {
+                $("#menu").slideUp(300);
+            });
         </script>
 </body>
 

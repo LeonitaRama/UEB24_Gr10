@@ -527,3 +527,49 @@ section:nth-child(5){
 .question input[type="checkbox"]:checked ~ .title svg {
     transform: rotate(180deg);
 }
+
+
+ #menuBtn {
+    margin-left: 25px;
+            background-color: transparent;
+            color: white;
+            padding: 10px 20px;
+            font: inherit;
+            font-size: 22px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #menu {
+            display: none; 
+            position: absolute;
+            top: 50px;
+            left: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            border: 1px solid #333;
+            border-radius: 5px;
+            width: 150px;
+            z-index: 1000;
+        }
+
+        #menu li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        #menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        #menu li:hover {
+            background-color: rgba(128, 128, 128, 0.192);
+            color: black;
+            border-radius: 3px;
+        }
