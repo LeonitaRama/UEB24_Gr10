@@ -4,6 +4,7 @@
     align-items:center;
     justify-content: space-between;
     padding:25px 0;
+    font-family:'Times New Roman', Times, serif ;
 }
 .language-btn{
 font-family: 'Times New Roman', Times, serif;
@@ -14,14 +15,14 @@ font-family: 'Times New Roman', Times, serif;
     text-decoration:none;
     text-align:center;
     color:white;
-    font-size:22px;
+    font-size:20px;
 }
 .Genre{
     padding-left:45px;
     text-decoration:none;
     text-align:center;
     color:white;
-    font-size:22px;
+    font-size:20px;
 }
 .dropdown{
     display:inline-block;
@@ -53,7 +54,7 @@ text-decoration:none;
     padding-left: 45px;
     text-decoration:none;
     color:white;
-    font-size:22px;
+    font-size:20px;
     text-align:center;
 }
 
@@ -61,7 +62,7 @@ text-decoration:none;
     padding-left:45px;
     text-decoration:none;
     color:white;
-    font-size:22px;
+    font-size:20px;
     text-align:center;
 }
 
